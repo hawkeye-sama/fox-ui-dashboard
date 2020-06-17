@@ -4,7 +4,10 @@ pipeline {
     stage('Build') {
       steps {
         sh 'ls'
-        sh 'cd my-app'
+        dir(path: 'my-api') {
+          sh 'ls'
+        }
+
       }
     }
 
