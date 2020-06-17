@@ -5,6 +5,11 @@ pipeline {
       steps {
         sh 'ls'
         sh 'cd my-app'
+      }
+    }
+
+    stage('sd') {
+      steps {
         sh 'ls'
       }
     }
