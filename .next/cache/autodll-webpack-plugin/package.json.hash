@@ -1,1 +1,0 @@
-{"name":"nextjs-blog","version":"0.1.0","private":true,"scripts":{"dev":"node ssr-server.js","build":"next build","start":"next start"},"dependencies":{"express":"^4.17.1","next":"9.4.4","react":"16.13.1","react-dom":"16.13.1"},"readme":"ERROR: No README data found!","_id":"nextjs-blog@0.1.0"}
