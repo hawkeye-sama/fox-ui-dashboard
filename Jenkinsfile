@@ -4,7 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         sh 'ls'
-        sh 'sh "ls "'
+        sh 'cd my-app'
+        sh 'ls'
       }
     }
 
