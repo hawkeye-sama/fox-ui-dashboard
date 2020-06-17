@@ -1,9 +1,9 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage('Build') {
       steps {
-        sh 'sh "cd my-app"'
+        sh 'ls'
         sh 'sh "ls "'
       }
     }
