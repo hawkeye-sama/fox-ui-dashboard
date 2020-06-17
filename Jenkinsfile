@@ -3,10 +3,7 @@ pipeline {
   stages {
     stage('Get Data') {
       steps {
-        dir(path: 'my-app') {
-          sh 'echo "working"'
-        }
-
+        dir(path: 'my-app')
       }
     }
 
