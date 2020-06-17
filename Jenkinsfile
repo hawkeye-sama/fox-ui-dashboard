@@ -7,5 +7,17 @@ pipeline {
       }
     }
 
+    stage('build via docker') {
+      agent {
+        dockerfile {
+          filename 'Dockerfile'
+        }
+
+      }
+      steps {
+        echo '"test"'
+      }
+    }
+
   }
 }
