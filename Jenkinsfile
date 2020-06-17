@@ -4,7 +4,7 @@ pipeline {
     stage('Get Data') {
       steps {
         dir(path: 'my-app') {
-          sh 'cd my-app'
+          sh 'echo "working"'
         }
 
       }
