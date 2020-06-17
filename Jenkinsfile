@@ -1,21 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('Get Data') {
+    stage('Build') {
       steps {
-        dir(path: 'my-app')
-      }
-    }
-
-    stage('build via docker') {
-      agent {
-        dockerfile {
-          filename 'Dockerfile'
-        }
-
-      }
-      steps {
-        echo '"test"'
+        sh 'sh "cd my-app"'
+        sh 'sh "ls "'
       }
     }
 
