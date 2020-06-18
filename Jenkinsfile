@@ -1,22 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
-      agent {
-        dockerfile {
-          filename 'my-app/Dockerfile'
-        }
-
-      }
+    stage('') {
       steps {
-        sh 'ls'
-        sh 'ls my-app'
-      }
-    }
-
-    stage('sd') {
-      steps {
-        sh 'ls'
+        sh 'echo "tst"'
       }
     }
 
