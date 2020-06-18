@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('build') {
       steps {
-        sh 'echo "tst"'
+        sh ' sh "cd my-app && docker build -t react-ui:1.0 -f Dockerfile ."'
       }
     }
 
