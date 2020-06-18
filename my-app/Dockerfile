@@ -6,7 +6,6 @@ WORKDIR /srv/app/react-ui
 COPY package.json /srv/app/react-ui
 COPY package-lock.json /srv/app/react-ui
 
-RUN npm install yarn -g
 RUN yarn
 
 # Copy app source code
