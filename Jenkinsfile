@@ -33,7 +33,7 @@ pipeline {
         sh 'docker run -it -d -p 8085:8095 --rm react-test'
       }
     }
-    }
+    
 
   }
 }
