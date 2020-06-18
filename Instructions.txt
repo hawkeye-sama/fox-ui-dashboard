@@ -7,3 +7,4 @@ docker volume create jenkins-data
 docker container run --name jenkins-tutorial --rm --detach -v /var/run/docker.sock:/var/run/docker.sock --volume jenkins-data:/var/jenkins_home --volume jenkins-docker-certs:/certs/client:ro --publish 8080:8080 jenkinsci/blueocean
 
 
+docker container run --name jenkins-tutorial --rm --detach --network jenkins --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 --volume jenkins-data:/var/jenkins_home --volume jenkins-docker-certs:/certs/client:ro --volume "$HOME":/home --publish 8080:8080 jenkinsci/blueocean
