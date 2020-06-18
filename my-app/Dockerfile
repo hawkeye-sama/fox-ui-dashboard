@@ -13,6 +13,9 @@ COPY . /srv/app/react-ui
 RUN npm run build
 #CMD ["npm", "start"]
 
+##
+EXPOSE 8095
+##
 FROM nginx:1.19.0-alpine
 COPY --from=builder /srv/app/react-ui/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
