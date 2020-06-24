@@ -1,0 +1,2 @@
+Getting issue to unable to connect to mongo db on 27017 because mongo in running on container
+need to create a network where both mongo and django are so it can interact or give static ip value to django rest of mongo db
