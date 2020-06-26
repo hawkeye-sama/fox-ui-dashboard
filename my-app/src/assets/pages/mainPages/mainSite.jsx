@@ -2,9 +2,9 @@ import React from 'react';
 import MyAppBar from '../../components/AppBar';
 import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
 import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
+import MainSidePanel from '../../components/MainSidePanel';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -18,8 +18,8 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box p={3}>
-                    <Typography>{children}</Typography>
+                <Box >
+                    {children}
                 </Box>
             )}
         </div>
@@ -49,12 +49,9 @@ export default function MainSite() {
             {/* Page Below */}
             <div className={classes.pageSettings}>
                 <TabPanel value={tab} index={0} >
-                    <div>asd</div>
-                    <div>asd</div>
-                    <div>asd</div>
-                    <div>asd</div>
-                    <div>asd</div>
-                    <div>asd</div>
+                    <div>
+                        <MainSidePanel />
+                    </div>
                     
                 </TabPanel >
                 <TabPanel value={tab} index={1}>
