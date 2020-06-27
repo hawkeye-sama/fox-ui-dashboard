@@ -5,9 +5,11 @@ import App from './App';
 import { Provider } from "react-redux";
 import store from "./store/store.js"
 import * as serviceWorker from './serviceWorker';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 ReactDOM.render(
   <Provider store={store}>
+      <CssBaseline />
       <App />
   </Provider>,
   document.getElementById('root')

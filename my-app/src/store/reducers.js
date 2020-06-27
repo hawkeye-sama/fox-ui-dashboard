@@ -1,9 +1,10 @@
-import {  CHANGE_TAB } from "./action_types";
+import {  CHANGE_TAB, MOBILE_DRAWER } from "./action_types";
 
 
 const initialState = {
   articles: [],
   tab: 0,
+  mobileOpen:false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -17,6 +18,11 @@ function rootReducer(state = initialState, action) {
     return Object.assign({}, state, {
       tab: action.payload.tab
     });
+  }
+  if(action.type ===MOBILE_DRAWER){
+    return Object.assign({}, state, {
+      mobileOpen: action.payload.mobileOpen
+    })
   }
  
   return state;

@@ -1,1 +1,3 @@
 material orange ish for main : #ff6d00
+dark grey for headings : #757575
+grey for backgroundColor: #fafafa

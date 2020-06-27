@@ -4,7 +4,8 @@ import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import MainSidePanel from '../../components/MainSidePanel';
+import ResponsiveDrawer from '../../components/sideDrawer';
+import OtherDrawer from '../../components/MainSidePanel';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -50,12 +51,12 @@ export default function MainSite() {
             <div className={classes.pageSettings}>
                 <TabPanel value={tab} index={0} >
                     <div>
-                        <MainSidePanel />
+                        <ResponsiveDrawer />
                     </div>
                     
                 </TabPanel >
                 <TabPanel value={tab} index={1}>
-                    Page Two
+                    <OtherDrawer />
                 </TabPanel>
             </div>
             
