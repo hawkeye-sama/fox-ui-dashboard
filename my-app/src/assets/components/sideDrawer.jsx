@@ -15,7 +15,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTshirt, faDragon,faShoePrints,faHatWizard } from "@fortawesome/free-solid-svg-icons";
+import { faTshirt, faDragon, faShoePrints, faHatWizard } from "@fortawesome/free-solid-svg-icons";
 
 
 const drawerWidth = 240;
@@ -62,133 +62,73 @@ function ResponsiveDrawer() {
     const [open, setOpen] = React.useState(true);
     const [openSecond, setOpenSecond] = React.useState(true);
     const theme = useTheme();
+    const timeout = 500;
+    const categories = [{ icon: faTshirt, type: "shirt" }, { icon: faDragon, type: "Pants" }, { icon: faShoePrints, type: "Shoes" }, { icon: faHatWizard, type: "Hats" }]
     function handleDrawerToggle() {
         dispatch(setMobileOpen({ mobileOpen: !mobileOpen }))
     }
     const handleItemClick = (listId) => {
-        if(listId===1)
+        if (listId === 1)
             setOpen(!open);
-        else if(listId===2)
+        else if (listId === 2)
             setOpenSecond(!openSecond)
     };
     const drawer = (
         <div>
-            
+
             <List>
-                <ListItem button onClick={(e)=>{handleItemClick(1)}} >
+                <ListItem button onClick={(e) => { handleItemClick(1) }} >
                     <ListItemText primary={
                         <React.Fragment>
                             <Typography variant="h6" className={classes.catTypography}>Categories</Typography>
                         </React.Fragment>
-                    }  />
+                    } />
                     {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <Grow in={open} 
-                            style={{ transformOrigin: '0 0 0' }}
-                            {...(open ? { timeout: 500 } : {})} >
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <FontAwesomeIcon icon={faTshirt}  />
-                                </ListItemIcon>
-                                <ListItemText primary="Shirts"  />
-                            </ListItem>
-                        </Grow>
-                        <Grow  in={open}
-                            style={{ transformOrigin: '0 0 0' }}
-                            {...(open ? { timeout: 1000 } : {})}
-                        >
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <FontAwesomeIcon icon={faDragon}  />
-                                </ListItemIcon>
-                                <ListItemText primary="Pants"  />
-                            </ListItem>
-                            
-                        </Grow>
-                        <Grow  in={open}
-                            style={{ transformOrigin: '0 0 0' }}
-                            {...(open ? { timeout: 1500 } : {})}
-                        >
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <FontAwesomeIcon icon={faShoePrints}  />
-                                </ListItemIcon>
-                                <ListItemText primary="Shoes"  />
-                            </ListItem>
-                        </Grow>
-                        <Grow  in={open}
-                            style={{ transformOrigin: '0 0 0' }}
-                            {...(open ? { timeout: 2000 } : {})}
-                        >
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <FontAwesomeIcon icon={faHatWizard}  />
-                                </ListItemIcon>
-                                <ListItemText primary="Hats"  />
-                            </ListItem>
-                        </Grow>
+                        {categories.map((category, i) => (
+                            <Grow in={open}
+                                style={{ transformOrigin: '0 0 0' }}
+                                {...(open ? { timeout: timeout * i } : {})}
+                            >
+                                <ListItem button className={classes.nested}>
+                                    <ListItemIcon>
+                                        <FontAwesomeIcon icon={category.icon} />
+                                    </ListItemIcon>
+                                    <ListItemText primary={category.type} />
+                                </ListItem>
+                            </Grow>
+                        ))}
                     </List>
                 </Collapse>
             </List>
             <Divider />
-            
+
             <List>
-                <ListItem button onClick={(e)=>{handleItemClick(2)}} >
+                <ListItem button onClick={(e) => { handleItemClick(2) }} >
                     <ListItemText primary={
                         <React.Fragment>
                             <Typography variant="h6" className={classes.catTypography}>Prices</Typography>
                         </React.Fragment>
-                    }  />
+                    } />
                     {openSecond ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={openSecond} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <Grow in={openSecond} 
-                            style={{ transformOrigin: '0 0 0' }}
-                            {...(open ? { timeout: 500 } : {})} >
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <FontAwesomeIcon icon={faTshirt}  />
-                                </ListItemIcon>
-                                <ListItemText primary="Shirts"  />
-                            </ListItem>
-                        </Grow>
-                        <Grow  in={openSecond}
-                            style={{ transformOrigin: '0 0 0' }}
-                            {...(open ? { timeout: 1000 } : {})}
-                        >
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <FontAwesomeIcon icon={faDragon}  />
-                                </ListItemIcon>
-                                <ListItemText primary="Pants"  />
-                            </ListItem>
-                            
-                        </Grow>
-                        <Grow  in={openSecond}
-                            style={{ transformOrigin: '0 0 0' }}
-                            {...(open ? { timeout: 1500 } : {})}
-                        >
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <FontAwesomeIcon icon={faShoePrints}  />
-                                </ListItemIcon>
-                                <ListItemText primary="Shoes"  />
-                            </ListItem>
-                        </Grow>
-                        <Grow  in={openSecond}
-                            style={{ transformOrigin: '0 0 0' }}
-                            {...(open ? { timeout: 2000 } : {})}
-                        >
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <FontAwesomeIcon icon={faHatWizard}  />
-                                </ListItemIcon>
-                                <ListItemText primary="Hats"  />
-                            </ListItem>
-                        </Grow>
+                        {categories.map((category, i) => (
+                            <Grow in={openSecond}
+                                style={{ transformOrigin: '0 0 0' }}
+                                {...(openSecond ? { timeout: timeout * i } : {})}
+                            >
+                                <ListItem button className={classes.nested}>
+                                    <ListItemIcon>
+                                        <FontAwesomeIcon icon={category.icon} />
+                                    </ListItemIcon>
+                                    <ListItemText primary={category.type} />
+                                </ListItem>
+                            </Grow>
+                        ))}
                     </List>
                 </Collapse>
             </List>
