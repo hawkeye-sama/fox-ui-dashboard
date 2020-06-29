@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import ResponsiveDrawer from '../../components/sideDrawer';
-import OtherDrawer from '../../components/MainSidePanel';
+import ProductsPane from './ProductsPane';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -34,11 +34,24 @@ TabPanel.propTypes = {
 };
 
 const useStyles = makeStyles((theme) => ({
-    pageSettings:{
-        marginTop: 5,
-        backgroundColor:"#f5f5f5",
-    }
-  }));
+    pageSettings: {
+        backgroundColor: "#f5f5f5",
+    },
+    toolbar: theme.mixins.toolbar,
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
+    root: {
+        display: 'flex',
+
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+}));
 
 export default function MainSite() {
     const tab = useSelector(state => state.tab);
@@ -49,17 +62,23 @@ export default function MainSite() {
             < MyAppBar />
             {/* Page Below */}
             <div className={classes.pageSettings}>
-                <TabPanel value={tab} index={0} >
-                    <div>
+                    <TabPanel value={tab} index={0} >
+                    <div className={classes.root}>
                         <ResponsiveDrawer />
+                        <ProductsPane />
+
                     </div>
+    
+                        
+                        
                     
+
                 </TabPanel >
                 <TabPanel value={tab} index={1}>
-                    <OtherDrawer />
+
                 </TabPanel>
             </div>
-            
+
         </div >
     )
 

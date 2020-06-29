@@ -6,10 +6,10 @@ import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import CloseIcon from '@material-ui/icons/Close';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme, withStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from "react-redux";
 import { setMobileOpen } from "../../store/actions";
-import { Divider, Typography, Collapse, Grow } from '@material-ui/core';
+import { Divider, Typography, Collapse, Grow, MenuItem } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ExpandLess from '@material-ui/icons/ExpandLess';
@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
     },
+    
     drawer: {
         [theme.breakpoints.up('sm')]: {
             width: drawerWidth,
@@ -52,14 +53,34 @@ const useStyles = makeStyles(theme => ({
     },
     catTypography: {
         color: "#757575",
+    },
+    activeItem:{
+        backgroundColor: theme.palette.primary.main,
+    },
+    nonActive:{
+        backgroundColor: '',
     }
 }));
+const StyledMenuItem = withStyles((theme) => ({
+    root: {
+      '&:focus': {
+        backgroundColor: '#ff6d00',
+        '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+          color: theme.palette.common.white,
+        },
+        '&:hover':{
+            backgroundColor:'#ff6d00',
+        },
+      },
+    },
+}))(MenuItem);
 
 function ResponsiveDrawer() {
     const mobileOpen = useSelector(state => state.mobileOpen);
     const dispatch = useDispatch();
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
+    const [selectedItem,setSelectedItem] = React.useState(0);
     const [openSecond, setOpenSecond] = React.useState(true);
     const theme = useTheme();
     const timeout = 500;
@@ -73,6 +94,9 @@ function ResponsiveDrawer() {
         else if (listId === 2)
             setOpenSecond(!openSecond)
     };
+    const selectedItemFunc = (itemId) =>{
+        setSelectedItem(itemId);
+    }
     const drawer = (
         <div>
 
@@ -88,16 +112,16 @@ function ResponsiveDrawer() {
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         {categories.map((category, i) => (
-                            <Grow in={open}
+                            <Grow key={i} in={open}
                                 style={{ transformOrigin: '0 0 0' }}
                                 {...(open ? { timeout: timeout * i } : {})}
                             >
-                                <ListItem button className={classes.nested}>
+                                <StyledMenuItem button className={classes.nested} onClick={ (e)=>{selectedItemFunc(i);}} selected={selectedItem===i}>
                                     <ListItemIcon>
                                         <FontAwesomeIcon icon={category.icon} />
                                     </ListItemIcon>
                                     <ListItemText primary={category.type} />
-                                </ListItem>
+                                </StyledMenuItem>
                             </Grow>
                         ))}
                     </List>
@@ -117,11 +141,11 @@ function ResponsiveDrawer() {
                 <Collapse in={openSecond} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         {categories.map((category, i) => (
-                            <Grow in={openSecond}
+                            <Grow key={i} in={openSecond}
                                 style={{ transformOrigin: '0 0 0' }}
                                 {...(openSecond ? { timeout: timeout * i } : {})}
                             >
-                                <ListItem button className={classes.nested}>
+                                <ListItem button className={classes.nested} >
                                     <ListItemIcon>
                                         <FontAwesomeIcon icon={category.icon} />
                                     </ListItemIcon>
@@ -135,7 +159,7 @@ function ResponsiveDrawer() {
         </div>
     );
     return (
-        <div className={classes.root}>
+     
             <nav className={classes.drawer}>
                 <Hidden smUp implementation="css">
                     <Drawer
@@ -169,11 +193,6 @@ function ResponsiveDrawer() {
                     </Drawer>
                 </Hidden>
             </nav>
-            <div className={classes.content}>
-                <div className={classes.toolbar} />
-
-            </div>
-        </div>
     );
 }
 ResponsiveDrawer.propTypes = {

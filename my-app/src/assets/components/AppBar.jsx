@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
   AppBarSettings: {
     zIndex: theme.zIndex.drawer + 1,
-    height: 56,
+    height: 60,
     backgroundColor: "white",
     color: "#858585",
   },
@@ -93,7 +93,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: "#ff6d00",
 
+  },
+  tabPanelSettings:{
+    marginTop:10
   }
+  
 }));
 
 export default function MyAppBar() {
@@ -135,18 +139,21 @@ export default function MyAppBar() {
             Fox UI
           </Typography>
           <div className={classes.grow}>
-            <StyledTabs value={value} onChange={handleChange} >
-              <LinkTab
-                icon={value === 0 ? <Home /> : <HomeOutlined />}
-                style={{ color: value === 0 ? '#ff6d00' : '' }}
-                {...a11yProps(0)}
-              />
-              <LinkTab
-                icon={value === 1 ? <LocalMall /> : <LocalMallOutlined />}
-                style={{ color: value === 1 ? '#ff6d00' : '' }}
-                {...a11yProps(1)}
-              />
-            </StyledTabs>
+            <div className={classes.tabPanelSettings}>
+              <StyledTabs value={value} onChange={handleChange} >
+                <LinkTab
+                  icon={value === 0 ? <Home /> : <HomeOutlined />}
+                  style={{ color: value === 0 ? '#ff6d00' : '' }}
+                  {...a11yProps(0)}
+                />
+                <LinkTab
+                  icon={value === 1 ? <LocalMall /> : <LocalMallOutlined />}
+                  style={{ color: value === 1 ? '#ff6d00' : '' }}
+                  {...a11yProps(1)}
+                />
+              </StyledTabs>
+            </div>
+
 
           </div>
           <div className={(classes.grow, classes.endPanelSettings)}>
