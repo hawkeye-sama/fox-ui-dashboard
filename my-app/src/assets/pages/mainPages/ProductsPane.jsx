@@ -40,22 +40,6 @@ export default function ProductsPane() {
                         <ProductCard />
                     </Grid>
                 </Grow>
-                <Grow   
-                    in={open}
-                    style={{ transformOrigin: '0 0 0' }}
-                     {...(open ? { timeout: 1000 } : {})}>
-                    <Grid item xs={3}>
-                        <ProductCard />
-                    </Grid>
-                </Grow>
-                <Grow   
-                    in={open}
-                    style={{ transformOrigin: '0 0 0' }}
-                     {...(open ? { timeout: 1500 } : {})}>
-                    <Grid item xs={3}>
-                        <ProductCard />
-                    </Grid>
-                </Grow>
 
             </Grid>
         </main>

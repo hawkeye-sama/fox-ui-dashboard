@@ -1,0 +1,40 @@
+
+  .circle{
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        left: 30%;
+        top: 48.5%;
+   
+        background: cyan;
+        border-radius: 50%;
+        position: absolute;
+        overflow: hidden;
+        animation: slide-top 1.5s ease-in-out infinite  both
+    }
+  
+
+ 
+  @keyframes slide-top {
+    0% {
+       
+      -webkit-transform: translateX(0) translateY(0);
+              transform: translateX(0) translateY(0);
+    }
+    /* 25%{
+        -webkit-transform: translateX(200px) translateY(0);
+        transform: translateX(200px) translateY(0);
+    } */
+
+    50%{
+                     
+      -webkit-transform: translateX(380px) translateY(0);
+      transform: translateX(380px) translateY(0);
+    }
+    100% {
+       
+        
+      -webkit-transform: translateX(400px) translateY(-400px);
+              transform: translateX(400px) translateY(-400px);
+    }
+}
