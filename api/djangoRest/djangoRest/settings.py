@@ -45,9 +45,23 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'rest_framework',
     'rest_framework_mongoengine',
+    'mongo_auth',
     
     
 ]
+
+MANGO_JWT_SETTINGS = {
+    "db_host": "127.0.0.1",
+    "db_port": "27017",
+    "db_name": "fox-sop",
+    "db_user": "admin1",
+    "db_pass": "admin1",
+    "jwt_secret": "loli", # default
+    "jwt_life": 1, # default (in days)
+    
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,8 +99,7 @@ WSGI_APPLICATION = 'djangoRest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    
     }
 }
 

@@ -6,6 +6,8 @@ router = routers.DefaultRouter()
 #router.register(r'heroes', views.HeroViewSet)
 # router.register(r'test', views.TestViewSet, basename="Test")
 router.register(r'Heroes', views.HeroViewSet, basename="Hero")
+router.register(r'Products', views.ProductsViewSet, basename="Products")
+router.register(r'myOtherHeroes', views.ProfileDetail, basename="OtherHero")
 
 
 
@@ -13,5 +15,5 @@ router.register(r'Heroes', views.HeroViewSet, basename="Hero")
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
