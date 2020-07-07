@@ -27,8 +27,8 @@ const switchRoutes = (
         return (
           <Route
             path={prop.layout + prop.path}
-            component={prop.component}
             key={key}
+            component={() => <prop.component myTab={prop.tab} />}
           />
         );
       }
@@ -50,6 +50,7 @@ export default function Admin({ ...rest }) {
   // const [color, setColor] = React.useState("blue");
   // const [fixedClasses, setFixedClasses] = React.useState("dropdown show");
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
   // const handleImageClick = (image) => {
   //   setImage(image);
   // };

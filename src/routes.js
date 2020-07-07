@@ -36,6 +36,7 @@ const dashboardRoutes = [
     secondaryIcon: DashboardOutlined,
     component: DashboardPage,
     layout: "/admin",
+    tab:0,
   },
   {
     path: "/products",
@@ -44,6 +45,7 @@ const dashboardRoutes = [
     secondaryIcon: LocalGroceryStoreOutlinedIcon,
     component: UserProfile,
     layout: "/admin",
+    tab:1,
   },
   {
     path: "/product/category",
@@ -52,6 +54,7 @@ const dashboardRoutes = [
     secondaryIcon: CategoryOutlined,
     component: UserProfile,
     layout: "/admin",
+    tab:2,
   },
   {
     path: "/user",
@@ -61,6 +64,7 @@ const dashboardRoutes = [
     secondaryIcon: PersonOutlineOutlined,
     component: UserProfile,
     layout: "/admin",
+    tab:3,
   },
   {
     path: "/table",
@@ -69,6 +73,7 @@ const dashboardRoutes = [
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
+    tab:4,
   },
   {
     path: "/typography",
@@ -78,6 +83,7 @@ const dashboardRoutes = [
     secondaryIcon: LibraryBooksOutlined,
     component: Typography,
     layout: "/admin",
+    tab:5,
   },
   {
     path: "/icons",
@@ -87,6 +93,7 @@ const dashboardRoutes = [
     secondaryIcon: BubbleChartOutlined,
     component: Icons,
     layout: "/admin",
+    tab:6,
   },
   {
     path: "/maps",
@@ -96,6 +103,7 @@ const dashboardRoutes = [
     secondaryIcon: LocationOnOutlined,
     component: Maps,
     layout: "/admin",
+    tab:7,
   },
   {
     path: "/notifications",
@@ -105,6 +113,7 @@ const dashboardRoutes = [
     secondaryIcon: NotificationsOutlined,
     component: NotificationsPage,
     layout: "/admin",
+    tab:8,
   },
   // {
   //   path: "/rtl-page",
