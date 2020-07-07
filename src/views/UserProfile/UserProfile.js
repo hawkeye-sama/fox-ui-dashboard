@@ -41,7 +41,7 @@ const useStyles = makeStyles(styles);
 export default function UserProfile(props) {
   const dispatch = useDispatch();
   const pageAnimation = useSelector(state => state.pageAnimation);
-  var animationType = "";
+  var animationType = "up";
   if(props.myTab > pageAnimation.currentTab ){
     animationType = "up"
     dispatch(changePageAnimation({ pageAnimation: {currentTab:props.myTab} }))
