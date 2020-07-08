@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React from "react";
+import React,{useState} from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
@@ -14,17 +14,35 @@ import Icon from "@material-ui/core/Icon";
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
 import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
-
+import { useDispatch } from "react-redux";
 import styles from "assets/jss/material-dashboard-react/components/sidebarStyle.js";
+import { changePageAnimation } from "../../redux/actions";
 
 const useStyles = makeStyles(styles);
 
 export default function Sidebar(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const [prevTab,updatePrevTab] = useState(0);
+  
   // verifies if routeName is the one active (in browser input)
   function activeRoute(routeName) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   }
+
+  function handlePageClick(tab){
+    var animationType="up"
+    if(prevTab > tab ){
+      animationType = "down"
+      
+    }else if(prevTab<tab){
+      animationType = "up"
+    }
+
+    updatePrevTab(tab);
+    dispatch(changePageAnimation({ pageAnimation: {animationType:animationType} }))
+  }
+
   const { color, logo, image, logoText, routes } = props;
   var links = (
     <List className={classes.list}>
@@ -50,6 +68,7 @@ export default function Sidebar(props) {
             className={activePro + classes.item}
             activeClassName="active"
             key={key}
+            onClick={(e)=>{handlePageClick(prop.tab)}}
           >
             <ListItem button className={classes.itemLink + listItemClasses}>
               {typeof prop.icon === "string" ? (

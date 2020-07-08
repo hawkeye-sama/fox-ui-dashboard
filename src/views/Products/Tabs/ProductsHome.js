@@ -41,7 +41,7 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 
 const useStyles = makeStyles(styles);
 
-export default function Dashboard(props) {
+export default function ProductsHome(props) {
  
   const pageAnimation = useSelector(state => state.pageAnimation);
   const classes = useStyles();

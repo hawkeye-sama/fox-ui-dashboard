@@ -4,7 +4,7 @@ import {  CHANGE_TAB, MOBILE_DRAWER,CHANGE_PAGE_ANIMATION } from "./action_types
 const initialState = {
   articles: [],
   pageAnimation:{
-    currentTab:0
+    animationType:"up"
   },
 };
 

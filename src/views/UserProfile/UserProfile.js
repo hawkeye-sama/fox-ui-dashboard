@@ -12,8 +12,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { changePageAnimation } from "../../redux/actions";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import avatar from "assets/img/faces/marc.jpg";
 import { Fade, Slide } from "@material-ui/core";
 
@@ -39,26 +38,14 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 export default function UserProfile(props) {
-  const dispatch = useDispatch();
   const pageAnimation = useSelector(state => state.pageAnimation);
-  var animationType = "up";
-  if(props.myTab > pageAnimation.currentTab ){
-    animationType = "up"
-    dispatch(changePageAnimation({ pageAnimation: {currentTab:props.myTab} }))
-  }else if(props.myTab<pageAnimation.currentTab){
-    animationType = "down"
-    dispatch(changePageAnimation({ pageAnimation: {currentTab:props.myTab} }))
-  }
-  
-  console.log(pageAnimation)
-  console.log(props.myTab)
   const classes = useStyles();
 
   return (
     <div>
       <Fade in={true} timeout={500}>
         <div>
-          <Slide in={true} direction={animationType} timeout={200}>
+          <Slide in={true} direction={pageAnimation.animationType} timeout={200}>
             <div>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={8}>
