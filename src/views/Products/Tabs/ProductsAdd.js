@@ -11,8 +11,8 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { AttachMoney } from "@material-ui/icons";
-import { InputAdornment, Grow } from "@material-ui/core";
+import { AttachMoney, AddAPhoto } from "@material-ui/icons";
+import { InputAdornment, Grow, IconButton } from "@material-ui/core";
 
 
 const styles = {
@@ -41,7 +41,7 @@ export default function ProductsAdd(props) {
 
     return (
         <div>
-            <Grow in={true} 
+            <Grow in={true}
                 {...(true ? { timeout: 1000 } : {})}>
                 <div>
                     <GridContainer>
@@ -52,7 +52,7 @@ export default function ProductsAdd(props) {
                                     <p className={classes.cardCategoryWhite}>You can add more products by filling this form</p>
                                 </CardHeader>
                                 <CardBody>
-                                    <Grow in={true} 
+                                    <Grow in={true}
                                         {...(true ? { timeout: 1200 } : {})}>
                                         <div>
                                             <GridContainer>
@@ -96,7 +96,7 @@ export default function ProductsAdd(props) {
                                             </GridContainer>
                                         </div>
                                     </Grow>
-                                    <Grow in={true} 
+                                    <Grow in={true}
                                         {...(true ? { timeout: 1400 } : {})}>
                                         <div>
                                             <GridContainer>
@@ -120,10 +120,25 @@ export default function ProductsAdd(props) {
                                                 </GridItem>
                                                 <GridItem xs={12} sm={12} md={4}>
                                                     <CustomInput
-                                                        labelText="Images"
+                                                        labelText="Click on icon to add image"
                                                         id="Images"
                                                         formControlProps={{
                                                             fullWidth: true
+                                                        }}
+
+
+                                                        inputProps={{
+                                                            disabled: true,
+                                                            endAdornment: (
+                                                                <InputAdornment>
+                                                                    <input style={{display: 'none'}} accept="image/*" id="icon-button-file" type="file" />
+                                                                    <label htmlFor="icon-button-file">
+                                                                        <IconButton  style={{color:"#757575b8"}} aria-label="upload picture" component="span">
+                                                                            <AddAPhoto  />
+                                                                        </IconButton>
+                                                                    </label>
+                                                                </InputAdornment>
+                                                            )
                                                         }}
                                                     />
                                                 </GridItem>
@@ -132,7 +147,7 @@ export default function ProductsAdd(props) {
                                         </div>
                                     </Grow>
 
-                                    <Grow in={true} 
+                                    <Grow in={true}
                                         {...(true ? { timeout: 1600 } : {})}>
                                         <div>
                                             <GridContainer>
