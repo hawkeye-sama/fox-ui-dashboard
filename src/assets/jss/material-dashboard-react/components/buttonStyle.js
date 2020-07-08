@@ -55,6 +55,10 @@ const buttonStyle = {
         hexToRgb(grayColor[0]) +
         ", 0.2)"
     },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
     "& .fab,& .fas,& .far,& .fal, &.material-icons": {
       position: "relative",
       display: "inline-block",
@@ -92,7 +96,11 @@ const buttonStyle = {
     "&,&:focus,&:hover": {
       backgroundColor: whiteColor,
       color: grayColor[0]
-    }
+    },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
   },
   rose: {
     backgroundColor: roseColor[0],
@@ -114,7 +122,11 @@ const buttonStyle = {
         ", 0.12), 0 8px 10px -5px rgba(" +
         hexToRgb(roseColor[0]) +
         ", 0.2)"
-    }
+    },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
   },
   primary: {
     backgroundColor: primaryColor[0],
@@ -136,7 +148,11 @@ const buttonStyle = {
         ", 0.12), 0 8px 10px -5px rgba(" +
         hexToRgb(primaryColor[0]) +
         ", 0.2)"
-    }
+    },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
   },
   info: {
     backgroundColor: infoColor[0],
@@ -158,7 +174,11 @@ const buttonStyle = {
         ", 0.12), 0 8px 10px -5px rgba(" +
         hexToRgb(infoColor[0]) +
         ", 0.2)"
-    }
+    },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
   },
   success: {
     backgroundColor: successColor[0],
@@ -180,7 +200,11 @@ const buttonStyle = {
         ", 0.12), 0 8px 10px -5px rgba(" +
         hexToRgb(successColor[0]) +
         ", 0.2)"
-    }
+    },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
   },
   warning: {
     backgroundColor: warningColor[0],
@@ -202,7 +226,11 @@ const buttonStyle = {
         ", 0.12), 0 8px 10px -5px rgba(" +
         hexToRgb(warningColor[0]) +
         ", 0.2)"
-    }
+    },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
   },
   danger: {
     backgroundColor: dangerColor[0],
@@ -224,7 +252,11 @@ const buttonStyle = {
         ", 0.12), 0 8px 10px -5px rgba(" +
         hexToRgb(dangerColor[0]) +
         ", 0.2)"
-    }
+    },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
   },
   simple: {
     "&,&:focus,&:hover": {

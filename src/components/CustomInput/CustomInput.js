@@ -23,7 +23,8 @@ export default function CustomInput(props) {
     labelProps,
     inputProps,
     error,
-    success
+    success,
+    type
   } = props;
 
   const labelClasses = classNames({
@@ -53,6 +54,8 @@ export default function CustomInput(props) {
         </InputLabel>
       ) : null}
       <Input
+
+        type={type}
         classes={{
           root: marginTop,
           disabled: classes.disabled,
@@ -77,5 +80,6 @@ CustomInput.propTypes = {
   inputProps: PropTypes.object,
   formControlProps: PropTypes.object,
   error: PropTypes.bool,
-  success: PropTypes.bool
+  success: PropTypes.bool,
+  type: PropTypes.string,
 };

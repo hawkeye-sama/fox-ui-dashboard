@@ -1,5 +1,5 @@
 import {
-  primaryColor,
+  // primaryColor,
   dangerColor,
   successColor,
   grayColor,
@@ -18,7 +18,7 @@ const customInputStyle = {
       borderWidth: "1px !important"
     },
     "&:after": {
-      borderColor: primaryColor[0]
+      borderColor: "#ff9800"
     }
   },
   underlineError: {
