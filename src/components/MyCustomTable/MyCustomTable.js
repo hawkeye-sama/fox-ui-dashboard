@@ -39,13 +39,17 @@ export default function MyCustomTable(props) {
       MuiTableRow: {
         root: {
           color: '#555555',
-          '&:hover': {
-            color: '#bbdefb',
+          '&:hover,&:focus': {
+            color: '#d91e62',
+            backgroundColor:"#555555",
           },
         },
-        active: {
-          color: '#bbdefb',
-        },
+        footer:{
+          '&:hover,&:focus': {
+            color: '',
+            backgroundColor:"#FFF",
+          },
+        }
       }
     },
   });
@@ -93,7 +97,7 @@ export default function MyCustomTable(props) {
 
             { title: 'Name', field: 'name' },
             { title: 'Surname', field: 'surname' },
-            { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
+            { title: 'Birth Year', field: 'birthYear' },
             {
               title: 'Birth Place',
               field: 'birthCity',
@@ -106,8 +110,19 @@ export default function MyCustomTable(props) {
           ]}
           onRowClick={((evt, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
           options={{
+            // custom design
+            
+            // rowStyle: rowData => ({
+            //   backgroundColor: (selectedRow === rowData.tableData.id) ? '#eb3e78' : '',
+            //   color : (selectedRow === rowData.tableData.id) ? '#FFF' : '',
+            //   cursor: 'pointer',
+            // }),
+
+
+            // default
             rowStyle: rowData => ({
-              backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF',
+              backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '',
+
               cursor: 'pointer',
             }),
 
