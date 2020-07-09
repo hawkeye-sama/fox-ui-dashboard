@@ -1,0 +1,32 @@
+### Products
+{
+	"p_name":"",
+	"p_quantity":"",
+	"p_manufact_id":"",
+	"p_price":"",
+	"p_description":"",
+	"p_type_id":"",
+	"p_image_url":"[]",
+	"p_ratings":
+		[{
+			"u_id":"",
+			"ratingByUser":"",
+			"reviewByUser":"",
+		}]
+}
+
+### Manufacturer
+{
+	"m_name":"",
+	"object_Id":"",
+}
+### user
+{
+	"u_name":"",
+	"u_description":"",
+	"user_type":"admin"
+}
+### Categories
+{
+	"c_name":""
+}
