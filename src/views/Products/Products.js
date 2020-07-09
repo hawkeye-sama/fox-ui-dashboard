@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 import ProductsHome from "./Tabs/ProductsHome";
 import { Home, HomeOutlined, AddCircle, AddCircleOutline, Edit, EditOutlined, Delete, DeleteOutline } from '@material-ui/icons'
 import ProductsAdd from "./Tabs/ProductsAdd";
+import ProductsEdit from "./Tabs/ProductsEdit";
 
 
 // const useStyles = makeStyles(styles);
@@ -48,7 +49,7 @@ export default function Products(props) {
 
                                                 <Slide in={true} direction={productTabsAnimation} timeout={400} >
                                                     <div>
-                                                        <ProductsAdd />
+                                                        < ProductsEdit />
                                                     </div>
                                                 </Slide>
                                             </div>
@@ -64,7 +65,7 @@ export default function Products(props) {
 
                                                 <Slide in={true} direction={productTabsAnimation} timeout={400}>
                                                     <div>
-                                                        <ProductsHome />
+                                                        <ProductsAdd />
                                                     </div>
                                                 </Slide>
                                             </div>
@@ -78,11 +79,7 @@ export default function Products(props) {
 
                                             <Slide in={true} direction={productTabsAnimation} timeout={400}>
                                                 <div>
-                                                    <Tasks
-                                                        checkedIndexes={[1]}
-                                                        tasksIndexes={[0, 1, 2]}
-                                                        tasks={server}
-                                                    />
+                                                    <ProductsHome />
                                                 </div>
                                             </Slide>
 

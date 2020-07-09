@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
+import CustomSelect from "components/CustomSelect/CustomSelect.js";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -39,6 +40,28 @@ const useStyles = makeStyles(styles);
 export default function ProductsAdd(props) {
     const classes = useStyles();
 
+    const [catValue,setCatValue] = React.useState("");
+    const [manuValue,setManuValue] = React.useState("");
+    // const [imageFiles,setImageFiles] = React.useState([]);
+    const [iconFieldHolder,setIconFieldHolder] = React.useState("");
+
+    function handleCategoryChange(e){
+        setCatValue(e.target.value);
+    }
+    function handleManufacturerChange(e){
+        setManuValue(e.target.value);
+    }
+
+    function handleFileSelection(e){
+        var vals = [...e.target.files]
+        // setImageFiles((prevState) => [...prevState, ...e.target.files])
+        var myIconFieldHolder = iconFieldHolder; 
+        vals.forEach(function (file){
+            myIconFieldHolder = myIconFieldHolder + file.name.substring(0,3) + "---." + file.type.substring(6,) +", "
+        })
+        setIconFieldHolder(myIconFieldHolder);
+    }
+    // console.log(imageFiles)
     return (
         <div>
             <Grow in={true}
@@ -100,27 +123,52 @@ export default function ProductsAdd(props) {
                                         {...(true ? { timeout: 1400 } : {})}>
                                         <div>
                                             <GridContainer>
-                                                <GridItem xs={12} sm={12} md={4}>
-                                                    <CustomInput
+                                                <GridItem xs={12} sm={12} md={3}>
+                                                    {/* <CustomInput
                                                         labelText="Category"
                                                         id="Category"
                                                         formControlProps={{
                                                             fullWidth: true
                                                         }}
-                                                    />
-                                                </GridItem>
-                                                <GridItem xs={12} sm={12} md={4}>
-                                                    <CustomInput
-                                                        labelText="Manufacturer"
-                                                        id="Manufacturer"
+                                                    /> */}
+                                                    <CustomSelect
+                                                        labelText="Category"
+                                                        id="Category"
                                                         formControlProps={{
                                                             fullWidth: true
                                                         }}
+                                                        value={catValue}
+                                                        handleChange={(e)=>{handleCategoryChange(e)}}
+                                                        menuItems={[
+                                                            {label:"T-Shirt",value:1},
+                                                            {label:"Pants",value:2},
+                                                            {label:"Purse",value:3}
+                                                        ]}
+
                                                     />
                                                 </GridItem>
-                                                <GridItem xs={12} sm={12} md={4}>
+                                                <GridItem xs={12} sm={12} md={3}>
+                                                <CustomSelect
+                                                        labelText="Manufacturer"
+                                                        id="Category"
+                                                        formControlProps={{
+                                                            fullWidth: true
+                                                        }}
+                                                        value={manuValue}
+                                                        handleChange={(e)=>{handleManufacturerChange(e)}}
+                                                        menuItems={[
+                                                            {label:"Khaadi",value:1},
+                                                            {label:"Tims",value:2},
+                                                            {label:"Levi's",value:3}
+                                                        ]}
+
+                                                    />
+                                                </GridItem>
+                                                <GridItem xs={12} sm={12} md={6}>
                                                     <CustomInput
-                                                        labelText="Click on icon to add image"
+                                                        labelText={(iconFieldHolder=== "")?
+                                                          'Click on icon to add images'  : iconFieldHolder
+                                                        }
                                                         id="Images"
                                                         formControlProps={{
                                                             fullWidth: true
@@ -131,10 +179,17 @@ export default function ProductsAdd(props) {
                                                             disabled: true,
                                                             endAdornment: (
                                                                 <InputAdornment>
-                                                                    <input style={{display: 'none'}} accept="image/*" id="icon-button-file" type="file" />
+                                                                    <input 
+                                                                        style={{ display: 'none' }} 
+                                                                        multiple accept="image/*" 
+                                                                        id="icon-button-file" 
+                                                                        type="file"
+                                                                        
+                                                                        onChange={handleFileSelection}
+                                                                    />
                                                                     <label htmlFor="icon-button-file">
-                                                                        <IconButton  style={{color:"#757575b8"}} aria-label="upload picture" component="span">
-                                                                            <AddAPhoto  />
+                                                                        <IconButton style={{ color: "#757575b8" }} aria-label="upload picture" component="span">
+                                                                            <AddAPhoto />
                                                                         </IconButton>
                                                                     </label>
                                                                 </InputAdornment>
@@ -170,7 +225,13 @@ export default function ProductsAdd(props) {
                                     </Grow>
                                 </CardBody>
                                 <CardFooter>
-                                    <Button color="warning">Submit</Button>
+                                    <Grow in={true}
+                                        {...(true ? { timeout: 1700 } : {})} >
+                                        <div>
+                                            <Button color="warning">Submit</Button>
+                                        </div>
+                                    </Grow>
+                                    
                                 </CardFooter>
                             </Card>
                         </GridItem>
