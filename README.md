@@ -1,6 +1,4 @@
-# [Fox UI Dashboard]
-
-This is the dashboard for the products. 
+# [Fox UI Dashboard] 
 =======
-## Current in development
+### Current in development
 
