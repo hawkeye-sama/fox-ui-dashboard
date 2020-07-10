@@ -15,6 +15,7 @@ import CardFooter from "components/Card/CardFooter.js";
 // import { AttachMoney, AddAPhoto } from "@material-ui/icons";
 import {  Grow } from "@material-ui/core";
 import MyCustomTable from "../../../components/MyCustomTable/MyCustomTable";
+import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog";
 
 
 const styles = {
@@ -40,29 +41,15 @@ const useStyles = makeStyles(styles);
 
 export default function ProductsEdit(props) {
     const classes = useStyles();
+    const [showDialogBox,setShowDialogBox] = React.useState(false);
+    
 
-    // const [catValue,setCatValue] = React.useState("");
-    // const [manuValue,setManuValue] = React.useState("");
-    // // const [imageFiles,setImageFiles] = React.useState([]);
-    // const [iconFieldHolder,setIconFieldHolder] = React.useState("");
-
-    // function handleCategoryChange(e){
-    //     setCatValue(e.target.value);
-    // }
-    // function handleManufacturerChange(e){
-    //     setManuValue(e.target.value);
-    // }
-
-    // function handleFileSelection(e){
-    //     var vals = [...e.target.files]
-    //     // setImageFiles((prevState) => [...prevState, ...e.target.files])
-    //     var myIconFieldHolder = iconFieldHolder; 
-    //     vals.forEach(function (file){
-    //         myIconFieldHolder = myIconFieldHolder + file.name.substring(0,3) + "---." + file.type.substring(6,) +", "
-    //     })
-    //     setIconFieldHolder(myIconFieldHolder);
-    // }
-    // console.log(imageFiles)
+    function handleSelection(rowId){
+        setShowDialogBox(true)
+    }
+    function handleClose(){
+        setShowDialogBox(false)
+    }
     return (
         <div>
             <Grow in={true}
@@ -79,14 +66,27 @@ export default function ProductsEdit(props) {
                                    <Grow in={true} timeout={1200}>
                                        <div>
                                        <MyCustomTable
-                                            // tableHeaderColor="rose"
-                                            // tableHead={["ID", "Name", "Salary", "Country"]}
-                                            // tableData={[
-                                            //     ["1", "Dakota Rice", "$36,738", "Niger"],
-                                            //     ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-                                            //     ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                                            //     ["4", "Philip Chaney", "$38,735", "Korea, South"],
-                                            // ]}
+                                            tableHeaderColor="rose"
+                                            tableHead={[
+                                                //field should match wih data object.
+                                                { title: 'Name', field: 'name' },
+                                                { title: 'Surname', field: 'surname' },
+                                                { title: 'Birth Year', field: 'birthYear' },
+                                                {
+                                                  title: 'Birth Place',
+                                                  field: 'birthCity',
+                                                  lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+                                                },
+                                              ]}
+                                            tableData={[
+                                                { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
+                                                { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
+                                            ]}
+                                            handleRowSelection={handleSelection}
+                                        />
+                                        <MyCustomDialog
+                                            openDialog={showDialogBox}
+                                            onCloseDialog={handleClose}
                                         />
                                        </div>
                                    </Grow>
