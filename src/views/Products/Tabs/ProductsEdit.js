@@ -17,6 +17,7 @@ import { Grow, IconButton } from "@material-ui/core";
 import MyCustomTable from "../../../components/MyCustomTable/MyCustomTable";
 import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog";
 import testImage from "assets/img/faces/kendall.jpg";
+import PictureDialogBox from "../../../components/PictureDialogBox/PictureDialogBox";
 
 
 const styles = {
@@ -54,13 +55,25 @@ const useStyles = makeStyles(styles);
 
 export default function ProductsEdit(props) {
     const classes = useStyles();
+    var myHandler = false;
     const [showDialogBox, setShowDialogBox] = React.useState(false);
+    const [showImagesDialogBox, setShowImageDialogBox] = React.useState(false);
 
     function handleSelection(rowId) {
-        setShowDialogBox(true)
+        if(myHandler){
+            myHandler = false;
+        }else {
+            setShowDialogBox(true)
+        }
+        
     }
     function handleClose() {
         setShowDialogBox(false)
+        setShowImageDialogBox(false)
+    }
+    function handleIconSelection(){
+        myHandler = true
+        setShowImageDialogBox(true)
     }
     return (
         <div>
@@ -92,7 +105,7 @@ export default function ProductsEdit(props) {
                                                         render: rowData =>
                                                             <div>
                                                                 <AvatarGroup max={4}>
-                                                                    <IconButton className={classes.avartarIconButton} onClick={(e)=>{console.log("helloIcon")}}> 
+                                                                    <IconButton className={classes.avartarIconButton} onClick={handleIconSelection}> 
                                                                         <Avatar 
                                                                             alt="Remy Sharp" 
                                                                             src={testImage} 
@@ -159,6 +172,11 @@ export default function ProductsEdit(props) {
                                                 openDialog={showDialogBox}
                                                 onCloseDialog={handleClose}
                                                 title="Modify Product"
+                                            />
+                                            <PictureDialogBox
+                                                openDialog={showImagesDialogBox}
+                                                onCloseDialog={handleClose}
+                                                title="Images"
                                             />
 
 
