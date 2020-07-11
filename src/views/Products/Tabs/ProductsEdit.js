@@ -13,9 +13,10 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 // import { AttachMoney, AddAPhoto } from "@material-ui/icons";
-import {  Grow } from "@material-ui/core";
+import { Grow } from "@material-ui/core";
 import MyCustomTable from "../../../components/MyCustomTable/MyCustomTable";
 import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog";
+
 
 
 const styles = {
@@ -41,13 +42,12 @@ const useStyles = makeStyles(styles);
 
 export default function ProductsEdit(props) {
     const classes = useStyles();
-    const [showDialogBox,setShowDialogBox] = React.useState(false);
-    
+    const [showDialogBox, setShowDialogBox] = React.useState(false);
 
-    function handleSelection(rowId){
+    function handleSelection(rowId) {
         setShowDialogBox(true)
     }
-    function handleClose(){
+    function handleClose() {
         setShowDialogBox(false)
     }
     return (
@@ -63,34 +63,37 @@ export default function ProductsEdit(props) {
                                     <p className={classes.cardCategoryWhite}>You can Edit products by using following table</p>
                                 </CardHeader>
                                 <CardBody>
-                                   <Grow in={true} timeout={1200}>
-                                       <div>
-                                       <MyCustomTable
-                                            tableHeaderColor="rose"
-                                            tableHead={[
-                                                //field should match wih data object.
-                                                { title: 'Name', field: 'name' },
-                                                { title: 'Surname', field: 'surname' },
-                                                { title: 'Birth Year', field: 'birthYear' },
-                                                {
-                                                  title: 'Birth Place',
-                                                  field: 'birthCity',
-                                                  lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-                                                },
-                                              ]}
-                                            tableData={[
-                                                { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-                                                { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
-                                            ]}
-                                            handleRowSelection={handleSelection}
-                                        />
-                                        <MyCustomDialog
-                                            openDialog={showDialogBox}
-                                            onCloseDialog={handleClose}
-                                        />
-                                       </div>
-                                   </Grow>
-                                    
+                                    <Grow in={true} timeout={1200}>
+                                        <div>
+                                            <MyCustomTable
+                                                tableHeaderColor="rose"
+                                                tableHead={[
+                                                    //field should match wih data object.
+                                                    { title: 'Name', field: 'name' },
+                                                    { title: 'Surname', field: 'surname' },
+                                                    { title: 'Birth Year', field: 'birthYear' },
+                                                    {
+                                                        title: 'Birth Place',
+                                                        field: 'birthCity',
+                                                        lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+                                                    },
+                                                ]}
+                                                tableData={[
+                                                    { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
+                                                    { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
+                                                ]}
+                                                handleRowSelection={handleSelection}
+                                            />
+                                            <MyCustomDialog
+                                                openDialog={showDialogBox}
+                                                onCloseDialog={handleClose}
+                                                title="Modify Product"
+                                            >
+                                            
+                                            </MyCustomDialog>
+                                        </div>
+                                    </Grow>
+
                                 </CardBody>
                                 <CardFooter>
                                     <Grow in={true}
@@ -99,7 +102,7 @@ export default function ProductsEdit(props) {
                                             <Button color="rose">Submit</Button>
                                         </div>
                                     </Grow>
-                                    
+
                                 </CardFooter>
                             </Card>
                         </GridItem>
