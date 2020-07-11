@@ -7,16 +7,16 @@ import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 // import CustomInput from "components/CustomInput/CustomInput.js";
 // import CustomSelect from "components/CustomSelect/CustomSelect.js";
-import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
+import Avatar from '@material-ui/core/Avatar';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
 // import { AttachMoney, AddAPhoto } from "@material-ui/icons";
-import { Grow } from "@material-ui/core";
+import { Grow, IconButton } from "@material-ui/core";
 import MyCustomTable from "../../../components/MyCustomTable/MyCustomTable";
 import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog";
-
+import testImage from "assets/img/faces/kendall.jpg";
 
 
 const styles = {
@@ -35,6 +35,18 @@ const styles = {
         fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
         marginBottom: "3px",
         textDecoration: "none"
+    },
+    avartarIconButton:{
+        padding:"0",
+        borderColor:"#82818194",
+        transition: "box-shadow 0.2s, top 0.2s",
+        boxShadow:" 0 0 3px #515151",
+        top:0,
+        '&:hover':{
+            boxShadow:"rgba(0, 0, 0, 0.52) 3px 4px 12px 0px, rgba(55, 71, 79, 0.62) 0px 7px 10px -5px",
+            top:-5,
+        },
+        
     }
 };
 
@@ -69,18 +81,77 @@ export default function ProductsEdit(props) {
                                                 tableHeaderColor="rose"
                                                 tableHead={[
                                                     //field should match wih data object.
-                                                    { title: 'Name', field: 'name' },
-                                                    { title: 'Surname', field: 'surname' },
-                                                    { title: 'Birth Year', field: 'birthYear' },
+                                                    { title: 'Product Name', field: 'p_name' },
+                                                    { title: 'Price', field: 'p_price' },
+                                                    { title: 'Quantity', field: 'p_quantity' },
+                                                    { title: 'Category', field: 'p_category' },
+                                                    { title: 'Manufacturer', field: 'p_manufacturer' },
                                                     {
-                                                        title: 'Birth Place',
-                                                        field: 'birthCity',
-                                                        lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+                                                        title: 'Images',
+                                                        field: 'p_image',
+                                                        render: rowData =>
+                                                            <div>
+                                                                <AvatarGroup max={4}>
+                                                                    <IconButton className={classes.avartarIconButton} onClick={(e)=>{console.log("helloIcon")}}> 
+                                                                        <Avatar 
+                                                                            alt="Remy Sharp" 
+                                                                            src={testImage} 
+                                                                            style={{
+                                                                                width: "40px",
+                                                                                height: "40px",
+                                                                            }}
+                                                                            />
+                                                                    </IconButton>
+                                                                   
+                                                                    <IconButton className={classes.avartarIconButton}> 
+                                                                        <Avatar 
+                                                                            alt="Remy Sharp" 
+                                                                            src={testImage} 
+                                                                            style={{
+                                                                                width: "40px",
+                                                                                height: "40px",
+                                                                            }}
+                                                                        />
+                                                                    </IconButton>
+                                                                    <IconButton className={classes.avartarIconButton}> 
+                                                                        <Avatar 
+                                                                            alt="Remy Sharp" 
+                                                                            src={testImage} 
+                                                                            style={{
+                                                                                width: "40px",
+                                                                                height: "40px",
+                                                                            }}
+                                                                            />
+                                                                    </IconButton>
+                                                                    <IconButton className={classes.avartarIconButton}> 
+                                                                        <Avatar 
+                                                                            alt="Remy Sharp" 
+                                                                            src={testImage} 
+                                                                            style={{
+                                                                                width: "40px",
+                                                                                height: "40px",
+                                                                            }}
+                                                                            />
+                                                                    </IconButton>
+                                                                    <IconButton className={classes.avartarIconButton}> 
+                                                                        <Avatar 
+                                                                            alt="Remy Sharp" 
+                                                                            src={testImage} 
+                                                                            style={{
+                                                                                width: "40px",
+                                                                                height: "40px",
+                                                                            }}
+                                                                            />
+                                                                    </IconButton>
+                                                                </AvatarGroup>
+                                                            </div>
+
                                                     },
+
                                                 ]}
                                                 tableData={[
-                                                    { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-                                                    { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
+                                                    { p_name: 'T shirt', p_price: '$ 20', p_quantity: 22, p_category: "Shirts", p_manufacturer: "Khaadi", imageUrl: testImage },
+                                                    { p_name: 'Pants', p_price: '$ 50', p_quantity: 52, p_category: "Pants", p_manufacturer: "Limelight", p_image: "test" },
                                                 ]}
                                                 handleRowSelection={handleSelection}
                                             />
@@ -88,22 +159,13 @@ export default function ProductsEdit(props) {
                                                 openDialog={showDialogBox}
                                                 onCloseDialog={handleClose}
                                                 title="Modify Product"
-                                            >
-                                            
-                                            </MyCustomDialog>
+                                            />
+
+
                                         </div>
                                     </Grow>
 
                                 </CardBody>
-                                <CardFooter>
-                                    <Grow in={true}
-                                        {...(true ? { timeout: 1300 } : {})} >
-                                        <div>
-                                            <Button color="rose">Submit</Button>
-                                        </div>
-                                    </Grow>
-
-                                </CardFooter>
                             </Card>
                         </GridItem>
 

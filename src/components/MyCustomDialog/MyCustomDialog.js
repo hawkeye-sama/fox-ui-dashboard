@@ -53,9 +53,13 @@ export default function MyCustomDialog(props) {
                 fullWidth={true}
                 maxWidth="md"
             >
-                <Grow in={true} timeout={500} style={{ transformOrigin: "0 0 0" }}>
+                <Grow in={true} timeout={600} style={{ transformOrigin: "0 0 0" }} >
                     <div>
-                        <DialogTitle id="form-dialog-title">{title}</DialogTitle>
+                        <DialogTitle id="form-dialog-title" style={{    
+                            background:" linear-gradient(60deg, #ffa726, #fb8c00)",
+                            boxShadow:" 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(255, 152, 0,.4)",
+                            color: "white",
+                        }}>{title}</DialogTitle>
                     </div>
                 </Grow>
 
