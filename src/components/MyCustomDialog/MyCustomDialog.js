@@ -1,43 +1,23 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import DialogTitle from '@material-ui/core/DialogTitle';
 import { Grow } from '@material-ui/core';
-import CustomInput from "components/CustomInput/CustomInput.js";
-import CustomSelect from "components/CustomSelect/CustomSelect.js";
-import { AttachMoney, AddAPhoto } from "@material-ui/icons";
-import { InputAdornment, IconButton } from "@material-ui/core";
-import CustomButton from "components/CustomButtons/Button.js";
+import DialogTabs from "components/CustomTabs/DialogTabs.js";
 
+
+// import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
+
+import { InsertPhoto, InsertPhotoOutlined, EditAttributes, EditAttributesOutlined } from '@material-ui/icons'
+import ModifyContent from '../../views/Products/Tabs/TabContent/ModifyContent';
 export default function MyCustomDialog(props) {
-    const { openDialog, onCloseDialog, title } = props;
+    const { openDialog, onCloseDialog } = props;
+    const [activeTab, setActiveTab] = React.useState(0);
 
-
-    const [catValue, setCatValue] = React.useState("");
-    const [manuValue, setManuValue] = React.useState("");
     // const [imageFiles,setImageFiles] = React.useState([]);
-    const [iconFieldHolder, setIconFieldHolder] = React.useState("");
-
-    function handleCategoryChange(e) {
-        setCatValue(e.target.value);
-    }
-    function handleManufacturerChange(e) {
-        setManuValue(e.target.value);
-    }
-
-    function handleFileSelection(e) {
-        var vals = [...e.target.files]
-        // setImageFiles((prevState) => [...prevState, ...e.target.files])
-        var myIconFieldHolder = iconFieldHolder;
-        vals.forEach(function (file) {
-            myIconFieldHolder = myIconFieldHolder + file.name.substring(0, 3) + "---." + file.type.substring(6,) + ", "
-        })
-        setIconFieldHolder(myIconFieldHolder);
+    function handleCloseDialog(){
+        onCloseDialog();
+        setActiveTab(0);
     }
 
 
@@ -45,9 +25,9 @@ export default function MyCustomDialog(props) {
     return (
         <div>
             <Dialog open={openDialog}
-                onClose={onCloseDialog}
+                onClose={handleCloseDialog}
                 aria-labelledby="form-dialog-title"
-                onEscapeKeyDown={onCloseDialog}
+                onEscapeKeyDown={handleCloseDialog}
                 TransitionComponent={Grow}
                 transitionDuration={300}
                 fullWidth={true}
@@ -55,178 +35,42 @@ export default function MyCustomDialog(props) {
             >
                 <Grow in={true} timeout={600} style={{ transformOrigin: "0 0 0" }} >
                     <div>
-                        <DialogTitle id="form-dialog-title" style={{    
-                            background:" linear-gradient(60deg, #ffa726, #fb8c00)",
-                            boxShadow:" 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(255, 152, 0,.4)",
-                            color: "white",
-                        }}>{title}</DialogTitle>
+                        <DialogTabs
+                            myClick={(activeTab) => {setActiveTab(activeTab)}}
+                            myHeaderColor={{
+                                // changing color between yellow and purple
+                                background:"linear-gradient(60deg, #ffa726, #fb8c00)",
+                                boxShadow:"rgba(0, 0, 0, 0.14) 0px 4px 20px 0px, rgba(255, 152, 0, 0.4) 0px 7px 10px -5px"
+                            }}
+                            tabs={[
+                                {
+                                    tabName: "Modify",
+
+                                    ...(activeTab === 0 ? { tabIcon: EditAttributes } : { tabIcon: EditAttributesOutlined }),
+                                    tabContent: (
+                                        <div>
+
+                                            <ModifyContent />
+                                        </div>
+
+                                    )
+                                },
+                                {
+                                    tabName: "Images",
+
+                                    ...(activeTab === 1 ? { tabIcon: InsertPhoto } : { tabIcon: InsertPhotoOutlined }),
+                                    tabContent: (
+                                        <div>
+                                            <ModifyContent />
+                                        </div>
+
+                                    )
+                                },
+
+                            ]}
+                        />
                     </div>
                 </Grow>
-
-                <DialogContent>
-                    <Grow in={true} timeout={700} style={{ transformOrigin: "0 0 0" }} >
-                        <GridContainer>
-                            <GridItem xs={12} sm={12} md={12}>
-                                <Grow in={true} style={{ transformOrigin: "0 0 0" }}
-                                    {...(true ? { timeout: 900 } : {})}>
-                                    <div>
-                                        <GridContainer>
-                                            <GridItem xs={12} sm={12} md={5}>
-                                                <CustomInput
-                                                    type="text"
-                                                    labelText="Product Name"
-                                                    id="productName"
-                                                    formControlProps={{
-                                                        fullWidth: true
-                                                    }}
-                                                />
-                                            </GridItem>
-                                            <GridItem xs={12} sm={12} md={3}>
-                                                <CustomInput
-                                                    labelText="Price"
-                                                    type="number"
-                                                    id="price"
-                                                    formControlProps={{
-                                                        fullWidth: true
-                                                    }}
-                                                    inputProps={{
-                                                        endAdornment: (
-                                                            <InputAdornment>
-                                                                <AttachMoney color="action" />
-                                                            </InputAdornment>
-                                                        )
-                                                    }}
-                                                />
-                                            </GridItem>
-                                            <GridItem xs={12} sm={12} md={4}>
-                                                <CustomInput
-                                                    labelText="Quantity"
-                                                    type="number"
-                                                    id="quantity"
-                                                    formControlProps={{
-                                                        fullWidth: true
-                                                    }}
-                                                />
-                                            </GridItem>
-                                        </GridContainer>
-                                    </div>
-                                </Grow>
-                                <Grow in={true} style={{ transformOrigin: "0 0 0" }}
-                                    {...(true ? { timeout: 1000 } : {})}>
-                                    <div>
-                                        <GridContainer>
-                                            <GridItem xs={12} sm={12} md={3}>
-                                                <CustomSelect
-                                                    labelText="Category"
-                                                    id="Category"
-                                                    formControlProps={{
-                                                        fullWidth: true
-                                                    }}
-                                                    value={catValue}
-                                                    handleChange={(e) => { handleCategoryChange(e) }}
-                                                    menuItems={[
-                                                        { label: "T-Shirt", value: 1 },
-                                                        { label: "Pants", value: 2 },
-                                                        { label: "Purse", value: 3 }
-                                                    ]}
-
-                                                />
-                                            </GridItem>
-                                            <GridItem xs={12} sm={12} md={3}>
-                                                <CustomSelect
-                                                    labelText="Manufacturer"
-                                                    id="Category"
-                                                    formControlProps={{
-                                                        fullWidth: true
-                                                    }}
-                                                    value={manuValue}
-                                                    handleChange={(e) => { handleManufacturerChange(e) }}
-                                                    menuItems={[
-                                                        { label: "Khaadi", value: 1 },
-                                                        { label: "Tims", value: 2 },
-                                                        { label: "Levi's", value: 3 }
-                                                    ]}
-
-                                                />
-                                            </GridItem>
-                                            <GridItem xs={12} sm={12} md={6}>
-                                                <CustomInput
-                                                    labelText={(iconFieldHolder === "") ?
-                                                        'Click on icon to add images' : iconFieldHolder
-                                                    }
-                                                    id="Images"
-                                                    formControlProps={{
-                                                        fullWidth: true
-                                                    }}
-
-
-                                                    inputProps={{
-                                                        disabled: true,
-                                                        endAdornment: (
-                                                            <InputAdornment>
-                                                                <input
-                                                                    style={{ display: 'none' }}
-                                                                    multiple accept="image/*"
-                                                                    id="icon-button-file"
-                                                                    type="file"
-
-                                                                    onChange={handleFileSelection}
-                                                                />
-                                                                <label htmlFor="icon-button-file">
-                                                                    <IconButton style={{ color: "#757575b8" }} aria-label="upload picture" component="span">
-                                                                        <AddAPhoto />
-                                                                    </IconButton>
-                                                                </label>
-                                                            </InputAdornment>
-                                                        )
-                                                    }}
-                                                />
-                                            </GridItem>
-                                        </GridContainer>
-
-                                    </div>
-                                </Grow>
-
-                                <Grow in={true} style={{ transformOrigin: "0 0 0" }}
-                                    {...(true ? { timeout: 1200 } : {})}>
-                                    <div>
-                                        <GridContainer>
-                                            <GridItem xs={12} sm={12} md={12}>
-                                                <CustomInput
-                                                    labelText="Any Description"
-                                                    id="description"
-                                                    formControlProps={{
-                                                        fullWidth: true
-                                                    }}
-                                                    inputProps={{
-                                                        multiline: true,
-                                                        rows: 5
-                                                    }}
-                                                />
-                                            </GridItem>
-                                        </GridContainer>
-
-                                    </div>
-                                </Grow>
-                            </GridItem>
-
-                        </GridContainer>
-
-                    </Grow>
-
-                </DialogContent>
-
-                <DialogActions>
-                    <Grow in={true} timeout={1400} style={{ transformOrigin: "0 0 0" }} >
-                        <div>
-                            <Button onClick={onCloseDialog} size="large" style={{color:"#ff9800", marginRight:15}}>
-                                Cancel
-                            </Button>
-                            <CustomButton onClick={onCloseDialog} color="warning">Submit</CustomButton>
-                        </div>
-
-                    </Grow>
-                </DialogActions>
             </Dialog>
         </div>
     );

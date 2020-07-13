@@ -2,3 +2,4 @@
 	https://codepen.io/ainalem/pen/RqYZNO
 2-) create custom dialog box using react spring that follows the same pattern as above using react spring.
 3-) change inline styling to file styling or in component styling to improve coding structure
+4-) optimize speed of tabs and web by performing less states update on parent 

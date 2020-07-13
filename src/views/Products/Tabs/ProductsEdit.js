@@ -58,6 +58,7 @@ export default function ProductsEdit(props) {
     var myHandler = false;
     const [showDialogBox, setShowDialogBox] = React.useState(false);
     const [showImagesDialogBox, setShowImageDialogBox] = React.useState(false);
+  
 
     function handleSelection(rowId) {
         if(myHandler){
@@ -67,9 +68,11 @@ export default function ProductsEdit(props) {
         }
         
     }
+
     function handleClose() {
         setShowDialogBox(false)
         setShowImageDialogBox(false)
+      
     }
     function handleIconSelection(){
         myHandler = true
@@ -169,6 +172,7 @@ export default function ProductsEdit(props) {
                                                 handleRowSelection={handleSelection}
                                             />
                                             <MyCustomDialog
+                                               
                                                 openDialog={showDialogBox}
                                                 onCloseDialog={handleClose}
                                                 title="Modify Product"
