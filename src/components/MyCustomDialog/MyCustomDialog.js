@@ -10,6 +10,7 @@ import DialogTabs from "components/CustomTabs/DialogTabs.js";
 
 import { InsertPhoto, InsertPhotoOutlined, EditAttributes, EditAttributesOutlined } from '@material-ui/icons'
 import ModifyContent from '../../views/Products/Tabs/TabContent/ModifyContent';
+import ModifyImage from '../../views/Products/Tabs/TabContent/ModifyImage';
 export default function MyCustomDialog(props) {
     const { openDialog, onCloseDialog } = props;
     const [activeTab, setActiveTab] = React.useState(0);
@@ -30,8 +31,8 @@ export default function MyCustomDialog(props) {
                 onEscapeKeyDown={handleCloseDialog}
                 TransitionComponent={Grow}
                 transitionDuration={300}
-                fullWidth={true}
-                maxWidth="md"
+                
+                maxWidth="lg"
             >
                 <Grow in={true} timeout={600} style={{ transformOrigin: "0 0 0" }} >
                     <div>
@@ -50,7 +51,7 @@ export default function MyCustomDialog(props) {
                                     tabContent: (
                                         <div>
 
-                                            <ModifyContent />
+                                            <ModifyContent onClose={handleCloseDialog} />
                                         </div>
 
                                     )
@@ -61,7 +62,7 @@ export default function MyCustomDialog(props) {
                                     ...(activeTab === 1 ? { tabIcon: InsertPhoto } : { tabIcon: InsertPhotoOutlined }),
                                     tabContent: (
                                         <div>
-                                            <ModifyContent />
+                                            <ModifyImage />
                                         </div>
 
                                     )
@@ -71,6 +72,8 @@ export default function MyCustomDialog(props) {
                         />
                     </div>
                 </Grow>
+                
+
             </Dialog>
         </div>
     );

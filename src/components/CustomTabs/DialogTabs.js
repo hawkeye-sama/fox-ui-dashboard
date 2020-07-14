@@ -34,7 +34,8 @@ export default function DialogTabs(props) {
     <Card plain={plainTabs} style={{
         backgroundColor:"#eeeeee", 
         boxShadow:"0 1px 4px 0 rgba(0, 0, 0, 0)",
-        marginTop:0
+        marginTop:0,
+        marginBottom:0,
     }}>
       <CardHeader plain={plainTabs}
         style={{
