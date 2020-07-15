@@ -62,7 +62,7 @@ export default function MyCustomDialog(props) {
                                     ...(activeTab === 1 ? { tabIcon: InsertPhoto } : { tabIcon: InsertPhotoOutlined }),
                                     tabContent: (
                                         <div>
-                                            <ModifyImage />
+                                            <ModifyImage onClose={handleCloseDialog} />
                                         </div>
 
                                     )

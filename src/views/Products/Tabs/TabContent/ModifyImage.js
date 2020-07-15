@@ -6,17 +6,17 @@ import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 
 import { Grow } from '@material-ui/core';
+import CustomButton from "components/CustomButtons/Button.js";
+import Button from '@material-ui/core/Button';
+
 import MyCarousel from '../../../../components/MyCarousel/MyCarousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-// import CustomButton from "components/CustomButtons/Button.js";
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+// added custom css to make the carousel responsive
+import 'assets/css/MyCarouselCustom.css'
 
 export default function ModifyImage(props) {
-
-    // const { onClose } = props;
-    
-
-
+    const { onClose } = props;
 
 
     return (
@@ -24,18 +24,40 @@ export default function ModifyImage(props) {
             <Grow in={true} timeout={700} style={{ transformOrigin: "0 0 0" }} >
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={12}>
-                        <Grow in={true} style={{ transformOrigin: "0 0 0" }}
+                        <Grow in={true}
                             {...(true ? { timeout: 900 } : {})}>
                             <div>
                                 <GridContainer>
                                     <GridItem xs={12} sm={12} md={12}>
-                                        <div style={{minWidth:630,minHeight:392,maxWidth:630,maxHeight:392}}>
-                                            {/* <MyCarousel /> */}
+                                        <div className="containerSettings">
+                                            <MyCarousel />
                                         </div>
                                     </GridItem>
-                                    
+
                                 </GridContainer>
                             </div>
+                        </Grow>
+                        <Grow in={true} timeout={1100} style={{ transformOrigin: "0 0 0" }} >
+                            <div>
+                                <GridContainer>
+                                    <GridItem xs={12} sm={12} md={12}>
+                                        <div style={{ textAlignLast: "end" }}>
+                                            <Button onClick={onClose} size="large" style={{ color: "#ffa624", marginRight: 15 }}>
+                                                Cancel
+                                            </Button>
+                                            <CustomButton onClick={onClose} color="warning">
+                                                <AddAPhotoIcon />
+                                                <span style={{marginTop:1}}>Upload</span>
+                                                
+                                            </CustomButton>
+                                        </div>
+
+
+                                    </GridItem>
+                                </GridContainer>
+
+                            </div>
+
                         </Grow>
                     </GridItem>
 

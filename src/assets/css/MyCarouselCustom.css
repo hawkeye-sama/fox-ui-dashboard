@@ -1,0 +1,37 @@
+.carousalSettings{
+
+    width:630px; 
+    
+       
+}
+
+.containerSettings{
+    min-width:630px;
+    min-height:341px;
+    max-width:630px;
+    max-height:341px;
+}
+
+.imgSettings{
+    width:300px;
+    height: 280px;
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 400px) {
+    .carousalSettings { 
+        width:270px; 
+    }
+    
+    .containerSettings{
+        min-width:271px;
+      
+    }
+    .imgSettings{
+        width:280px;
+        height: 280px;
+    }
+
+  }
+
