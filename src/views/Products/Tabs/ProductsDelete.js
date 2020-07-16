@@ -57,7 +57,7 @@ export default function ProductsDelete(props) {
     var handler = false;
     const [tabSelector,setTabSelector] = React.useState(0);
     const [showDialogBox, setShowDialogBox] = React.useState(false);
-    // console.log("asd")    
+     
 
     function handleSelection() {
         if(handler){
