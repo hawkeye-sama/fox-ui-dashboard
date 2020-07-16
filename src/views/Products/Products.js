@@ -7,8 +7,6 @@ import React from "react";
 // core components
 import MyTabs from "components/CustomTabs/MyCustomTab.js";
 
-import Tasks from "components/Tasks/Tasks.js";
-import { server } from "variables/general.js";
 
 import { Slide, Grow } from "@material-ui/core";
 import { useSelector } from "react-redux";
@@ -18,6 +16,7 @@ import ProductsHome from "./Tabs/ProductsHome";
 import { Home, HomeOutlined, AddCircle, AddCircleOutline, Edit, EditOutlined, Delete, DeleteOutline } from '@material-ui/icons'
 import ProductsAdd from "./Tabs/ProductsAdd";
 import ProductsEdit from "./Tabs/ProductsEdit";
+import ProductsDelete from "./Tabs/ProductsDelete";
 
 
 // const useStyles = makeStyles(styles);
@@ -49,7 +48,7 @@ export default function Products(props) {
 
                                                 <Slide in={true} direction={productTabsAnimation} timeout={400} >
                                                     <div>
-                                                        < ProductsEdit />
+                                                        <ProductsDelete />
                                                     </div>
                                                 </Slide>
                                             </div>
@@ -79,7 +78,7 @@ export default function Products(props) {
 
                                             <Slide in={true} direction={productTabsAnimation} timeout={400}>
                                                 <div>
-                                                    <ProductsHome />
+                                                    <ProductsEdit />
                                                 </div>
                                             </Slide>
 
@@ -92,11 +91,8 @@ export default function Products(props) {
 
                                             <Slide in={true} direction={productTabsAnimation} timeout={400}>
                                                 <div>
-                                                    <Tasks
-                                                        checkedIndexes={[1]}
-                                                        tasksIndexes={[0, 1, 2]}
-                                                        tasks={server}
-                                                    />
+                                                    <ProductsHome />
+                                                    
                                                 </div>
                                             </Slide>
 

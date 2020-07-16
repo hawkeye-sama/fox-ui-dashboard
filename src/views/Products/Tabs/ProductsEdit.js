@@ -17,7 +17,6 @@ import { Grow, IconButton } from "@material-ui/core";
 import MyCustomTable from "../../../components/MyCustomTable/MyCustomTable";
 import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog";
 import testImage from "assets/img/faces/kendall.jpg";
-import PictureDialogBox from "../../../components/PictureDialogBox/PictureDialogBox";
 
 
 const styles = {
@@ -55,29 +54,32 @@ const useStyles = makeStyles(styles);
 
 export default function ProductsEdit(props) {
     const classes = useStyles();
-    var myHandler = false;
+    var handler = false;
+    const [tabSelector,setTabSelector] = React.useState(0);
     const [showDialogBox, setShowDialogBox] = React.useState(false);
-    const [showImagesDialogBox, setShowImageDialogBox] = React.useState(false);
-  
+    
 
-    function handleSelection(rowId) {
-        if(myHandler){
-            myHandler = false;
-        }else {
-            setShowDialogBox(true)
+    function handleSelection() {
+        if(handler){
+            handler=false
+        }else{
+            setTabSelector(0)
+            setShowDialogBox(true);
         }
-        
     }
 
     function handleClose() {
+        
         setShowDialogBox(false)
-        setShowImageDialogBox(false)
       
     }
-    function handleIconSelection(){
-        myHandler = true
-        setShowImageDialogBox(true)
+    function handleButtonSelection(){
+        handler = true
+        setTabSelector(1)
+        setShowDialogBox(true)
     }
+
+   
     return (
         <div>
             <Grow in={true}
@@ -108,7 +110,7 @@ export default function ProductsEdit(props) {
                                                         render: rowData =>
                                                             <div>
                                                                 <AvatarGroup max={4}>
-                                                                    <IconButton className={classes.avartarIconButton} onClick={handleIconSelection}> 
+                                                                    <IconButton className={classes.avartarIconButton} onClick={handleButtonSelection}> 
                                                                         <Avatar 
                                                                             alt="Remy Sharp" 
                                                                             src={testImage} 
@@ -172,15 +174,11 @@ export default function ProductsEdit(props) {
                                                 handleRowSelection={handleSelection}
                                             />
                                             <MyCustomDialog
-                                               
+                                                tabSelector={tabSelector}
+                                                
                                                 openDialog={showDialogBox}
                                                 onCloseDialog={handleClose}
                                                 title="Modify Product"
-                                            />
-                                            <PictureDialogBox
-                                                openDialog={showImagesDialogBox}
-                                                onCloseDialog={handleClose}
-                                                title="Images"
                                             />
 
 

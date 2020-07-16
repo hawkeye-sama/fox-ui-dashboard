@@ -37,7 +37,7 @@ export default function ModifyContent(props) {
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={12}>
                         <Grow in={true} style={{ transformOrigin: "0 0 0" }}
-                            {...(true ? { timeout: 900 } : {})}>
+                            {...(true ? { timeout: 800 } : {})}>
                             <div>
                                 <GridContainer>
                                     <GridItem xs={12} sm={12} md={5}>
@@ -81,7 +81,7 @@ export default function ModifyContent(props) {
                             </div>
                         </Grow>
                         <Grow in={true} style={{ transformOrigin: "0 0 0" }}
-                            {...(true ? { timeout: 1000 } : {})}>
+                            {...(true ? { timeout: 900 } : {})}>
                             <div>
                                 <GridContainer>
                                     <GridItem xs={12} sm={12} md={6}>
@@ -124,7 +124,7 @@ export default function ModifyContent(props) {
                         </Grow>
 
                         <Grow in={true} style={{ transformOrigin: "0 0 0" }}
-                            {...(true ? { timeout: 1200 } : {})}>
+                            {...(true ? { timeout: 1000 } : {})}>
                             <div>
                                 <GridContainer>
                                     <GridItem xs={12} sm={12} md={12}>
@@ -144,7 +144,7 @@ export default function ModifyContent(props) {
 
                             </div>
                         </Grow>
-                        <Grow in={true} timeout={1400} style={{ transformOrigin: "0 0 0" }} >
+                        <Grow in={true} timeout={1100} style={{ transformOrigin: "0 0 0" }} >
                             <div>
                                 <GridContainer>
                                     <GridItem xs={12} sm={12} md={12}>

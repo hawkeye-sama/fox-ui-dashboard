@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 
 import MyCarousel from '../../../../components/MyCarousel/MyCarousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+import {AddAPhoto} from '@material-ui/icons';
 // added custom css to make the carousel responsive
 import 'assets/css/MyCarouselCustom.css'
 
@@ -43,13 +43,23 @@ export default function ModifyImage(props) {
                                     <GridItem xs={12} sm={12} md={12}>
                                         <div style={{ textAlignLast: "end" }}>
                                             <Button onClick={onClose} size="large" style={{ color: "#ffa624", marginRight: 15 }}>
-                                                Cancel
+                                                Exit
                                             </Button>
-                                            <CustomButton onClick={onClose} color="warning">
-                                                <AddAPhotoIcon />
-                                                <span style={{marginTop:1}}>Upload</span>
-                                                
-                                            </CustomButton>
+                                          
+                                                <input
+                                                    accept="image/*"
+                                                    style={{display:"none"}}
+                                                    id="contained"
+                                                    multiple
+                                                    type="file"
+                                                />
+                                                <label htmlFor="contained">
+                                                    <CustomButton component="span" color="warning">
+                                                        <AddAPhoto />
+                                                        <span style={{marginTop:1}}>Upload</span>
+                                                    </CustomButton>                                
+                                                </label>
+                                         
                                         </div>
 
 

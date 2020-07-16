@@ -9,20 +9,21 @@ import DialogTabs from "components/CustomTabs/DialogTabs.js";
 // import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
 import { InsertPhoto, InsertPhotoOutlined, EditAttributes, EditAttributesOutlined } from '@material-ui/icons'
-import ModifyContent from '../../views/Products/Tabs/TabContent/ModifyContent';
-import ModifyImage from '../../views/Products/Tabs/TabContent/ModifyImage';
+import ModifyContent from 'views/Products/Tabs/DialogTabContent/ModifyContent';
+import ModifyImage from 'views/Products/Tabs/DialogTabContent/ModifyImage';
 export default function MyCustomDialog(props) {
     const { openDialog, onCloseDialog } = props;
-    const [activeTab, setActiveTab] = React.useState(0);
+   
+    const [activeTab, setActiveTab] = React.useState(props.tabSelector);
 
     // const [imageFiles,setImageFiles] = React.useState([]);
     function handleCloseDialog(){
         onCloseDialog();
         setActiveTab(0);
     }
-
-
-
+    React.useEffect(() => {
+        setActiveTab(props.tabSelector);
+    }, [props.tabSelector])
     return (
         <div>
             <Dialog open={openDialog}
@@ -31,12 +32,12 @@ export default function MyCustomDialog(props) {
                 onEscapeKeyDown={handleCloseDialog}
                 TransitionComponent={Grow}
                 transitionDuration={300}
-                
                 maxWidth="lg"
             >
                 <Grow in={true} timeout={600} style={{ transformOrigin: "0 0 0" }} >
                     <div>
                         <DialogTabs
+                            activeTab={activeTab}
                             myClick={(activeTab) => {setActiveTab(activeTab)}}
                             myHeaderColor={{
                                 // changing color between yellow and purple
@@ -50,7 +51,6 @@ export default function MyCustomDialog(props) {
                                     ...(activeTab === 0 ? { tabIcon: EditAttributes } : { tabIcon: EditAttributesOutlined }),
                                     tabContent: (
                                         <div>
-
                                             <ModifyContent onClose={handleCloseDialog} />
                                         </div>
 
@@ -58,7 +58,6 @@ export default function MyCustomDialog(props) {
                                 },
                                 {
                                     tabName: "Images",
-
                                     ...(activeTab === 1 ? { tabIcon: InsertPhoto } : { tabIcon: InsertPhotoOutlined }),
                                     tabContent: (
                                         <div>
@@ -67,7 +66,6 @@ export default function MyCustomDialog(props) {
 
                                     )
                                 },
-
                             ]}
                         />
                     </div>

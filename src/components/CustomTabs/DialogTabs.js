@@ -18,7 +18,8 @@ import styles from "assets/jss/material-dashboard-react/components/customTabsSty
 const useStyles = makeStyles(styles);
 
 export default function DialogTabs(props) {
-  const [activeTab, setValue] = React.useState(0);
+  const [activeTab, setValue] = React.useState(props.activeTab);
+  
   const handleChange = (event, value) => {
     setValue(value);
     props.myClick(value);
@@ -29,6 +30,11 @@ export default function DialogTabs(props) {
     [classes.cardTitle]: true,
     [classes.cardTitleRTL]: rtlActive
   });
+  React.useEffect(() => {
+    setValue(props.activeTab);
+}, [props.activeTab])
+
+
   return (
     // Not optimized way of using classes, To do improve code structure
     <Card plain={plainTabs} style={{

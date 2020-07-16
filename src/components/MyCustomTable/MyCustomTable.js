@@ -27,6 +27,9 @@ export default function MyCustomTable(props) {
   const { useState } = React;
   const [selectedRow, setSelectedRow] = useState(null);
   const { tableHead, tableData, tableHeaderColor, handleRowSelection } = props;
+  const {isDelete} = props;
+  const [data,setData] = useState(tableData);
+
 
   const theme = createMuiTheme({
     overrides: {
@@ -50,8 +53,15 @@ export default function MyCustomTable(props) {
             borderWidth: "1px !important"
           },
           "&:after": {
-            borderColor: "#ff9800",
-            borderBottom:" 2px solid #ff9800"
+            borderBottom:" 2px solid " + ({
+              warning: warningColor[0],
+              primary: primaryColor[0],
+              danger: dangerColor[0],
+              success: successColor[0],
+              info:  infoColor[0],
+              rose: roseColor[0],
+              gray: grayColor[0],
+            }[tableHeaderColor])
           }
         },
 
@@ -59,16 +69,46 @@ export default function MyCustomTable(props) {
     },
   });
 
+  function selectionHandler(evt,selectedRow){
+    setSelectedRow(selectedRow.tableData.id);
+    handleRowSelection(selectedRow.tableData.id)
+  }
   return (
     <div className={classes.tableResponsive}>
       <ThemeProvider theme={theme}>
         <MaterialTable
           title=""
-         
+          editable={(isDelete)?{
+              onRowDelete: oldData=>
+                new Promise((resolve,reject)=>{
+                  setTimeout(()=>{
+                    const dataDelete = [...data];
+                    const index = oldData.tableData.id;
+                    dataDelete.splice(index, 1);
+                    setData([...dataDelete]);
+                    resolve()
+                  },1000)
+                })
+                
+            }:
+            {}
+          }
+          // TODO - apply style on multiple rows. 2) multiple selection. 3) multiple deletion 
+
+
           columns={tableHead}
-          data={tableData}
-          onRowClick={((evt, selectedRow) => {setSelectedRow(selectedRow.tableData.id);handleRowSelection(selectedRow.tableData.id)})}
+          data={data}
+          onRowClick={((evt, selectedRow) => {selectionHandler(evt,selectedRow)})}
+          // onSelectionChange={(event,rowData)=>{console.log(rowData)}}
+          actions={(isDelete)?[{
+            tooltip: 'Remove All Selected Users',
+            icon: 'delete',
+            onClick: (evt, data) => alert('You want to delete ' + data.length + ' rows')
+          }]:[]
+        }
           options={{
+            ...(isDelete)? {selection:true} : {selection:false},
+            
             rowStyle: rowData => ({
               backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '',
               color : (selectedRow === rowData.tableData.id) ? 
@@ -108,7 +148,8 @@ export default function MyCustomTable(props) {
 }
 
 MyCustomTable.defaultProps = {
-  tableHeaderColor: "gray"
+  tableHeaderColor: "gray",
+  handleRowSelection:()=>{},
 };
 
 MyCustomTable.propTypes = {
