@@ -73,11 +73,7 @@ export default function ProductsDelete(props) {
         setShowDialogBox(false)
       
     }
-    function handleButtonSelection(){
-        handler = true
-        setTabSelector(1)
-        setShowDialogBox(true)
-    }
+
 
    
     return (
@@ -111,7 +107,7 @@ export default function ProductsDelete(props) {
                                                         render: rowData =>
                                                             <div>
                                                                 <AvatarGroup max={4}>
-                                                                    <IconButton className={classes.avartarIconButton} onClick={handleButtonSelection}> 
+                                                                    <IconButton className={classes.avartarIconButton}> 
                                                                         <Avatar 
                                                                             alt="Remy Sharp" 
                                                                             src={testImage} 
