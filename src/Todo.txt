@@ -5,3 +5,4 @@
 4-) optimize speed of tabs and web by performing less states update on parent.
 5-) Work on each component and make sure it is reusable by passing everything in props to child
 6-) optimize components structure and coding
+6-) Implement the new table i found. MUI data table or name. look at MUI other projects page

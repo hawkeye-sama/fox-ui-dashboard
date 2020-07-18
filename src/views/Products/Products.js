@@ -48,7 +48,7 @@ export default function Products(props) {
 
                                                 <Slide in={true} direction={productTabsAnimation} timeout={400} >
                                                     <div>
-                                                        <ProductsDelete />
+                                                        <ProductsHome />
                                                     </div>
                                                 </Slide>
                                             </div>
@@ -91,7 +91,7 @@ export default function Products(props) {
 
                                             <Slide in={true} direction={productTabsAnimation} timeout={400}>
                                                 <div>
-                                                    <ProductsHome />
+                                                    <ProductsDelete />
                                                     
                                                 </div>
                                             </Slide>

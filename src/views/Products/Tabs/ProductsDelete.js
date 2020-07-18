@@ -69,7 +69,7 @@ export default function ProductsDelete(props) {
                                     <p className={classes.cardCategoryWhite}>You can delete products by using following table</p>
                                 </CardHeader>
                                 <CardBody>
-                                    <Grow in={true} timeout={1200}>
+                                    <Grow in={true} timeout={1100}>
                                         <div>
                                             <MyCustomTable
                                                 isDelete={true}

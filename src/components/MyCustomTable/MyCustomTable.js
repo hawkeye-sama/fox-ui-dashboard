@@ -121,7 +121,6 @@ export default function MyCustomTable(props) {
     setLoadAnimation(true);
     new Promise((resolve, reject) => {
       setTimeout(() => {
-        
         let _data = [...data];
         rowData.forEach(rd => {
           _data = _data.filter(t => t.tableData.id !== rd.tableData.id);
