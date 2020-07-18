@@ -15,7 +15,7 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 // import { AttachMoney, AddAPhoto } from "@material-ui/icons";
 import { Grow, IconButton } from "@material-ui/core";
 import MyCustomTable from "../../../components/MyCustomTable/MyCustomTable";
-import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog";
+
 import testImage from "assets/img/faces/kendall.jpg";
 
 
@@ -54,28 +54,8 @@ const useStyles = makeStyles(styles);
 
 export default function ProductsDelete(props) {
     const classes = useStyles();
-    var handler = false;
-    const [tabSelector,setTabSelector] = React.useState(0);
-    const [showDialogBox, setShowDialogBox] = React.useState(false);
      
 
-    function handleSelection() {
-        if(handler){
-            handler=false
-        }else{
-            setTabSelector(0)
-            setShowDialogBox(true);
-        }
-    }
-
-    function handleClose() {
-        
-        setShowDialogBox(false)
-      
-    }
-
-
-   
     return (
         <div>
             <Grow in={true}
@@ -116,8 +96,7 @@ export default function ProductsDelete(props) {
                                                                                 height: "40px",
                                                                             }}
                                                                             />
-                                                                    </IconButton>
-                                                                   
+                                                                    </IconButton>                                                                
                                                                     <IconButton className={classes.avartarIconButton}> 
                                                                         <Avatar 
                                                                             alt="Remy Sharp" 
@@ -138,26 +117,6 @@ export default function ProductsDelete(props) {
                                                                             }}
                                                                             />
                                                                     </IconButton>
-                                                                    <IconButton className={classes.avartarIconButton}> 
-                                                                        <Avatar 
-                                                                            alt="Remy Sharp" 
-                                                                            src={testImage} 
-                                                                            style={{
-                                                                                width: "40px",
-                                                                                height: "40px",
-                                                                            }}
-                                                                            />
-                                                                    </IconButton>
-                                                                    <IconButton className={classes.avartarIconButton}> 
-                                                                        <Avatar 
-                                                                            alt="Remy Sharp" 
-                                                                            src={testImage} 
-                                                                            style={{
-                                                                                width: "40px",
-                                                                                height: "40px",
-                                                                            }}
-                                                                            />
-                                                                    </IconButton>
                                                                 </AvatarGroup>
                                                             </div>
 
@@ -165,17 +124,15 @@ export default function ProductsDelete(props) {
 
                                                 ]}
                                                 tableData={[
-                                                    { p_name: 'T shirt', p_price: '$ 20', p_quantity: 22, p_category: "Shirts", p_manufacturer: "Khaadi", imageUrl: testImage },
-                                                    { p_name: 'Pants', p_price: '$ 50', p_quantity: 52, p_category: "Pants", p_manufacturer: "Limelight", p_image: "test" },
+                                                    { p_name: 'T shirt', p_price: '$ 20', p_quantity: 22, p_category: "Shirts", p_manufacturer: "Khaadi",  },
+                                                    { p_name: 'Pants', p_price: '$ 10', p_quantity: 52, p_category: "Pants", p_manufacturer: "Khishmish", },
+                                                    { p_name: 'Cosemetics', p_price: '$ 503', p_quantity: 52, p_category: "Cosemetics", p_manufacturer: "Limelight", },
+                                                    { p_name: 'Jeans', p_price: '$ 20', p_quantity: 52, p_category: "Pants", p_manufacturer: "Limelight", },
+                                                    { p_name: 'Sleeveless', p_price: '$ 90', p_quantity: 52, p_category: "Shirts", p_manufacturer: "Limelight", },
+                                                    { p_name: 'Watch', p_price: '$ 70', p_quantity: 52, p_category: "Acessories", p_manufacturer: "Rado", },
+                                                    
                                                 ]}
                                           
-                                            />
-                                            <MyCustomDialog
-                                                tabSelector={tabSelector}
-                                                
-                                                openDialog={showDialogBox}
-                                                onCloseDialog={handleClose}
-                                                title="Modify Product"
                                             />
 
 
