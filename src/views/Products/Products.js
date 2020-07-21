@@ -44,13 +44,9 @@ export default function Products(props) {
                                         ...(activeTab === 0 ? { tabIcon: Home } : { tabIcon: HomeOutlined }),
                                         tabContent: (
                                             <div>
-
-
-                                                <Slide in={true} direction={productTabsAnimation} timeout={400} >
                                                     <div>
-                                                        <ProductsHome />
+                                                        <ProductsHome direction={productTabsAnimation} />
                                                     </div>
-                                                </Slide>
                                             </div>
 
                                         )
