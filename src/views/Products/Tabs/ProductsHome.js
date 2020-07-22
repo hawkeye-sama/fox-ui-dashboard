@@ -1,12 +1,11 @@
 import React from "react";
 // react plugin for creating charts
-import ChartistGraph from "react-chartist";
+
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
 import DateRange from "@material-ui/icons/DateRange";
 import LocalOffer from "@material-ui/icons/LocalOffer";
 import Update from "@material-ui/icons/Update";
@@ -22,20 +21,19 @@ import GridContainer from "components/Grid/GridContainer.js";
 import Table from "components/Table/Table.js";
 import Tasks from "components/Tasks/Tasks.js";
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
-import Danger from "components/Typography/Danger.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { bugs, website, server } from "variables/general.js";
-import {
-  emailsSubscriptionChart,
-  completedTasksChart,
-} from "variables/charts.js";
-import {  Fade, Slide, CircularProgress } from "@material-ui/core";
+
+import { Fade, Slide, CircularProgress } from "@material-ui/core";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-import MyChart from "../../../components/MyCharts/MyChart";
+import ProductsViewedChart from "../../../components/MyCharts/ProductsCharts/ProductsViewedChart";
+import { ShoppingCart } from "@material-ui/icons";
+import ProductsAddedChart from "../../../components/MyCharts/ProductsCharts/ProductsAddedChart";
+import ProductsPopularChart from "../../../components/MyCharts/ProductsCharts/ProductsPopularChart";
 
 const useStyles = makeStyles(styles);
 
@@ -51,35 +49,30 @@ export default function ProductsHome(props) {
   return (
     <div>
       <Fade in={!showContent} timeout={0} mountOnEnter unmountOnExit>
-        <div style={{position:"absolute",top:200,left:"50%"}}>
-          <CircularProgress style={{color:"#fea11d"}} />
+        <div style={{ position: "absolute", top: 200, left: "50%" }}>
+          <CircularProgress style={{ color: "#fea11d" }} />
         </div>
       </Fade>
       <Fade in={showContent} mountOnEnter unmountOnExit timeout={1200}>
         <div>
-          <Slide in={true} direction={"up"} timeout={400}> 
+          <Slide in={true} direction={props.direction} timeout={400}>
             <div>
               <GridContainer>
-
                 <GridItem xs={12} sm={6} md={3}>
                   <Card>
-                    <CardHeader color="warning" stats icon>
+                    <CardHeader  color="warning" stats icon>
                       <CardIcon color="warning">
-                        <Icon>content_copy</Icon>
+                        <ShoppingCart />
                       </CardIcon>
-                      <p className={classes.cardCategory}>Used Space</p>
+                      <p className={classes.cardCategory}>Total Products</p>
                       <h3 className={classes.cardTitle}>
-                        49/50 <small>GB</small>
+                        1000
                       </h3>
                     </CardHeader>
                     <CardFooter stats>
                       <div className={classes.stats}>
-                        <Danger>
-                          <Warning />
-                        </Danger>
-                        <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                          Get more space
-                </a>
+                        <DateRange />
+                        Updated 24 hours ago
                       </div>
                     </CardFooter>
                   </Card>
@@ -90,14 +83,14 @@ export default function ProductsHome(props) {
                       <CardIcon color="success">
                         <Store />
                       </CardIcon>
-                      <p className={classes.cardCategory}>Revenue</p>
-                      <h3 className={classes.cardTitle}>$34,245</h3>
+                      <p className={classes.cardCategory}>Products Viewed</p>
+                      <h3 className={classes.cardTitle}>10</h3>
                     </CardHeader>
                     <CardFooter stats>
                       <div className={classes.stats}>
                         <DateRange />
-                Last 24 Hours
-              </div>
+                        Last 24 Hours
+                      </div>
                     </CardFooter>
                   </Card>
                 </GridItem>
@@ -107,14 +100,14 @@ export default function ProductsHome(props) {
                       <CardIcon color="danger">
                         <Icon>info_outline</Icon>
                       </CardIcon>
-                      <p className={classes.cardCategory}>Fixed Issues</p>
+                      <p className={classes.cardCategory}>Incomplete Products</p>
                       <h3 className={classes.cardTitle}>75</h3>
                     </CardHeader>
                     <CardFooter stats>
                       <div className={classes.stats}>
                         <LocalOffer />
-                Tracked from Github
-              </div>
+                        Checked few minutes ago
+                      </div>
                     </CardFooter>
                   </Card>
                 </GridItem>
@@ -124,14 +117,14 @@ export default function ProductsHome(props) {
                       <CardIcon color="info">
                         <Accessibility />
                       </CardIcon>
-                      <p className={classes.cardCategory}>Followers</p>
+                      <p className={classes.cardCategory}>Recommendation done</p>
                       <h3 className={classes.cardTitle}>+245</h3>
                     </CardHeader>
                     <CardFooter stats>
                       <div className={classes.stats}>
                         <Update />
-                Just Updated
-              </div>
+                        Just Updated
+                      </div>
                     </CardFooter>
                   </Card>
                 </GridItem>
@@ -139,76 +132,61 @@ export default function ProductsHome(props) {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
-                    <CardHeader color="success">
-                      <MyChart />
+                    <CardHeader color="warning" >
+                      <ProductsViewedChart  />
                     </CardHeader>
                     <CardBody>
-                      <h4 className={classes.cardTitle}>Daily Sales</h4>
+                      <h4 className={classes.cardTitle}>Daily Products Viewed</h4>
                       <p className={classes.cardCategory}>
                         <span className={classes.successText}>
                           <ArrowUpward
                             className={classes.upArrowCardCategory}
                           />{" "}
-                  55%
-                </span>{" "}
-                increase in today sales.
-              </p>
+                              55%
+                        </span>{" "}
+                          increased views.
+                      </p>
                     </CardBody>
                     <CardFooter chart>
                       <div className={classes.stats}>
                         <AccessTime /> updated 4 minutes ago
-              </div>
+                      </div>
                     </CardFooter>
                   </Card>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
-                    <CardHeader color="warning">
-                      <ChartistGraph
-                        className="ct-chart"
-                        data={emailsSubscriptionChart.data}
-                        type="Bar"
-                        options={emailsSubscriptionChart.options}
-                        responsiveOptions={
-                          emailsSubscriptionChart.responsiveOptions
-                        }
-                        listener={emailsSubscriptionChart.animation}
-                      />
+                  <CardHeader color="success" >
+                      <ProductsAddedChart  />
                     </CardHeader>
                     <CardBody>
-                      <h4 className={classes.cardTitle}>Email Subscriptions</h4>
+                      <h4 className={classes.cardTitle}>Products Added</h4>
                       <p className={classes.cardCategory}>
-                        Last Campaign Performance
-              </p>
+                        Each month inventory comparison
+                      </p>
                     </CardBody>
                     <CardFooter chart>
                       <div className={classes.stats}>
-                        <AccessTime /> campaign sent 2 days ago
-              </div>
+                        <AccessTime /> Updated 2 days ago
+                      </div>
                     </CardFooter>
                   </Card>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="danger">
-                      <ChartistGraph
-                        className="ct-chart"
-                        data={completedTasksChart.data}
-                        type="Line"
-                        options={completedTasksChart.options}
-                        listener={completedTasksChart.animation}
-                      />
+                      <ProductsPopularChart  />
                     </CardHeader>
                     <CardBody>
-                      <h4 className={classes.cardTitle}>Completed Tasks</h4>
+                      <h4 className={classes.cardTitle}>Popular Products</h4>
                       <p className={classes.cardCategory}>
-                        Last Campaign Performance
-              </p>
+                        Pie chart comparison
+                      </p>
                     </CardBody>
                     <CardFooter chart>
                       <div className={classes.stats}>
-                        <AccessTime /> campaign sent 2 days ago
-              </div>
+                        <AccessTime /> Updated 2 days ago.
+                      </div>
                     </CardFooter>
                   </Card>
                 </GridItem>

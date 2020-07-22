@@ -1,7 +1,27 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
- 
-export default function MyChart() {
+
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+
+  divSettings: {
+   
+    width: '333.328px',
+    height: '158px',
+    color: 'white',
+    '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key
+      width: 'auto',
+      height: '158px',
+  }
+
+}
+  
+}));
+
+
+export default function ProductsViewedChart() {
+  const classes = useStyles();
   const data = {
     labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     datasets: [
@@ -32,21 +52,19 @@ export default function MyChart() {
   };
 
     return (
-      <div       
-      style={{
-        width: '333.328px',
-        height: '158px',
-        color: 'white',
-      }}>
+      <div
+        className={classes.divSettings}       
+      >
        
         <Line data={data}           
-          width={333.328}
-          height={158} 
+          height={158}
+          className={classes.divSettings}
           options={{
+            maintainAspectRatio: false,
             animation: {
-              duration: 1000,
-              easing:"easeInCubic"
-          },
+              duration: 1500,
+              easing:"easeInOutQuint"
+            },
                   legend:{
                     display: false,
                     labels:{
@@ -80,6 +98,7 @@ export default function MyChart() {
                           color:"#ffffff29"
                         },
                         ticks: {
+                            fontSize:13,
                             fontColor: '#ffffffb3',
                             fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
                         },
