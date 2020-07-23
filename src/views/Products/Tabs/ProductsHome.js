@@ -12,28 +12,34 @@ import Update from "@material-ui/icons/Update";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
+
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
+
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { bugs, website, server } from "variables/general.js";
+
 
 import { Fade, Slide, CircularProgress } from "@material-ui/core";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-import ProductsViewedChart from "../../../components/MyCharts/ProductsCharts/ProductsViewedChart";
+import ProductsViewedChart from "components/MyCharts/ProductsCharts/ProductsViewedChart";
 import { ShoppingCart } from "@material-ui/icons";
-import ProductsAddedChart from "../../../components/MyCharts/ProductsCharts/ProductsAddedChart";
-import ProductsPopularChart from "../../../components/MyCharts/ProductsCharts/ProductsPopularChart";
+import ProductsAddedChart from "components/MyCharts/ProductsCharts/ProductsAddedChart";
+import ProductsPopularChart from "components/MyCharts/ProductsCharts/ProductsPopularChart";
+
+import Avatar from '@material-ui/core/Avatar';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
+// import { AttachMoney, AddAPhoto } from "@material-ui/icons";
+import { IconButton } from "@material-ui/core";
+import MyCustomTable from "components/MyCustomTable/MyCustomTable";
+import testImage from "assets/img/faces/kendall.jpg";
+
+
+
 
 const useStyles = makeStyles(styles);
 
@@ -60,7 +66,7 @@ export default function ProductsHome(props) {
               <GridContainer>
                 <GridItem xs={12} sm={6} md={3}>
                   <Card>
-                    <CardHeader  color="warning" stats icon>
+                    <CardHeader color="warning" stats icon>
                       <CardIcon color="warning">
                         <ShoppingCart />
                       </CardIcon>
@@ -133,7 +139,7 @@ export default function ProductsHome(props) {
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="warning" >
-                      <ProductsViewedChart  />
+                      <ProductsViewedChart />
                     </CardHeader>
                     <CardBody>
                       <h4 className={classes.cardTitle}>Daily Products Viewed</h4>
@@ -156,8 +162,8 @@ export default function ProductsHome(props) {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
-                  <CardHeader color="success" >
-                      <ProductsAddedChart  />
+                    <CardHeader color="success" >
+                      <ProductsAddedChart />
                     </CardHeader>
                     <CardBody>
                       <h4 className={classes.cardTitle}>Products Added</h4>
@@ -175,7 +181,7 @@ export default function ProductsHome(props) {
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="danger">
-                      <ProductsPopularChart  />
+                      <ProductsPopularChart />
                     </CardHeader>
                     <CardBody>
                       <h4 className={classes.cardTitle}>Popular Products</h4>
@@ -192,68 +198,82 @@ export default function ProductsHome(props) {
                 </GridItem>
               </GridContainer>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomTabs
-                    title="Tasks:"
-                    headerColor="primary"
-                    tabs={[
-                      {
-                        tabName: "Bugs",
-                        tabIcon: BugReport,
-                        tabContent: (
-                          <Tasks
-                            checkedIndexes={[0, 3]}
-                            tasksIndexes={[0, 1, 2, 3]}
-                            tasks={bugs}
-                          />
-                        ),
-                      },
-                      {
-                        tabName: "Website",
-                        tabIcon: Code,
-                        tabContent: (
-                          <Tasks
-                            checkedIndexes={[0]}
-                            tasksIndexes={[0, 1]}
-                            tasks={website}
-                          />
-                        ),
-                      },
-                      {
-                        tabName: "Server",
-                        tabIcon: Cloud,
-                        tabContent: (
-                          <Tasks
-                            checkedIndexes={[1]}
-                            tasksIndexes={[0, 1, 2]}
-                            tasks={server}
-                          />
-                        ),
-                      },
-                    ]}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={6}>
+                <GridItem xs={12} sm={12} md={12}>
                   <Card>
-                    <CardHeader color="warning">
+                    <CardHeader color="primary">
                       <h4 className={classes.cardTitleWhite}>
-                        Employees Stats
-              </h4>
+                        Products
+                      </h4>
                       <p className={classes.cardCategoryWhite}>
-                        New employees on 15th September, 2016
-              </p>
+                        Following shows all Items
+                      </p>
                     </CardHeader>
                     <CardBody>
-                      <Table
-                        tableHeaderColor="warning"
-                        tableHead={["ID", "Name", "Salary", "Country"]}
-                        tableData={[
-                          ["1", "Dakota Rice", "$36,738", "Niger"],
-                          ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-                          ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                          ["4", "Philip Chaney", "$38,735", "Korea, South"],
+                      <MyCustomTable
+                        tableHeaderColor="primary"
+                        tableHead={[
+                          //field should match wih data object.
+                          { title: 'Product Name', field: 'p_name' },
+                          { title: 'Price', field: 'p_price' },
+                          { title: 'Quantity', field: 'p_quantity' },
+                          { title: 'Category', field: 'p_category' },
+                          { title: 'Manufacturer', field: 'p_manufacturer' },
+                          {
+                            title: 'Images',
+                            field: 'p_image',
+                            render: rowData =>
+                              <div>
+                                <AvatarGroup max={4}>
+                                  <IconButton className={classes.avartarIconButton}>
+                                    <Avatar
+                                      alt="Remy Sharp"
+                                      src={testImage}
+                                      style={{
+                                        width: "40px",
+                                        height: "40px",
+                                      }}
+                                    />
+                                  </IconButton>
+
+                                  <IconButton className={classes.avartarIconButton}>
+                                    <Avatar
+                                      alt="Remy Sharp"
+                                      src={testImage}
+                                      style={{
+                                        width: "40px",
+                                        height: "40px",
+                                      }}
+                                    />
+                                  </IconButton>
+                                  <IconButton className={classes.avartarIconButton}>
+                                    <Avatar
+                                      alt="Remy Sharp"
+                                      src={testImage}
+                                      style={{
+                                        width: "40px",
+                                        height: "40px",
+                                      }}
+                                    />
+                                  </IconButton>
+                                </AvatarGroup>
+                              </div>
+
+                          },
+
                         ]}
+                        tableData={[
+                          { p_name: 'T shirt', p_price: '$ 20', p_quantity: 22, p_category: "Shirts", p_manufacturer: "Khaadi" },
+                          { p_name: 'Pants', p_price: '$ 50', p_quantity: 52, p_category: "Pants", p_manufacturer: "Limelight" },
+                          { p_name: 'Watch', p_price: '$ 100', p_quantity: 82, p_category: "Accessories", p_manufacturer: "Rado" },
+                          { p_name: 'Kura', p_price: '$ 10', p_quantity: 10, p_category: "Shirts", p_manufacturer: "Levi" },
+                          { p_name: 'Tights', p_price: '$ 15', p_quantity: 1, p_category: "Pants", p_manufacturer: "Go" },
+                          { p_name: 'Shorts', p_price: '$ 70', p_quantity: 5, p_category: "Pants", p_manufacturer: "Lang" },
+                          
+
+                        ]}
+                      
                       />
+
                     </CardBody>
                   </Card>
                 </GridItem>

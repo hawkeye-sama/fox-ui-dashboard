@@ -76,6 +76,34 @@ const dashboardStyle = {
       fontWeight: "400",
       lineHeight: "1"
     }
+  },
+  cardCategoryWhite: {
+    color: "rgba(255,255,255,.62)",
+    margin: "0",
+    fontSize: "14px",
+    marginTop: "0",
+    marginBottom: "0"
+  },
+  cardTitleWhite: {
+    color: "#FFFFFF",
+    marginTop: "0px",
+    minHeight: "auto",
+    fontWeight: "300",
+    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+    marginBottom: "3px",
+    textDecoration: "none"
+  },
+  avartarIconButton: {
+    padding: "0",
+    borderColor: "#82818194",
+    transition: "box-shadow 0.2s, top 0.2s",
+    boxShadow: " 0 0 3px #515151",
+    top: 0,
+    '&:hover': {
+      boxShadow: "rgba(0, 0, 0, 0.52) 3px 4px 12px 0px, rgba(55, 71, 79, 0.62) 0px 7px 10px -5px",
+      top: -5,
+    },
+
   }
 };
 
