@@ -25,6 +25,8 @@ import {
   BubbleChartOutlined,
   LocationOnOutlined,
   NotificationsOutlined,
+  Store,
+  StoreOutlined
 } from "@material-ui/icons";
 // import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
@@ -58,6 +60,15 @@ const dashboardRoutes = [
     tab:2,
   },
   {
+    path: "/product/manufacturers",
+    name: "Manufacturers",
+    icon: Store,
+    secondaryIcon: StoreOutlined,
+    component: UserProfile,
+    layout: "/admin",
+    tab:3,
+  },
+  {
     path: "/user",
     name: "User Profile",
     rtlName: "ملف تعريفي للمستخدم",
@@ -65,7 +76,7 @@ const dashboardRoutes = [
     secondaryIcon: PersonOutlineOutlined,
     component: UserProfile,
     layout: "/admin",
-    tab:3,
+    tab:4,
   },
   {
     path: "/table",
@@ -74,7 +85,7 @@ const dashboardRoutes = [
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
-    tab:4,
+    tab:5,
   },
   {
     path: "/typography",
@@ -84,7 +95,7 @@ const dashboardRoutes = [
     secondaryIcon: LibraryBooksOutlined,
     component: Typography,
     layout: "/admin",
-    tab:5,
+    tab:6,
   },
   {
     path: "/icons",
@@ -94,7 +105,7 @@ const dashboardRoutes = [
     secondaryIcon: BubbleChartOutlined,
     component: Icons,
     layout: "/admin",
-    tab:6,
+    tab:7,
   },
   {
     path: "/maps",
@@ -104,7 +115,7 @@ const dashboardRoutes = [
     secondaryIcon: LocationOnOutlined,
     component: Maps,
     layout: "/admin",
-    tab:7,
+    tab:8,
   },
   {
     path: "/notifications",
@@ -114,7 +125,7 @@ const dashboardRoutes = [
     secondaryIcon: NotificationsOutlined,
     component: NotificationsPage,
     layout: "/admin",
-    tab:8,
+    tab:9,
   },
   // {
   //   path: "/rtl-page",

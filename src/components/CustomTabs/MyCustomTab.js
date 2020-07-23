@@ -15,6 +15,7 @@ import CardHeader from "components/Card/CardHeader.js";
 
 import styles from "assets/jss/material-dashboard-react/components/customTabsStyle.js";
 
+
 const useStyles = makeStyles(styles);
 
 export default function MyCustomTabs(props) {
@@ -37,8 +38,17 @@ export default function MyCustomTabs(props) {
     [classes.cardTitleRTL]: rtlActive
   });
   return (
-    <Card plain={plainTabs} style={{backgroundColor:"#eeeeee", boxShadow:"0 1px 4px 0 rgba(0, 0, 0, 0)"}}>
-      <CardHeader color={headerColor} plain={plainTabs} style={{background: "linear-gradient(60deg, #37474f, #465861)",boxShadow:"0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(55, 71, 79, 0.55)"}}>
+    <Card plain={plainTabs} style={{
+      backgroundColor:"#eeeeee", 
+      boxShadow:"0 1px 4px 0 rgba(0, 0, 0, 0)",
+
+    }}>
+      <CardHeader color={headerColor} plain={plainTabs} style={{
+          background: "#fff",
+          boxShadow:"0 1px 4px 0 rgba(0, 0, 0, 0.14)",
+          borderRadius:10,
+          padding:6,
+        }}>
         {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
         <Tabs
           value={activeTab}

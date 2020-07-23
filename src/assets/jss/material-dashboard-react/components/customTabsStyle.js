@@ -31,7 +31,7 @@ const customTabsStyle = {
     borderRadius: "3px",
     lineHeight: "24px",
     border: "0 !important",
-    color: whiteColor + " !important",
+    color: "#646464 ",
     marginLeft: "4px",
     "&:last-child": {
       marginLeft: "0px"
@@ -39,6 +39,7 @@ const customTabsStyle = {
   },
   tabSelected: {
     backgroundColor: "rgba(" + hexToRgb(whiteColor) + ", 0.2)",
+    color:"#fb8d01",
     transition: "0.2s background-color 0.1s"
   },
   tabWrapper: {
