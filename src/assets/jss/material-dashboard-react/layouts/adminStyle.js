@@ -24,7 +24,8 @@ const appStyle = (theme) => ({
   },
   content: {
     marginTop: "40px",
-    padding: "30px 15px",
+    padding: "30px 0px",
+    paddingRight: "70px",
     minHeight: "calc(100vh - 123px)",
   },
   container,

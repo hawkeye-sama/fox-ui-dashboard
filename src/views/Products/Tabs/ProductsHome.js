@@ -47,10 +47,14 @@ export default function ProductsHome(props) {
   const classes = useStyles();
   const [showContent, setShowContent] = React.useState(false)
   React.useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setShowContent(true);
+      
     }, 500)
-
+    return () => {
+      clearTimeout(timer)
+      setShowContent(false)
+    };
   }, [])
   return (
     <div>

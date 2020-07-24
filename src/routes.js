@@ -9,7 +9,6 @@ import Notifications from "@material-ui/icons/Notifications";
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import Products from "views/Products/Products.js";
-import TableList from "views/TableList/TableList.js";
 import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
@@ -40,6 +39,7 @@ const dashboardRoutes = [
     component: DashboardPage,
     layout: "/admin",
     tab:0,
+    myColor:"customBlue"
   },
   {
     path: "/products",
@@ -49,6 +49,7 @@ const dashboardRoutes = [
     component: Products,
     layout: "/admin",
     tab:1,
+    myColor:"customDeepOrange"
   },
   {
     path: "/product/category",
@@ -58,6 +59,7 @@ const dashboardRoutes = [
     component: UserProfile,
     layout: "/admin",
     tab:2,
+    myColor:"customPurple"
   },
   {
     path: "/product/manufacturers",
@@ -67,6 +69,7 @@ const dashboardRoutes = [
     component: UserProfile,
     layout: "/admin",
     tab:3,
+    myColor:"customPink"
   },
   {
     path: "/user",
@@ -77,16 +80,9 @@ const dashboardRoutes = [
     component: UserProfile,
     layout: "/admin",
     tab:4,
+    myColor:"customGreen"
   },
-  {
-    path: "/table",
-    name: "Table List",
-    rtlName: "قائمة الجدول",
-    icon: "content_paste",
-    component: TableList,
-    layout: "/admin",
-    tab:5,
-  },
+
   {
     path: "/typography",
     name: "Typography",
@@ -96,6 +92,7 @@ const dashboardRoutes = [
     component: Typography,
     layout: "/admin",
     tab:6,
+    myColor:"customOrange"
   },
   {
     path: "/icons",

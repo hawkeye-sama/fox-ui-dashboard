@@ -13,7 +13,7 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 
-import styles from "assets/jss/material-dashboard-react/components/customTabsStyle.js";
+import styles from "assets/jss/material-dashboard-react/components/CURDTabsStyle.js";
 
 
 const useStyles = makeStyles(styles);
@@ -53,9 +53,10 @@ export default function MyCustomTabs(props) {
         <Tabs
           value={activeTab}
           onChange={handleChange}
+          
           classes={{
             root: classes.tabsRoot,
-            indicator: classes.displayNone,
+            indicator: classes.indicatorStyle,
             scrollButtons: classes.displayNone
           }}
           variant="scrollable"

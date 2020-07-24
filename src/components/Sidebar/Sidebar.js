@@ -15,7 +15,7 @@ import Icon from "@material-ui/core/Icon";
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
 import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
 import { useDispatch } from "react-redux";
-import styles from "assets/jss/material-dashboard-react/components/sidebarStyle.js";
+import styles from "assets/jss/material-dashboard-react/components/customSideBarStyle.js";
 import { changePageAnimation } from "../../redux/actions";
 
 const useStyles = makeStyles(styles);
@@ -52,15 +52,15 @@ export default function Sidebar(props) {
         if (prop.path === "/upgrade-to-pro") {
           activePro = classes.activePro + " ";
           listItemClasses = classNames({
-            [" " + classes[color]]: true
+            [" " + classes[[color]]]: true
           });
         } else {
           listItemClasses = classNames({
-            [" " + classes[color]]: activeRoute(prop.layout + prop.path)
+            [" " + classes[prop.myColor+"Selected"]]: activeRoute(prop.layout + prop.path)
           });
         }
         const whiteFontClasses = classNames({
-          [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path)
+          [" " + classes[prop.myColor]]: activeRoute(prop.layout + prop.path)
         });
         return (
           <NavLink
@@ -71,6 +71,9 @@ export default function Sidebar(props) {
             onClick={(e)=>{handlePageClick(prop.tab)}}
           >
             <ListItem button className={classes.itemLink + listItemClasses}>
+              <div style={{marginLeft:15}}>
+
+              
               {typeof prop.icon === "string" ? (
                 <Icon
                   className={classNames(classes.itemIcon, whiteFontClasses, {
@@ -84,13 +87,14 @@ export default function Sidebar(props) {
                     {(activeRoute(prop.layout + prop.path) === true) ?
 
                       <prop.icon
-                        className={classNames(classes.itemIcon, whiteFontClasses, {
+                        className={classNames(classes.itemIcon, whiteFontClasses,  {
                           [classes.itemIconRTL]: props.rtlActive
                         })}
+                        style={{color: classes[prop.myColor]}}
                       />
                       :
                       <prop.secondaryIcon
-                        className={classNames(classes.itemIcon, whiteFontClasses, {
+                        className={classNames(classes.itemIcon,classes[prop.myColor], whiteFontClasses, {
                           [classes.itemIconRTL]: props.rtlActive
                         })}
                       />
@@ -106,6 +110,7 @@ export default function Sidebar(props) {
                 })}
                 disableTypography={true}
               />
+              </div>
             </ListItem>
           </NavLink>
         );
@@ -154,7 +159,7 @@ export default function Sidebar(props) {
       </Hidden>
       <Hidden smDown implementation="css">
         <Drawer
-          anchor={props.rtlActive ? "right" : "left"}
+          anchor={props.rtlActive ? "left" : "right"}
           variant="permanent"
           open
           classes={{
@@ -174,7 +179,7 @@ export default function Sidebar(props) {
 Sidebar.propTypes = {
   rtlActive: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
-  bgColor: PropTypes.oneOf(["purple", "blue", "green", "orange", "red"]),
+  bgColor: PropTypes.oneOf(["purple", "blue", "green", "orange", "red",'grey']),
   logo: PropTypes.string,
   logoText: PropTypes.string,
   routes: PropTypes.arrayOf(PropTypes.object),
