@@ -9,6 +9,8 @@ import Notifications from "@material-ui/icons/Notifications";
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import Products from "views/Products/Products.js";
+import Categories from "views/Categories/Categories.js";
+
 import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
@@ -56,7 +58,7 @@ const dashboardRoutes = [
     name: "Categories",
     icon: CategoryIcon,
     secondaryIcon: CategoryOutlined,
-    component: UserProfile,
+    component: Categories,
     layout: "/admin",
     tab:2,
     myColor:"customPurple"
@@ -103,6 +105,7 @@ const dashboardRoutes = [
     component: Icons,
     layout: "/admin",
     tab:7,
+    myColor:"customRed"
   },
   {
     path: "/maps",

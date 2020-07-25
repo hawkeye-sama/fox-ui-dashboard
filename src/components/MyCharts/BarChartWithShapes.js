@@ -1,6 +1,6 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
-
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,15 +20,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ProductsPopularChart() {
+export default function BarChartWithShapes(props) {
     const classes = useStyles();
+    const { labels , titles , chartData} = props;
     const data = {
-        labels: ['Jan', 'Feb', 'Mar',],
+        labels: labels,
         datasets: [
             {
                 fill: false,
                 showLine: false,
-                label: 'Accessories',
+                label: titles[0],
                 type: 'line',
                 lineTension: 0.1,
                 borderWidth: 5,
@@ -47,12 +48,12 @@ export default function ProductsPopularChart() {
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [65, 59, 80, ],
+                data: chartData[1],
             },
             {
                 fill: false,
                 showLine: false,
-                label: 'Shirts',
+                label: titles[1],
                 pointStyle: 'triangle',
                 lineTension: 0.1,
                 borderWidth: 5,
@@ -70,7 +71,7 @@ export default function ProductsPopularChart() {
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [20, 100, 56,],
+                data: chartData[0],
             },
 
         ]
@@ -142,3 +143,13 @@ export default function ProductsPopularChart() {
         </div>
     );
 }
+
+
+
+BarChartWithShapes.propTypes = {
+    labels:PropTypes.array,
+    title:PropTypes.array,
+    chartData:PropTypes.array,
+    
+  };
+  

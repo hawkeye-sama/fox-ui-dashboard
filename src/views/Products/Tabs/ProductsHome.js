@@ -26,10 +26,10 @@ import CardFooter from "components/Card/CardFooter.js";
 
 import { Fade, Slide, CircularProgress } from "@material-ui/core";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-import ProductsViewedChart from "components/MyCharts/ProductsCharts/ProductsViewedChart";
+import LineChartWithFill from "components/MyCharts/LineChartWithFill.js";
 import { ShoppingCart } from "@material-ui/icons";
-import ProductsAddedChart from "components/MyCharts/ProductsCharts/ProductsAddedChart";
-import ProductsPopularChart from "components/MyCharts/ProductsCharts/ProductsPopularChart";
+// import ProductsAddedChart from "components/MyCharts/ProductsAddedChart.js";
+// import ProductsPopularChart from "components/MyCharts/ProductsPopularChart.js";
 
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
@@ -37,6 +37,8 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import { IconButton } from "@material-ui/core";
 import MyCustomTable from "components/MyCustomTable/MyCustomTable";
 import testImage from "assets/img/faces/kendall.jpg";
+import BarChart from "../../../components/MyCharts/BarChart";
+import BarChartWithShapes from "../../../components/MyCharts/BarChartWithShapes";
 
 
 
@@ -143,7 +145,11 @@ export default function ProductsHome(props) {
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="warning" >
-                      <ProductsViewedChart />
+                      <LineChartWithFill 
+                        chartData={[12, 17, 7, 17, 23, 18, 38]}
+                        labels= {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}
+                        title="Products Viewed"
+                      />
                     </CardHeader>
                     <CardBody>
                       <h4 className={classes.cardTitle}>Daily Products Viewed</h4>
@@ -167,7 +173,12 @@ export default function ProductsHome(props) {
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="success" >
-                      <ProductsAddedChart />
+                      {/* <ProductsAddedChart /> */}
+                      <BarChart 
+                        labels= {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec']}
+                        label= 'Added Products'
+                        chartData= {[65, 59, 80, 81, 56, 55, 40, 100, 55, 20, 75, 30]}
+                      />
                     </CardHeader>
                     <CardBody>
                       <h4 className={classes.cardTitle}>Products Added</h4>
@@ -185,12 +196,17 @@ export default function ProductsHome(props) {
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="danger">
-                      <ProductsPopularChart />
+                      {/* <ProductsPopularChart /> */}
+                      <BarChartWithShapes 
+                        labels={['Jan', 'Feb', 'Mar']}
+                        titles={['Full T shirt','Rado watch']}
+                        chartData = {[[20, 100, 56],[65, 59, 80]]}
+                      />
                     </CardHeader>
                     <CardBody>
                       <h4 className={classes.cardTitle}>Popular Products</h4>
                       <p className={classes.cardCategory}>
-                        Pie chart comparison
+                        Products comparison
                       </p>
                     </CardBody>
                     <CardFooter chart>

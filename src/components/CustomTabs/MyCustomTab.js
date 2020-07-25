@@ -32,7 +32,7 @@ export default function MyCustomTabs(props) {
     
   };
   const classes = useStyles();
-  const { headerColor, plainTabs, tabs, title, rtlActive } = props;
+  const { headerColor,customColor, plainTabs, tabs, title, rtlActive } = props;
   const cardTitle = classNames({
     [classes.cardTitle]: true,
     [classes.cardTitleRTL]: rtlActive
@@ -73,7 +73,7 @@ export default function MyCustomTabs(props) {
               <Tab
                 classes={{
                   root: classes.tabRootButton,
-                  selected: classes.tabSelected,
+                  selected: classes.tabSelected+" "+classes[customColor],
                   wrapper: classes.tabWrapper
                 }}
                 key={key}
@@ -104,6 +104,15 @@ MyCustomTabs.propTypes = {
     "info",
     "primary",
     "rose"
+  ]),
+  customColor: PropTypes.oneOf([
+    "customBlue",
+    "customOrange",
+    "customPurple",
+    "customPink",
+    "customGreen",
+    "customDeepOrange",
+    "customRed",
   ]),
   title: PropTypes.string,
   tabs: PropTypes.arrayOf(

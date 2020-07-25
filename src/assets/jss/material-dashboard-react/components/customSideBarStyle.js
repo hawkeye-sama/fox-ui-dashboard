@@ -336,6 +336,9 @@ import {
     customDeepOrange:{
       color:"#ff7043"
     },
+    customRed:{
+      color:"#ef5350"
+    },
     customBlueSelected:{
 
       background: "linear-gradient(90deg, rgb(0 188 212) 1%, rgba(59,0,255,0) 2%)",
@@ -355,7 +358,11 @@ import {
     },
     customDeepOrangeSelected:{
       background: "linear-gradient(90deg, rgb(255 112 67) 1%, rgba(59,0,255,0) 2%)",
+    },
+    customRedSelected:{
+      background: "linear-gradient(90deg, rgb(239 83 80) 1%, rgba(59,0,255,0) 2%);"
     }
+    
   });
   
   export default sidebarStyle;

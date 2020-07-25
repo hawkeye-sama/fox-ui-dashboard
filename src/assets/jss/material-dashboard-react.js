@@ -92,6 +92,14 @@ const grayColor = [
 ];
 const blackColor = "#000";
 const whiteColor = "#FFF";
+const customBlue = "#00bcd4";
+const customOrange = "#fe9d18";
+const customPurple = "#7e57c2";
+const customPink = "#ec407a";
+const customGreen = "#66bb6a"
+const customDeepOrange = "#ff7043"
+const customRed = "#ef5350"
+
 
 const boxShadow = {
   boxShadow:
@@ -298,5 +306,12 @@ export {
   title,
   cardTitle,
   cardSubtitle,
-  cardLink
+  cardLink,
+  customBlue,
+  customOrange,
+  customPurple,
+  customPink,
+  customGreen,
+  customDeepOrange,
+  customRed,
 };

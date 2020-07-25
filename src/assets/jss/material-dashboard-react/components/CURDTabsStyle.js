@@ -1,4 +1,14 @@
-import { hexToRgb, whiteColor } from "assets/jss/material-dashboard-react.js";
+import { 
+  hexToRgb, 
+  whiteColor,
+  customBlue,
+  customOrange,
+  customPurple,
+  customPink,
+  customGreen,
+  customDeepOrange,
+  customRed, 
+} from "assets/jss/material-dashboard-react.js";
 
 const customTabsStyle = {
   cardTitle: {
@@ -45,9 +55,32 @@ const customTabsStyle = {
   },
   tabSelected: {
     backgroundColor: "rgba(" + hexToRgb(whiteColor) + ", 0.2)",
-    color:"#fb8d01",
+   
     transition: "0.2s background-color 0.1s"
   },
+  customBlue:{
+    color:customBlue,
+  },
+  customOrange:{
+    color:customOrange,
+  },
+  customPurple:{
+    color:customPurple,
+  },
+  customPink:{
+    color:customPink,
+  },
+  customGreen:{
+    color:customGreen,
+  },
+  customDeepOrange:{
+    color:customDeepOrange,
+  },
+  customRed:{
+    color:customRed,
+  },
+  
+  
   tabWrapper: {
     display: "inline-block",
     minHeight: "unset !important",

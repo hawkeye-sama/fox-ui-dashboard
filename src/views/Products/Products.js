@@ -37,7 +37,7 @@ export default function Products(props) {
                             {/* Tabs */}
                             <MyTabs
                                 myClick={(activeTab, productTabsAnimation) => { setActiveTab(activeTab); setProductTabsAnimation(productTabsAnimation) }}
-                                headerColor="warning"
+                                customColor={"customDeepOrange"}
                                 tabs={[
                                     {
                                         tabName: "Home",
