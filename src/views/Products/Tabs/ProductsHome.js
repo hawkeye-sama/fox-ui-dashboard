@@ -149,6 +149,11 @@ export default function ProductsHome(props) {
                         chartData={[12, 17, 7, 17, 23, 18, 38]}
                         labels= {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}
                         title="Products Viewed"
+                        options={{
+                          minVal:0,
+                          maxVal:40,
+                          stepSize:10,
+                        }}
                       />
                     </CardHeader>
                     <CardBody>

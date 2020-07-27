@@ -22,19 +22,15 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
 
-import { Fade, Slide, CircularProgress } from "@material-ui/core";
+import { Fade, Slide, CircularProgress,Fab,Backdrop, Grow } from "@material-ui/core";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import LineChartWithFill from "components/MyCharts/LineChartWithFill.js";
-import { Category,Assessment, LibraryAddCheck } from "@material-ui/icons";
+import { Category,Assessment, LibraryAddCheck, Add } from "@material-ui/icons";
 import BarChart from "../../../components/MyCharts/BarChart";
 import BarChartWithShapes from "../../../components/MyCharts/BarChartWithShapes";
 
-import Avatar from '@material-ui/core/Avatar';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
 // import { AttachMoney, AddAPhoto } from "@material-ui/icons";
-import { IconButton } from "@material-ui/core";
 import MyCustomTable from "components/MyCustomTable/MyCustomTable";
-import testImage from "assets/img/faces/kendall.jpg";
 
 
 
@@ -44,6 +40,7 @@ const useStyles = makeStyles(styles);
 export default function CategoriesHome(props) {
   const classes = useStyles();
   const [showContent, setShowContent] = React.useState(false)
+  const [showBackdrop,setShowBackdrop] = React.useState(false); 
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(true);
@@ -61,9 +58,9 @@ export default function CategoriesHome(props) {
           <CircularProgress style={{ color: "#fea11d" }} />
         </div>
       </Fade>
-      <Fade in={showContent} mountOnEnter unmountOnExit timeout={1200}>
+      <Fade in={showContent} mountOnEnter unmountOnExit timeout={1000}>
         <div>
-          <Slide in={true} direction={props.direction} timeout={400}>
+          <Slide in={true} direction={props.direction} timeout={300}>
             <div>
               <GridContainer>
                 <GridItem xs={12} sm={6} md={3}>
@@ -155,7 +152,7 @@ export default function CategoriesHome(props) {
                         }}
                     >
                       <BarChart 
-                        labels= {["Watch", "Jewellery", "Shirts", "Shoes", "Shirts"]}
+                        labels= {["Watch", "Jewellery", "Shirts", "Shoes", "Bag"]}
                         label= 'Daily Popular Categories'
                         chartData= {[11, 6, 8, 40, 35]}
                         options = {
@@ -184,9 +181,9 @@ export default function CategoriesHome(props) {
                   <Card chart>
                     <CardHeader color="info" >
                     <LineChartWithFill 
-                        chartData={[1, 10, 35, 15, 85,56,77,65,40]}
-                        labels= {["Jan", "Feb", "Mar", "Jun", "Jul","Aug","Sep","Nov","Dev"]}
-                        title="Daily Popular Categories"
+                        chartData={[1, 10, 35, 15, 55 ,20,44,33,85,56,77,65,100]}
+                        labels= {["Jan", "Feb", "Mar",'Apr','May', "Jun", "Jul","Aug","Sep",'Oct',"Nov","Dec"]}
+                        title="Recommendations"
                         options={
                             {
                                 minVal:0,
@@ -229,14 +226,14 @@ export default function CategoriesHome(props) {
                       
                       <BarChartWithShapes 
                         labels={['Jan', 'Feb', 'Mar']}
-                        titles={['Full T shirt','Rado watch']}
+                        titles={['Shoes','Bag']}
                         chartData = {[[20, 100, 56],[65, 59, 80]]}
                       />
                     </CardHeader>
                     <CardBody>
-                      <h4 className={classes.cardTitle}>Popular Products</h4>
+                      <h4 className={classes.cardTitle}>Monthly Popular</h4>
                       <p className={classes.cardCategory}>
-                        Products comparison
+                        Categories comparison
                       </p>
                     </CardBody>
                     <CardFooter chart>
@@ -250,82 +247,59 @@ export default function CategoriesHome(props) {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
                   <Card>
-                    <CardHeader color="primary">
+                    <CardHeader color="success">
                       <h4 className={classes.cardTitleWhite}>
-                        Products
+                        Categories
                       </h4>
                       <p className={classes.cardCategoryWhite}>
-                        Following shows all Items
+                        Following shows all categories
                       </p>
                     </CardHeader>
                     <CardBody>
                       <MyCustomTable
-                        tableHeaderColor="primary"
+                        tableHeaderColor="success"
                         tableHead={[
                           //field should match wih data object.
-                          { title: 'Product Name', field: 'p_name' },
-                          { title: 'Price', field: 'p_price' },
-                          { title: 'Quantity', field: 'p_quantity' },
-                          { title: 'Category', field: 'p_category' },
-                          { title: 'Manufacturer', field: 'p_manufacturer' },
-                          {
-                            title: 'Images',
-                            field: 'p_image',
-                            render: rowData =>
-                              <div>
-                                <AvatarGroup max={4}>
-                                  <IconButton className={classes.avartarIconButton}>
-                                    <Avatar
-                                      alt="Remy Sharp"
-                                      src={testImage}
-                                      style={{
-                                        width: "40px",
-                                        height: "40px",
-                                      }}
-                                    />
-                                  </IconButton>
-
-                                  <IconButton className={classes.avartarIconButton}>
-                                    <Avatar
-                                      alt="Remy Sharp"
-                                      src={testImage}
-                                      style={{
-                                        width: "40px",
-                                        height: "40px",
-                                      }}
-                                    />
-                                  </IconButton>
-                                  <IconButton className={classes.avartarIconButton}>
-                                    <Avatar
-                                      alt="Remy Sharp"
-                                      src={testImage}
-                                      style={{
-                                        width: "40px",
-                                        height: "40px",
-                                      }}
-                                    />
-                                  </IconButton>
-                                </AvatarGroup>
-                              </div>
-
-                          },
+                          { title: 'Category id', field: 'c_id' },
+                          { title: 'Category Name', field: 'c_name' },
 
                         ]}
                         tableData={[
-                          { p_name: 'T shirt', p_price: '$ 20', p_quantity: 22, p_category: "Shirts", p_manufacturer: "Khaadi" },
-                          { p_name: 'Pants', p_price: '$ 50', p_quantity: 52, p_category: "Pants", p_manufacturer: "Limelight" },
-                          { p_name: 'Watch', p_price: '$ 100', p_quantity: 82, p_category: "Accessories", p_manufacturer: "Rado" },
-                          { p_name: 'Kura', p_price: '$ 10', p_quantity: 10, p_category: "Shirts", p_manufacturer: "Levi" },
-                          { p_name: 'Tights', p_price: '$ 15', p_quantity: 1, p_category: "Pants", p_manufacturer: "Go" },
-                          { p_name: 'Shorts', p_price: '$ 70', p_quantity: 5, p_category: "Pants", p_manufacturer: "Lang" },
-                          
-
+                          { c_id: '1', c_name: 'Shirts'},
+                          { c_id: '2', c_name: 'Shoes'},
+                          { c_id: '3', c_name: 'Accessories'},
                         ]}
                       
                       />
 
                     </CardBody>
                   </Card>
+                </GridItem>
+              </GridContainer>
+              <Backdrop  open={showBackdrop}
+                style={{
+                  zIndex : 2000,
+                }}
+              />
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={12}>
+                    <Fab color="primary" size={"large"} aria-label="add" variant="extended" 
+                      onMouseEnter={()=>{setShowBackdrop(true)}}
+                      onMouseLeave={()=>setShowBackdrop(false)}
+                      className={classes.FABStyle}
+                    >
+                      <Add />
+                      {showBackdrop? (
+                        <div>
+                          <Grow in={showBackdrop} timeout={600}>
+                            <div>
+                              Add a category
+                            </div>
+                          </Grow>
+                        </div>
+                      ) : <div>
+                        </div>}
+                    </Fab>
                 </GridItem>
               </GridContainer>
 

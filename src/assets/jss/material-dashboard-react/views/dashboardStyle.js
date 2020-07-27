@@ -88,7 +88,27 @@ const dashboardStyle = {
       top: -5,
     },
 
-  }
+  },
+  FABStyle:{
+    margin: 0,
+    top: 'auto',
+    right: 50,
+    bottom: 50,
+    left: 'auto',
+    position: 'fixed',
+    transition: "all 0.2s",
+    width:24,
+    height:48,
+    zIndex:5000,
+    background: "linear-gradient(60deg, #ffa726, #fb8c00)",
+    boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(255, 152, 0,.4)",
+    '&:hover': {
+      boxShadow: "0 4px 20px 0 rgb(255 152 0 / 73%), 0 7px 10px -5px rgb(255 152 0 / 40%)",
+      width: 200,
+    
+   
+    },
+}
 };
 
 export default dashboardStyle;
