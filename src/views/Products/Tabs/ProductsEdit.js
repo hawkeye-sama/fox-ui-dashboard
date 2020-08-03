@@ -15,8 +15,11 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 // import { AttachMoney, AddAPhoto } from "@material-ui/icons";
 import { Grow, IconButton } from "@material-ui/core";
 import MyCustomTable from "../../../components/MyCustomTable/MyCustomTable";
-import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog";
+import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog.js";
 import testImage from "assets/img/faces/kendall.jpg";
+import ModifyContent from 'views/Products/Tabs/DialogTabContent/ModifyContent';
+import ModifyImage from 'views/Products/Tabs/DialogTabContent/ModifyImage';
+import { InsertPhoto, InsertPhotoOutlined, EditAttributes, EditAttributesOutlined } from '@material-ui/icons'
 
 
 const styles = {
@@ -175,11 +178,27 @@ export default function ProductsEdit(props) {
                                             />
                                             <MyCustomDialog
                                                 tabSelector={tabSelector}
-                                                
+                                                headerColor={'fox'}
                                                 openDialog={showDialogBox}
                                                 onCloseDialog={handleClose}
                                                 title="Modify Product"
-                                            />
+                                                tabs={[
+                                                    {
+                                                        MainIcon: EditAttributes ,
+                                                        SecondaryIcon: EditAttributesOutlined,
+                                                        title:"Modify",
+                                                        tabBody:ModifyContent
+                                                    },
+                                                    {
+                                                        MainIcon: InsertPhoto ,
+                                                        SecondaryIcon: InsertPhotoOutlined,
+                                                        title:"Image",
+                                                        tabBody:ModifyImage
+                                                    },
+                                                ]}
+                                            >
+                                             
+                                            </MyCustomDialog>
 
 
                                         </div>

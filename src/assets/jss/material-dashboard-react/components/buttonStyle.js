@@ -258,6 +258,25 @@ const buttonStyle = {
         "0 0 0 0"
     },
   },
+  fox:{
+    backgroundColor:"#ff7043",
+    boxShadow:"0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(255 112 67 / 0.1)",
+    "&:hover,&:focus": {
+      backgroundColor:"#ff7043",
+      boxShadow:
+        "0 14px 26px -12px rgba(" +
+        hexToRgb(dangerColor[0]) +
+        ", 0.42), 0 4px 23px 0px rgba(" +
+        hexToRgb(blackColor) +
+        ", 0.12), 0 8px 10px -5px rgba(" +
+        hexToRgb(dangerColor[0]) +
+        ", 0.2)"
+    },
+    "&:active": {
+      boxShadow:
+        "0 0 0 0"
+    },
+  },
   simple: {
     "&,&:focus,&:hover": {
       color: whiteColor,

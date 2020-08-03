@@ -285,7 +285,7 @@ export default function CategoriesHome(props) {
                 <GridItem xs={12} sm={12} md={12}>
                     <Fab color="primary" size={"large"} aria-label="add" variant="extended" 
                       onMouseEnter={()=>{setShowBackdrop(true)}}
-                      onMouseLeave={()=>setShowBackdrop(false)}
+                      onMouseLeave={()=>{setShowBackdrop(false)}}
                       className={classes.FABStyle}
                     >
                       <Add />
@@ -298,7 +298,8 @@ export default function CategoriesHome(props) {
                           </Grow>
                         </div>
                       ) : <div>
-                        </div>}
+                        </div>
+                      }
                     </Fab>
                 </GridItem>
               </GridContainer>

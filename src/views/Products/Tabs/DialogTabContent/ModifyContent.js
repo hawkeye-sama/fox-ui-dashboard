@@ -149,10 +149,10 @@ export default function ModifyContent(props) {
                                 <GridContainer>
                                     <GridItem xs={12} sm={12} md={12}>
                                         <div style={{textAlignLast:"end",marginTop:10}}>
-                                            <Button onClick={onClose} size="large" style={{ color: "#ffa624", marginRight: 15 }}>
+                                            <Button onClick={onClose} size="large" style={{ color: "#ff7043", marginRight: 15 }}>
                                                 Cancel
                                             </Button>
-                                            <CustomButton onClick={onClose} color="warning">
+                                            <CustomButton onClick={onClose} color="fox" >
                                                 Save
                                             </CustomButton>
                                         </div>

@@ -100,15 +100,17 @@ const dashboardStyle = {
     width:24,
     height:48,
     zIndex:5000,
-    background: "linear-gradient(60deg, #ffa726, #fb8c00)",
-    boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(255, 152, 0,.4)",
+    background: "linear-gradient(60deg, rgb(255, 112, 67), rgb(255, 112, 66))",
+    boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px  rgb(255, 112, 66,0.4)",
     '&:hover': {
-      boxShadow: "0 4px 20px 0 rgb(255 152 0 / 73%), 0 7px 10px -5px rgb(255 152 0 / 40%)",
+      boxShadow: "0 4px 20px 0 rgb(255 112 66 / 73%), 0 7px 10px -5px rgb(255 112 66 / 40%)",
       width: 200,
-    
-   
     },
-}
+    "&:active": {
+      boxShadow: "0 4px 20px 0 rgba(0, 0, 0,0), 0 7px 10px -5px  rgb(255, 112, 66,0)",
+    },
+    
+  }
 };
 
 export default dashboardStyle;

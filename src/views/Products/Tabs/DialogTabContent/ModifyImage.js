@@ -42,7 +42,7 @@ export default function ModifyImage(props) {
                                 <GridContainer>
                                     <GridItem xs={12} sm={12} md={12}>
                                         <div style={{ textAlignLast: "end" }}>
-                                            <Button onClick={onClose} size="large" style={{ color: "#ffa624", marginRight: 15 }}>
+                                            <Button onClick={onClose} size="large" style={{ color: "#ff7043", marginRight: 15 }}>
                                                 Exit
                                             </Button>
                                           
@@ -54,7 +54,7 @@ export default function ModifyImage(props) {
                                                     type="file"
                                                 />
                                                 <label htmlFor="contained">
-                                                    <CustomButton component="span" color="warning">
+                                                    <CustomButton component="span" color="fox">
                                                         <AddAPhoto />
                                                         <span style={{marginTop:1}}>Upload</span>
                                                     </CustomButton>                                
