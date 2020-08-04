@@ -96,21 +96,32 @@ const dashboardStyle = {
     bottom: 50,
     left: 'auto',
     position: 'fixed',
-    transition: "all 0.2s",
+    transition: "height 0.2s 0.1s ease, width 0.2s ease, box-shadow 0.2s, opacity 0.4s ease-in-out",
     width:24,
     height:48,
     zIndex:5000,
+    opacity: 1,
+   
     background: "linear-gradient(60deg, rgb(255, 112, 67), rgb(255, 112, 66))",
     boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px  rgb(255, 112, 66,0.4)",
     '&:hover': {
       boxShadow: "0 4px 20px 0 rgb(255 112 66 / 73%), 0 7px 10px -5px rgb(255 112 66 / 40%)",
       width: 200,
+      ['@media screen and (min-width: 0px) and (max-width: 400px)']: { // eslint-disable-line no-useless-computed-key
+        width:24,
+        
+      },
     },
+
     "&:active": {
       boxShadow: "0 4px 20px 0 rgba(0, 0, 0,0), 0 7px 10px -5px  rgb(255, 112, 66,0)",
     },
-    
-  }
+  },
+  FABStyleDialogSelected:{
+    opacity: 0,
+  },
+
+  
 };
 
 export default dashboardStyle;

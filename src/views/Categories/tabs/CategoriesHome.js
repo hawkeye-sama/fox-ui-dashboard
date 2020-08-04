@@ -22,16 +22,18 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
 
-import { Fade, Slide, CircularProgress,Fab,Backdrop, Grow } from "@material-ui/core";
+import { Fade, Slide, CircularProgress, Fab, Backdrop, Grow } from "@material-ui/core";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import LineChartWithFill from "components/MyCharts/LineChartWithFill.js";
-import { Category,Assessment, LibraryAddCheck, Add } from "@material-ui/icons";
+import { Category, Assessment, LibraryAddCheck, Add } from "@material-ui/icons";
 import BarChart from "../../../components/MyCharts/BarChart";
 import BarChartWithShapes from "../../../components/MyCharts/BarChartWithShapes";
-
+import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog.js";
 // import { AttachMoney, AddAPhoto } from "@material-ui/icons";
 import MyCustomTable from "components/MyCustomTable/MyCustomTable";
-
+import { EditOutlined, Edit } from '@material-ui/icons'
+import ModifyCat from "./ModifyCat";
+import classNames from "classnames";
 
 
 
@@ -40,17 +42,33 @@ const useStyles = makeStyles(styles);
 export default function CategoriesHome(props) {
   const classes = useStyles();
   const [showContent, setShowContent] = React.useState(false)
-  const [showBackdrop,setShowBackdrop] = React.useState(false); 
+  const [showBackdrop, setShowBackdrop] = React.useState(false);
+ 
+  const [showDialogBox, setShowDialogBox] = React.useState(false);
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(true);
-      
+
     }, 500)
     return () => {
       clearTimeout(timer)
       setShowContent(false)
     };
-  }, [])
+  }, []);
+
+  function handleClose() {
+        
+    setShowDialogBox(false)
+  
+  }
+
+  const cardTitle = classNames({
+    [classes.FABStyleDialogSelected]: (showDialogBox),
+    [classes.FABStyle]: true,
+
+  });
+
+
   return (
     <div>
       <Fade in={!showContent} timeout={0} mountOnEnter unmountOnExit>
@@ -65,11 +83,11 @@ export default function CategoriesHome(props) {
               <GridContainer>
                 <GridItem xs={12} sm={6} md={3}>
                   <Card>
-                    <CardHeader color="warning"  stats icon >
-                      <CardIcon color="warning"  style={{
-                          background:"linear-gradient(60deg, #7e57c2, #5e35b1)",
-                          boxShadow:" 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(96 55 178 / 0.4)"
-                          }}>
+                    <CardHeader color="warning" stats icon >
+                      <CardIcon color="warning" style={{
+                        background: "linear-gradient(60deg, #7e57c2, #5e35b1)",
+                        boxShadow: " 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(96 55 178 / 0.4)"
+                      }}>
                         <Category />
                       </CardIcon>
                       <p className={classes.cardCategory}>Total Categories</p>
@@ -90,8 +108,8 @@ export default function CategoriesHome(props) {
                     <CardHeader color="success" stats icon>
                       <CardIcon color="success"
                         style={{
-                            background: "linear-gradient(60deg, #ff7043, #f4511e)",
-                            boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(244 81 30 / 0.4)"
+                          background: "linear-gradient(60deg, #ff7043, #f4511e)",
+                          boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(244 81 30 / 0.4)"
                         }}
                       >
                         <Icon>star</Icon>
@@ -146,21 +164,21 @@ export default function CategoriesHome(props) {
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="warning"
-                        style={{
-                            background:"linear-gradient(60deg, #7e57c2, #5e35b1)",
-                            boxShadow:" 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(96 55 178 / 0.4)"
-                        }}
+                      style={{
+                        background: "linear-gradient(60deg, #7e57c2, #5e35b1)",
+                        boxShadow: " 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(96 55 178 / 0.4)"
+                      }}
                     >
-                      <BarChart 
-                        labels= {["Watch", "Jewellery", "Shirts", "Shoes", "Bag"]}
-                        label= 'Daily Popular Categories'
-                        chartData= {[11, 6, 8, 40, 35]}
-                        options = {
-                            {
-                                minVal:0,
-                                maxVal:40,
-                                stepSize:10,
-                            }
+                      <BarChart
+                        labels={["Watch", "Jewellery", "Shirts", "Shoes", "Bag"]}
+                        label='Daily Popular Categories'
+                        chartData={[11, 6, 8, 40, 35]}
+                        options={
+                          {
+                            minVal: 0,
+                            maxVal: 40,
+                            stepSize: 10,
+                          }
                         }
                       />
                     </CardHeader>
@@ -180,16 +198,16 @@ export default function CategoriesHome(props) {
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="info" >
-                    <LineChartWithFill 
-                        chartData={[1, 10, 35, 15, 55 ,20,44,33,85,56,77,65,100]}
-                        labels= {["Jan", "Feb", "Mar",'Apr','May', "Jun", "Jul","Aug","Sep",'Oct',"Nov","Dec"]}
+                      <LineChartWithFill
+                        chartData={[1, 10, 35, 15, 55, 20, 44, 33, 85, 56, 77, 65, 100]}
+                        labels={["Jan", "Feb", "Mar", 'Apr', 'May', "Jun", "Jul", "Aug", "Sep", 'Oct', "Nov", "Dec"]}
                         title="Recommendations"
                         options={
-                            {
-                                minVal:0,
-                                maxVal:100,
-                                stepSize:20,
-                            }
+                          {
+                            minVal: 0,
+                            maxVal: 100,
+                            stepSize: 20,
+                          }
                         }
                       />
 
@@ -217,17 +235,17 @@ export default function CategoriesHome(props) {
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
                     <CardHeader color="danger"
-                        style={{
-                            background: "linear-gradient(60deg, #ff7043, #f4511e)",
-                            boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(244 81 30 / 0.4)"
-                        }}
-                    
+                      style={{
+                        background: "linear-gradient(60deg, #ff7043, #f4511e)",
+                        boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(244 81 30 / 0.4)"
+                      }}
+
                     >
-                      
-                      <BarChartWithShapes 
+
+                      <BarChartWithShapes
                         labels={['Jan', 'Feb', 'Mar']}
-                        titles={['Shoes','Bag']}
-                        chartData = {[[20, 100, 56],[65, 59, 80]]}
+                        titles={['Shoes', 'Bag']}
+                        chartData={[[20, 100, 56], [65, 59, 80]]}
                       />
                     </CardHeader>
                     <CardBody>
@@ -257,52 +275,71 @@ export default function CategoriesHome(props) {
                     </CardHeader>
                     <CardBody>
                       <MyCustomTable
+                        isDelete={true}
+                        isEditable={true}
                         tableHeaderColor="success"
                         tableHead={[
                           //field should match wih data object.
-                          { title: 'Category id', field: 'c_id' },
+                          { title: 'Category id', field: 'c_id', editable: 'never' },
                           { title: 'Category Name', field: 'c_name' },
 
                         ]}
                         tableData={[
-                          { c_id: '1', c_name: 'Shirts'},
-                          { c_id: '2', c_name: 'Shoes'},
-                          { c_id: '3', c_name: 'Accessories'},
+                          { c_id: '1', c_name: 'Shirts' },
+                          { c_id: '2', c_name: 'Shoes' },
+                          { c_id: '3', c_name: 'Accessories' },
                         ]}
-                      
+
                       />
 
                     </CardBody>
                   </Card>
                 </GridItem>
               </GridContainer>
-              <Backdrop  open={showBackdrop}
+              <Backdrop open={showBackdrop}
                 style={{
-                  zIndex : 2000,
+                  zIndex: 2000,
                 }}
               />
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
-                    <Fab color="primary" size={"large"} aria-label="add" variant="extended" 
-                      onMouseEnter={()=>{setShowBackdrop(true)}}
-                      onMouseLeave={()=>{setShowBackdrop(false)}}
-                      className={classes.FABStyle}
-                    >
-                      <Add />
-                      {showBackdrop? (
-                        <div>
-                          <Grow in={showBackdrop} timeout={600}>
-                            <div>
-                              Add a category
+                  <Fab color="primary" size={"large"} aria-label="add" variant="extended"
+                    onMouseEnter={() => { setShowBackdrop(true) }}
+                    onMouseLeave={() => { setShowBackdrop(false) }}
+                    className={cardTitle}
+                    onClick={()=>{setShowDialogBox(true);setShowBackdrop(false)}}
+                  >
+                    <Add />
+                    {showBackdrop ? (
+                      <div>
+                        <Grow in={showBackdrop} timeout={600}>
+                          <div>
+                            Add a category
                             </div>
-                          </Grow>
-                        </div>
-                      ) : <div>
-                        </div>
-                      }
-                    </Fab>
+                        </Grow>
+                      </div>
+                    ) : <div>
+                      </div>
+                    }
+                  </Fab>
                 </GridItem>
               </GridContainer>
+
+              <MyCustomDialog
+                tabSelector={0}
+                headerColor={'fox'}
+                openDialog={showDialogBox}
+                onCloseDialog={handleClose}
+                title="Modify Product"
+                tabs={[
+                  {
+                    MainIcon: Edit,
+                    SecondaryIcon: EditOutlined,
+                    title: "Add Category",
+                    tabBody: ModifyCat
+                  },
+                ]}
+              />
 
             </div>
 

@@ -196,9 +196,9 @@ export default function ProductsEdit(props) {
                                                         tabBody:ModifyImage
                                                     },
                                                 ]}
-                                            >
+                                            />
                                              
-                                            </MyCustomDialog>
+                                    
 
 
                                         </div>

@@ -28,7 +28,7 @@ export default function MyCustomTable(props) {
   const { useState } = React;
   const [selectedRow, setSelectedRow] = useState(null);
   const { tableHead, tableData, tableHeaderColor, handleRowSelection, filtering } = props;
-  const { isDelete } = props;
+  const { isDelete, isEditable } = props;
   const [data, setData] = useState(tableData);
   const [showRowDelIcon, setRowDelIcon] = React.useState(true);
   const [showLoadAnimation, setLoadAnimation] = React.useState(false);
@@ -154,8 +154,20 @@ export default function MyCustomTable(props) {
                         setData([...dataDelete]);
                         resolve();
                       }, 1000)
-                    })
+                    }),
+                  ...(isEditable)? {
+                    onRowUpdate: (newData, oldData) =>
+                      new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                          const dataUpdate = [...data];
+                          const index = oldData.tableData.id;
+                          dataUpdate[index] = newData;
+                          setData([...dataUpdate]);
 
+                          resolve();
+                        }, 1000)
+                      }),
+                  } : {}
                 } :
                   {}
                 }
@@ -218,7 +230,7 @@ export default function MyCustomTable(props) {
       </div>
       <div style={{ position: "absolute", top: "30%", left: "50%" }}>
         <Fade in={showLoadAnimation} timeout={10} unmountOnExit >
-          <CircularProgress color="secondary" disableShrink  />
+          <CircularProgress color="secondary"   />
         </Fade>
       </div>
 
