@@ -29,6 +29,7 @@ import {
   Store,
   StoreOutlined
 } from "@material-ui/icons";
+import Manufacturers from "./views/Manufacturers/Manufacturers";
 // import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 
@@ -68,7 +69,7 @@ const dashboardRoutes = [
     name: "Manufacturers",
     icon: Store,
     secondaryIcon: StoreOutlined,
-    component: UserProfile,
+    component: Manufacturers,
     layout: "/admin",
     tab:3,
     myColor:"customPink"
