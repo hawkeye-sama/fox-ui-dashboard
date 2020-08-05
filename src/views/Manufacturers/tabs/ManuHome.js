@@ -6,8 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
+
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 
@@ -25,7 +24,7 @@ import CardFooter from "components/Card/CardFooter.js";
 import { Fade, Slide, CircularProgress, Fab, Backdrop, Grow } from "@material-ui/core";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import LineChartWithFill from "components/MyCharts/LineChartWithFill.js";
-import { Store, Assessment, LibraryAddCheck, Add } from "@material-ui/icons";
+import { Store, Add } from "@material-ui/icons";
 import BarChart from "../../../components/MyCharts/BarChart";
 import BarChartWithShapes from "../../../components/MyCharts/BarChartWithShapes";
 import MyCustomDialog from "../../../components/MyCustomDialog/MyCustomDialog.js";
@@ -65,7 +64,6 @@ export default function ManuHome(props) {
   const cardTitle = classNames({
     [classes.FABStyleDialogSelected]: (showDialogBox),
     [classes.FABStyle]: true,
-
   });
 
 
@@ -150,7 +148,7 @@ export default function ManuHome(props) {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
                   <Card chart>
-                    <CardHeader color="success" >
+                    <CardHeader color="info" >
                       <LineChartWithFill
                         chartData={[1, 10, 35, 15, 55, 20, 44, 33, 85, 56, 77, 65, 100]}
                         labels={["Jan", "Feb", "Mar", 'Apr', 'May', "Jun", "Jul", "Aug", "Sep", 'Oct', "Nov", "Dec"]}
@@ -218,7 +216,7 @@ export default function ManuHome(props) {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
                   <Card>
-                    <CardHeader color="success">
+                    <CardHeader color="danger">
                       <h4 className={classes.cardTitleWhite}>
                         Categories
                       </h4>
@@ -230,17 +228,17 @@ export default function ManuHome(props) {
                       <MyCustomTable
                         isDelete={true}
                         isEditable={true}
-                        tableHeaderColor="success"
+                        tableHeaderColor="danger"
                         tableHead={[
                           //field should match wih data object.
-                          { title: 'Category id', field: 'c_id', editable: 'never' },
-                          { title: 'Category Name', field: 'c_name' },
+                          { title: 'Manufacturer id', field: 'm_id', editable: 'never' },
+                          { title: 'Manufacturer Name', field: 'm_name' },
 
                         ]}
                         tableData={[
-                          { c_id: '1', c_name: 'Shirts' },
-                          { c_id: '2', c_name: 'Shoes' },
-                          { c_id: '3', c_name: 'Accessories' },
+                          { m_id: '1', m_name: 'Khaadi' },
+                          { m_id: '2', m_name: 'Limelight' },
+                          { m_id: '3', m_name: 'Rado' },
                         ]}
 
                       />
@@ -288,7 +286,7 @@ export default function ManuHome(props) {
                   {
                     MainIcon: Edit,
                     SecondaryIcon: EditOutlined,
-                    title: "Add Manufacturers",
+                    title: "Add",
                     tabBody: ModifyManu
                   },
                 ]}

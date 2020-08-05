@@ -36,7 +36,7 @@ export default function ModifyManu(props) {
                                     <GridItem xs={12} sm={12} md={12}>
                                         <CustomInput
                                             type="text"
-                                            labelText="Category Name"
+                                            labelText="Manufacturer Name"
                                             id="catName"
                                             formControlProps={{
                                                 fullWidth: true

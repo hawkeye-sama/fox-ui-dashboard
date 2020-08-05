@@ -100,8 +100,7 @@ const dashboardStyle = {
     width:24,
     height:48,
     zIndex:5000,
-    opacity: 1,
-   
+
     background: "linear-gradient(60deg, rgb(255, 112, 67), rgb(255, 112, 66))",
     boxShadow: "0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px  rgb(255, 112, 66,0.4)",
     '&:hover': {

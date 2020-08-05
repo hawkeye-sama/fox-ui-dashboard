@@ -28,7 +28,7 @@ import {
       boxShadow: "rgba(0, 0, 0, 0.14) 0px 1px 4px 0px",
       width: 230,
       [theme.breakpoints.up("md")]: {
-        borderRadius:"0 20px 20px 0px",
+       
         width: 230,
         position: "fixed",
         height: "100%",
