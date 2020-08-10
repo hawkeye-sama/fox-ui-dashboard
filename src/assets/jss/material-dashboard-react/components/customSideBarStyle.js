@@ -16,10 +16,40 @@ import {
   } from "assets/jss/material-dashboard-react.js";
   
   const sidebarStyle = (theme) => ({
+
+    drawer: {
+      width: 230,
+      flexShrink: 0,
+      whiteSpace: 'nowrap',
+    },
+
+    drawerClose: {
+      backgroundColor: "#fff",
+      border: "none",
+   
+      flexShrink: 0,
+      whiteSpace: 'nowrap',
+      position: "fixed",
+      top: "0",
+      bottom: "0",
+      left: "0",
+      zIndex: "1",
+      boxShadow: "rgba(0, 0, 0, 0.14) 0px 1px 4px 0px",
+      width: 70,
+      [theme.breakpoints.up("md")]: {
+        transition: 'width 0.4s ease',
+        width: 70,
+        position: "fixed",
+        height: "100%",
+        overflow: "hidden",
+      },
+    },
     drawerPaper: {
       backgroundColor: "#fff",
       border: "none",
-     
+   
+      flexShrink: 0,
+      whiteSpace: 'nowrap',
       position: "fixed",
       top: "0",
       bottom: "0",
@@ -28,7 +58,7 @@ import {
       boxShadow: "rgba(0, 0, 0, 0.14) 0px 1px 4px 0px",
       width: 230,
       [theme.breakpoints.up("md")]: {
-       
+        transition: 'width 0.4s ease',
         width: 230,
         position: "fixed",
         height: "100%",
@@ -181,6 +211,14 @@ import {
       verticalAlign: "middle",
       color: "#9e9e9e",
     },
+    itemDivSettings:{
+      marginLeft: "15px",
+      transition: "all 0.4s ease",
+    },
+    itemDivSettingsHidden:{
+      marginLeft: "5px",
+      transition: "all 0.4s ease",
+    },
     itemIconRTL: {
       marginRight: "3px",
       marginLeft: "15px",
@@ -192,7 +230,20 @@ import {
       lineHeight: "30px",
       fontSize: "14px",
       color: "#9e9e9e",
+      visibility:"visible",
+      opacity:1,
+      transition: "visibility 0.4s ease, opacity 0.4s ease "
     },
+    itemTextHidden: {
+      margin: "0",
+      lineHeight: "30px",
+      fontSize: "14px",
+      color: "#9e9e9e",
+      visibility:"hidden",
+      opacity:0,
+      transition: "visibility 0.4s ease, opacity 0.4s ease "
+    },
+    
     itemTextRTL: {
       textAlign: "right",
     },

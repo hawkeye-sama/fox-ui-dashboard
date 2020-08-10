@@ -7,11 +7,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
+
 // @material-ui/icons
-import Menu from "@material-ui/icons/Menu";
+import {Menu,ArrowBack} from "@material-ui/icons";
 // core components
 import AdminNavbarLinks from "./AdminNavbarLinks.js";
-import RTLNavbarLinks from "./RTLNavbarLinks.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-dashboard-react/components/headerStyle.js";
@@ -20,6 +20,7 @@ const useStyles = makeStyles(styles);
 
 export default function Header(props) {
   const classes = useStyles();
+  //const [hambugerClicked,updateClick] = React.useState(props.hambugerClicked)
   function makeBrand() {
     var name;
     props.routes.map(prop => {
@@ -39,12 +40,25 @@ export default function Header(props) {
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={()=>{props.setHamburderHandler(!(props.hambugerClicked))}}
+          >
+            {(props.hambugerClicked)?(
+               <Menu />
+            ):(
+               <ArrowBack />
+            )}
+
+        </IconButton>
           <Button color="transparent" href="#" className={classes.title}>
             {makeBrand()}
           </Button>
         </div>
         <Hidden smDown implementation="css">
-          {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
+          <AdminNavbarLinks />
+
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton

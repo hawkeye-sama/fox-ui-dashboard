@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -17,6 +18,7 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
 import bgImage from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
+
 
 let ps;
 
@@ -50,6 +52,7 @@ export default function Admin({ ...rest }) {
   // const [color, setColor] = React.useState("blue");
   // const [fixedClasses, setFixedClasses] = React.useState("dropdown show");
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [hambugerClicked,setHambugerClicked] = React.useState(false);
 
   // const handleImageClick = (image) => {
   //   setImage(image);
@@ -102,18 +105,29 @@ export default function Admin({ ...rest }) {
         image={image}
         handleDrawerToggle={handleDrawerToggle}
         open={mobileOpen}
+        hambugerClicked={hambugerClicked}
         color={"grey"}
         {...rest}
       />
-      <div className={classes.mainPanel} ref={mainPanel}>
+      <div 
+        className={classNames({
+          [classes.mainPanel]:(!hambugerClicked),
+          [classes.mainPanelDrawerHidden]:(hambugerClicked),
+        })}
+        ref={mainPanel}>
+        
         <Navbar
           routes={routes}
           handleDrawerToggle={handleDrawerToggle}
+          setHamburderHandler={setHambugerClicked}
+          hambugerClicked={hambugerClicked}
           {...rest}
         />
         {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
         {getRoute() ? (
+          
           <div className={classes.content}>
+        
             <div className={classes.container}>{switchRoutes}</div>
           </div>
         ) : (

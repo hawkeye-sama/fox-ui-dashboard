@@ -43,7 +43,7 @@ export default function Sidebar(props) {
     dispatch(changePageAnimation({ pageAnimation: {animationType:animationType} }))
   }
 
-  const { color, logo, image, logoText, routes } = props;
+  const { color, logo, logoText, routes } = props;
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -71,7 +71,12 @@ export default function Sidebar(props) {
             onClick={(e)=>{handlePageClick(prop.tab)}}
           >
             <ListItem button className={classes.itemLink + listItemClasses}>
-              <div style={{marginLeft:15}}>
+              {/* <div style={{marginLeft:15}}> */}
+              <div className={classNames({
+                  [classes.itemDivSettings]:(!props.hambugerClicked),
+                  [classes.itemDivSettingsHidden]:(props.hambugerClicked),
+              })}
+              >
 
               
               {typeof prop.icon === "string" ? (
@@ -105,7 +110,10 @@ export default function Sidebar(props) {
                 )}
               <ListItemText
                 primary={props.rtlActive ? prop.rtlName : prop.name}
-                className={classNames(classes.itemText, whiteFontClasses, {
+                className={classNames({
+                  [classes.itemText]:(!props.hambugerClicked),
+                  [classes.itemTextHidden]:(props.hambugerClicked),
+                  [whiteFontClasses]:(!props.hambugerClicked),
                   [classes.itemTextRTL]: props.rtlActive
                 })}
                 disableTypography={true}
@@ -133,6 +141,9 @@ export default function Sidebar(props) {
       </a>
     </div>
   );
+
+
+
   return (
     <div>
       <Hidden mdUp implementation="css">
@@ -142,7 +153,7 @@ export default function Sidebar(props) {
           open={props.open}
           classes={{
             paper: classNames(classes.drawerPaper, {
-              [classes.drawerPaperRTL]: props.rtlActive
+              [classes.drawerPaperRTL]: props.rtlActive,
             })
           }}
           onClose={props.handleDrawerToggle}
@@ -163,8 +174,10 @@ export default function Sidebar(props) {
           variant="permanent"
           open
           classes={{
-            paper: classNames(classes.drawerPaper, {
-              [classes.drawerPaperRTL]: props.rtlActive
+            paper: classNames( {
+              [classes.drawerPaperRTL]: props.rtlActive,
+              [classes.drawerPaper] : (!props.hambugerClicked),
+              [classes.drawerClose] : (props.hambugerClicked),
             })
           }}
         >

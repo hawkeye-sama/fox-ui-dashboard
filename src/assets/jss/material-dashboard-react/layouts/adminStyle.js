@@ -21,6 +21,20 @@ const appStyle = (theme) => ({
     maxHeight: "100%",
     width: "100%",
     overflowScrolling: "touch",
+    transition: "all 0.4s ease"
+  },
+  mainPanelDrawerHidden: {
+    [theme.breakpoints.up("md")]: {
+      width: `calc(100% - ${drawerWidth-160}px)`,
+    },
+    overflow: "auto",
+    position: "relative",
+    float: "right",
+    ...transition,
+    maxHeight: "100%",
+    width: "100%",
+    overflowScrolling: "touch",
+    transition: "all 0.4s ease"
   },
   content: {
     marginTop: "40px",
