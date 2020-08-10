@@ -37,8 +37,8 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import { IconButton } from "@material-ui/core";
 import MyCustomTable from "components/MyCustomTable/MyCustomTable";
 import testImage from "assets/img/faces/kendall.jpg";
-import BarChart from "../../../components/MyCharts/BarChart";
-import BarChartWithShapes from "../../../components/MyCharts/BarChartWithShapes";
+import BarChart from "components/MyCharts/BarChart";
+import BarChartWithShapes from "components/MyCharts/BarChartWithShapes";
 
 
 
