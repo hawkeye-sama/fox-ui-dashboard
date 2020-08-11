@@ -96,7 +96,8 @@ import {
     },
     logo: {
       position: "relative",
-      padding: "15px 15px",
+      padding: "10px 15px",
+      paddingTop:"5px",
       zIndex: "4",
       "&:after": {
         content: '""',
@@ -136,10 +137,52 @@ import {
       maxHeight: "30px",
       marginLeft: "10px",
       marginRight: "15px",
+      transition:"all 0.3s ease",
+      opacity:"1",
+      visibility:"visible"
     },
+    logoImageHidden: {
+      width: "30px",
+      display: "inline-block",
+      maxHeight: "30px",
+      marginLeft: "10px",
+      marginRight: "15px",
+      transition:"all 0.3s ease",
+      opacity:"0",
+      visibility: "hidden"
+
+    },
+
+    logoText:{
+      position:"absolute",
+      fontSize: "18px",
+      textAlign: "left",
+      fontFamily: '"Roboto", sans-serif',
+      fontWeight: 400,
+      lineHeight: "30px",
+      textTransform: "uppercase",
+      transition: "all 0.3s ease",
+      left:70,
+    },
+    
+    logoTextHidden:{
+      position:"absolute",
+      fontSize: "18px",
+      textAlign: "left",
+      fontFamily: '"Roboto", sans-serif',
+      fontWeight: 400,
+      lineHeight: "30px",
+      textTransform: "uppercase",
+      left:17,
+      transition: "all 0.3s ease",
+    },
+
+
+    
+
     img: {
       width: "35px",
-      top: "22px",
+      top: "12px",
       position: "absolute",
       verticalAlign: "middle",
       border: "0",

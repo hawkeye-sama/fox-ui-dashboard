@@ -15,6 +15,7 @@ import AdminNavbarLinks from "./AdminNavbarLinks.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-dashboard-react/components/headerStyle.js";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(styles);
 
@@ -35,26 +36,55 @@ export default function Header(props) {
   const appBarClasses = classNames({
     [" " + classes[color]]: color
   });
+  const appBarMain = classNames({
+    [classes.appBarHidden]: (props.hambugerClicked),
+    [classes.appBar]: (!(props.hambugerClicked)),
+    
+    
+  })
+
+
   return (
-    <AppBar className={classes.appBar + appBarClasses}>
+    <AppBar className={appBarMain + appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={()=>{props.setHamburderHandler(!(props.hambugerClicked))}}
-          >
-            {(props.hambugerClicked)?(
-               <Menu />
-            ):(
-               <ArrowBack />
-            )}
+         
+          <Hidden smDown implementation="css">
+            <Grid container>
+              <Grid item xs={1} md={1}>
+              <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={()=>{props.setHamburderHandler(!(props.hambugerClicked))}}
+                >
+                  {(props.hambugerClicked)?(
+                    <Menu />
+                  ):(
+                    <ArrowBack />
+                  )}
 
-        </IconButton>
-          <Button color="transparent" href="#" className={classes.title}>
-            {makeBrand()}
-          </Button>
+              </IconButton>
+              </Grid>
+              <Grid item xs={11} md={11} style={{textAlignLast:"center"}}>
+      
+                <Button  color="transparent" href="#" className={classes.title}>
+                  {makeBrand()}
+                </Button>
+        
+              </Grid>
+            </Grid>
+
+     
+
+
+          </Hidden>
+          <Hidden mdUp implementation="css">
+            <Button color="transparent" href="#" className={classes.title}>
+              {makeBrand()}
+            </Button>
+          </Hidden>
+
         </div>
         <Hidden smDown implementation="css">
           <AdminNavbarLinks />

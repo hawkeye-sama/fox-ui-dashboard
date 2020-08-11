@@ -1,5 +1,4 @@
 import {
-  container,
   defaultFont,
   primaryColor,
   defaultBoxShadow,
@@ -12,25 +11,79 @@ import {
 } from "assets/jss/material-dashboard-react.js";
 
 const headerStyle = () => ({
-  appBar: {
-    backgroundColor: "transparent",
-    boxShadow: "none",
+  appBarHidden: {
+    backgroundColor: "white",
+ 
     borderBottom: "0",
     marginBottom: "0",
-    position: "absolute",
-    width: "100%",
-    paddingTop: "10px",
+    position: "fixed",
+    width: "96.5%",
     zIndex: "1029",
     color: grayColor[7],
     border: "0",
     borderRadius: "3px",
-    padding: "10px 0",
-    transition: "all 150ms ease 0s",
-    minHeight: "50px",
-    display: "block"
+    // padding: "10px 0",
+   
+    minHeight: "48px",
+    display: "block",
+    boxShadow:" 5px 1px 2px 0 rgba(60,64,67,.3), 10px 2px 6px 2px rgba(60,64,67,.15)",
+    transition: "all 0.4s ease",
+    '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key
+      width: "100%",
+      backgroundColor: "white",
+      borderBottom: "0",
+      marginBottom: "0",
+      position: "fixed",
+      zIndex: "1029",
+      color: grayColor[7],
+      border: "0",
+      borderRadius: "3px",
+      // padding: "10px 0",
+      minHeight: "48px",
+      display: "block",
+      transition: "all 0.4s ease",
+      boxShadow:"3px 1px 2px 0 rgba(60,64,67,.3), 8px 2px 6px 2px rgba(60,64,67,.15)",
+    }
+  },
+  appBar:{
+    backgroundColor: "white",
+    borderBottom: "0",
+    marginBottom: "0",
+    position: "fixed",
+    width: "88.4%",
+    zIndex: "1029",
+    color: grayColor[7],
+    border: "0",
+    borderRadius: "3px",
+    // padding: "10px 0",
+    
+    minHeight: "48px",
+    display: "block",
+    boxShadow:"8px 1px 2px 0 rgba(60,64,67,.3), 13px 2px 6px 2px rgba(60,64,67,.15)",
+    transition: "all 0.4s ease",
+    '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key
+      width: "100%",
+      backgroundColor: "white",
+      borderBottom: "0",
+      marginBottom: "0",
+      position: "fixed",
+      zIndex: "1029",
+      color: grayColor[7],
+      border: "0",
+      borderRadius: "3px",
+      // padding: "10px 0",
+     
+      minHeight: "48px",
+      display: "block",
+      transition: "all 0.4s ease",
+      boxShadow:"3px 1px 2px 0 rgba(60,64,67,.3), 8px 2px 6px 2px rgba(60,64,67,.15)",
+    }
   },
   container: {
-    ...container,
+    paddingRight: "0",
+    paddingLeft: "0",
+    marginRight: "0",
+    marginLeft: "0",
     minHeight: "50px"
   },
   flex: {

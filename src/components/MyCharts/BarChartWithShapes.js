@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
 
     divSettings: {
 
-        width: '333.328px',
+
         height: '158px',
         color: 'white',
         '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key

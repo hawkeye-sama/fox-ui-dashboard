@@ -43,7 +43,7 @@ export default function Sidebar(props) {
     dispatch(changePageAnimation({ pageAnimation: {animationType:animationType} }))
   }
 
-  const { color, logo, logoText, routes } = props;
+  const { color, logo, logoText,logoTextIntials, routes } = props;
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -108,16 +108,30 @@ export default function Sidebar(props) {
 
 
                 )}
-              <ListItemText
-                primary={props.rtlActive ? prop.rtlName : prop.name}
-                className={classNames({
-                  [classes.itemText]:(!props.hambugerClicked),
-                  [classes.itemTextHidden]:(props.hambugerClicked),
-                  [whiteFontClasses]:(!props.hambugerClicked),
-                  [classes.itemTextRTL]: props.rtlActive
-                })}
-                disableTypography={true}
-              />
+              <Hidden smDown implementation="css">
+                <ListItemText
+                  primary={props.rtlActive ? prop.rtlName : prop.name}
+                  className={classNames({
+                    [classes.itemText]:(!props.hambugerClicked),
+                    [classes.itemTextHidden]:(props.hambugerClicked),
+                    [whiteFontClasses]:(!props.hambugerClicked),
+                    [classes.itemTextRTL]: props.rtlActive
+                  })}
+                  disableTypography={true}
+                />
+              </Hidden>
+              <Hidden mdUp implementation="css">
+                <ListItemText
+                  primary={props.rtlActive ? prop.rtlName : prop.name}
+                  className={classNames({
+                    [classes.itemText]:true,
+                    [whiteFontClasses]:true,
+                    [classes.itemTextRTL]: props.rtlActive
+                  })}
+                  disableTypography={true}
+                />
+              </Hidden>
+
               </div>
             </ListItem>
           </NavLink>
@@ -134,10 +148,21 @@ export default function Sidebar(props) {
         })}
         target="_blank"
       >
-        <div className={classes.logoImage}>
+        <div className={classNames ({
+            [classes.logoImage]:(!props.hambugerClicked),
+
+            [classes.logoImageHidden] : (props.hambugerClicked),
+          
+          })}>
           <img src={logo} alt="logo" className={classes.img} />
         </div>
-        {logoText}
+        <span className={classNames({
+          [classes.logoText]:(!props.hambugerClicked),
+          [classes.logoTextHidden]:(props.hambugerClicked),
+        })}> 
+          {(!props.hambugerClicked)?(logoText):(logoTextIntials)}
+        </span>
+       
       </a>
     </div>
   );

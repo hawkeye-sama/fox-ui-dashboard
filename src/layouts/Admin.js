@@ -101,6 +101,7 @@ export default function Admin({ ...rest }) {
       <Sidebar
         routes={routes}
         logoText={"Fox UI"}
+        logoTextIntials={"Fox"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
