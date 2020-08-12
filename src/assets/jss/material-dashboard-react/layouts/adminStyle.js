@@ -37,7 +37,7 @@ const appStyle = (theme) => ({
     transition: "all 0.4s ease"
   },
   content: {
-    marginTop: "40px",
+    marginTop: "60px",
     padding: "30px 0px",
     paddingRight: "70px",
     '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key

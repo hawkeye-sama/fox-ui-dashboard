@@ -13,7 +13,7 @@ import Divider from "@material-ui/core/Divider";
 // @material-ui/icons
 import Person from "@material-ui/icons/Person";
 import Notifications from "@material-ui/icons/Notifications";
-import Dashboard from "@material-ui/icons/Dashboard";
+// import Dashboard from "@material-ui/icons/Dashboard";
 // import Search from "@material-ui/icons/Search";
 // core components
 // import CustomInput from "components/CustomInput/CustomInput.js";
@@ -48,7 +48,7 @@ export default function AdminNavbarLinks() {
     setOpenProfile(null);
   };
   return (
-    <div>
+    <div style={{marginRight:30}}>
       {/* <div className={classes.searchWrapper}>
         <CustomInput
           formControlProps={{
@@ -65,8 +65,8 @@ export default function AdminNavbarLinks() {
           <Search />
         </Button>
       </div> */}
-      <Button
-        color={window.innerWidth > 959 ? "transparent" : "white"}
+      {/* <Button
+        color={"transparent"}
         justIcon={window.innerWidth > 959}
         simple={!(window.innerWidth > 959)}
         aria-label="Dashboard"
@@ -76,10 +76,10 @@ export default function AdminNavbarLinks() {
         <Hidden mdUp implementation="css">
           <p className={classes.linkText}>Dashboard</p>
         </Hidden>
-      </Button>
+      </Button> */}
       <div className={classes.manager}>
         <Button
-          color={window.innerWidth > 959 ? "transparent" : "white"}
+          color={"transparent"}
           justIcon={window.innerWidth > 959}
           simple={!(window.innerWidth > 959)}
           aria-owns={openNotification ? "notification-menu-list-grow" : null}
@@ -157,7 +157,7 @@ export default function AdminNavbarLinks() {
       </div>
       <div className={classes.manager}>
         <Button
-          color={window.innerWidth > 959 ? "transparent" : "white"}
+          color={"transparent"}
           justIcon={window.innerWidth > 959}
           simple={!(window.innerWidth > 959)}
           aria-owns={openProfile ? "profile-menu-list-grow" : null}

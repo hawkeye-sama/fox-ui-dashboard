@@ -17,7 +17,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { Slide, Grow } from "@material-ui/core";
+import { Slide, Grow, Fade } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
 
@@ -35,9 +35,9 @@ export default function Dashboard(props) {
   const classes = useStyles();
   return (
     <div>
-      <Grow in={true} timeout={500}>
+      <Fade in={true} timeout={1200}>
         <div>
-          <Slide in={true} direction={pageAnimation.animationType} timeout={200}>
+          <Slide in={true} direction={"up"} timeout={400}>
             <div>
               <GridContainer>
             
@@ -280,7 +280,7 @@ export default function Dashboard(props) {
             </div>
           </Slide>
         </div>
-      </Grow>
+      </Fade>
     </div>
   );
 }
