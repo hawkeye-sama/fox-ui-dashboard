@@ -17,7 +17,7 @@ const headerStyle = () => ({
     borderBottom: "0",
     marginBottom: "0",
     position: "fixed",
-    width: "96.5%",
+    width: "100%",
     zIndex: "1029",
     color: grayColor[7],
     border: "0",
@@ -50,7 +50,7 @@ const headerStyle = () => ({
     borderBottom: "0",
     marginBottom: "0",
     position: "fixed",
-    width: "88.4%",
+    width: "100%",
     zIndex: "1029",
     color: grayColor[7],
     border: "0",
@@ -79,6 +79,15 @@ const headerStyle = () => ({
       boxShadow:"3px 1px 2px 0 rgba(60,64,67,.3), 8px 2px 6px 2px rgba(60,64,67,.15)",
     }
   },
+  iconButton:{
+    marginLeft:240,
+    transition: "all 0.4s ease"
+  },
+  iconButtonHidden:{
+    marginLeft:80,
+    transition: "all 0.4s ease"
+  },
+
   container: {
     paddingRight: "0",
     paddingLeft: "0",

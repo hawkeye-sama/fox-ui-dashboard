@@ -33,8 +33,8 @@ import {
       top: "0",
       bottom: "0",
       left: "0",
-      zIndex: "1",
-      boxShadow: "rgba(0, 0, 0, 0.14) 0px 1px 4px 0px",
+      zIndex: "1030",
+      boxShadow: "rgba(0, 0, 0, 0.14) 0px 53px 4px 0px",
       width: 70,
       [theme.breakpoints.up("md")]: {
         transition: 'width 0.4s ease',
@@ -54,8 +54,8 @@ import {
       top: "0",
       bottom: "0",
       left: "0",
-      zIndex: "1",
-      boxShadow: "rgba(0, 0, 0, 0.14) 0px 1px 4px 0px",
+      zIndex: "1030",
+      boxShadow: "rgba(0, 0, 0, 0.14) 0px 53px 4px 0px",
       width: 230,
       [theme.breakpoints.up("md")]: {
         transition: 'width 0.4s ease',

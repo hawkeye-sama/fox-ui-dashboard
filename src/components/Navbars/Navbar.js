@@ -42,7 +42,11 @@ export default function Header(props) {
     
     
   })
-
+  const iconButton= classNames({
+    [classes.iconButton]: (!props.hambugerClicked),
+    [classes.iconButtonHidden]: (props.hambugerClicked),
+    
+  })
 
   return (
     <AppBar className={appBarMain + appBarClasses}>
@@ -54,6 +58,7 @@ export default function Header(props) {
             <Grid container>
               <Grid item xs={1} md={1}>
               <IconButton
+                  className={iconButton}
                   color="inherit"
                   aria-label="open drawer"
                   onClick={()=>{props.setHamburderHandler(!(props.hambugerClicked))}}
