@@ -13,7 +13,6 @@ import Divider from "@material-ui/core/Divider";
 // @material-ui/icons
 import Person from "@material-ui/icons/Person";
 import Notifications from "@material-ui/icons/Notifications";
-// import Dashboard from "@material-ui/icons/Dashboard";
 // import Search from "@material-ui/icons/Search";
 // core components
 // import CustomInput from "components/CustomInput/CustomInput.js";
@@ -115,9 +114,9 @@ export default function AdminNavbarLinks() {
                   placement === "bottom" ? "center top" : "center bottom"
               }}
             >
-              <Paper>
+              <Paper  style={{marginRight:30}} >
                 <ClickAwayListener onClickAway={handleCloseNotification}>
-                  <MenuList role="menu">
+                  <MenuList role="menu" >
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
@@ -190,14 +189,15 @@ export default function AdminNavbarLinks() {
                   placement === "bottom" ? "center top" : "center bottom"
               }}
             >
-              <Paper>
+              <Paper  style={{marginRight:20, minWidth:150}}>
                 <ClickAwayListener onClickAway={handleCloseProfile}>
-                  <MenuList role="menu">
+                  <MenuList role="menu" style={{textAlignLast:"center"}}>
                     <MenuItem
                       onClick={handleCloseProfile}
                       className={classes.dropdownItem}
                     >
                       Profile
+
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseProfile}

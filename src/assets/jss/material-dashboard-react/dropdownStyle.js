@@ -1,7 +1,5 @@
 import {
-  primaryColor,
   whiteColor,
-  primaryBoxShadow,
   defaultFont,
   blackColor,
   grayColor,
@@ -114,9 +112,9 @@ const dropdownStyle = theme => ({
     height: "unset",
     minHeight: "unset",
     "&:hover": {
-      backgroundColor: primaryColor[0],
+      backgroundColor: "#ff9800",
       color: whiteColor,
-      ...primaryBoxShadow
+      boxShadow:"0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(255, 152, 0,.4)"
     }
   }
 });

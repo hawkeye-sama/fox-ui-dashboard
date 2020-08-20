@@ -14,7 +14,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { useSelector } from "react-redux";
 import avatar from "assets/img/faces/marc.jpg";
-import { Slide, Grow } from "@material-ui/core";
+import { Slide, Fade } from "@material-ui/core";
 
 const styles = {
   cardCategoryWhite: {
@@ -43,9 +43,9 @@ export default function UserProfile(props) {
 
   return (
     <div>
-      <Grow in={true} timeout={500}>
+      <Fade in={true} timeout={1200}>
         <div>
-          <Slide in={true} direction={pageAnimation.animationType} timeout={200}>
+          <Slide in={true} direction={pageAnimation.animationType} timeout={400}>
             <div>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={8}>
@@ -184,7 +184,7 @@ export default function UserProfile(props) {
 
           </Slide>
         </div>
-      </Grow>
+      </Fade>
     </div>
   );
 }

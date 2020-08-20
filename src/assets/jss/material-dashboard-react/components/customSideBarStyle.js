@@ -433,11 +433,17 @@ import {
     customRed:{
       color:"#ef5350"
     },
+    customYellow:{
+      color:"#f57f17"
+    },
+
     customBlueSelected:{
 
       background: "linear-gradient(90deg, rgb(0 188 212) 1%, rgba(59,0,255,0) 2%)",
 
     },
+    
+
     customOrangeSelected:{
       background: "linear-gradient(90deg, rgb(254 157 24) 1%, rgba(59,0,255,0) 2%)",
     },

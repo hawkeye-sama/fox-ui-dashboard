@@ -1,6 +1,5 @@
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
-import BubbleChart from "@material-ui/icons/BubbleChart";
 // import Unarchive from "@material-ui/icons/Unarchive";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
@@ -16,9 +15,12 @@ import {
   DashboardOutlined,
   CategoryOutlined,
   PersonOutlineOutlined,
-  BubbleChartOutlined,
   Store,
-  StoreOutlined
+  StoreOutlined,
+  VpnKey,
+  VpnKeyOutlined,
+  PersonAdd,
+  PersonAddOutlined
 } from "@material-ui/icons";
 import Manufacturers from "./views/Manufacturers/Manufacturers";
 // import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
@@ -66,8 +68,8 @@ const dashboardRoutes = [
     myColor:"customPink"
   },
   {
-    path: "/bd",
-    name: "Big Data/Analytics",
+    path: "/userprofile",
+    name: "User Profile",
     icon: Person,
     secondaryIcon: PersonOutlineOutlined,
     component: UserProfile,
@@ -76,14 +78,24 @@ const dashboardRoutes = [
     myColor:"customGreen"
   },
   {
-    path: "/ml",
-    name: "Machine Learning",
-    icon: BubbleChart,
-    secondaryIcon: BubbleChartOutlined,
+    path: "/login",
+    name: "Login",
+    icon: VpnKey,
+    secondaryIcon: VpnKeyOutlined,
     component: Icons,
     layout: "/admin",
     tab:7,
     myColor:"customRed"
+  },
+  {
+    path: "/signup",
+    name: "Sign Up",
+    icon: PersonAdd,
+    secondaryIcon: PersonAddOutlined,
+    component: Icons,
+    layout: "/admin",
+    tab:7,
+    myColor:"customYellow"
   },
 
 ];
