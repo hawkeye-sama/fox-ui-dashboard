@@ -77,23 +77,22 @@ export default function AdminNavbarLinks() {
         </Hidden>
       </Button> */}
       <div className={classes.manager}>
-        <Button
-          color={"transparent"}
-          justIcon={window.innerWidth > 959}
-          simple={!(window.innerWidth > 959)}
-          aria-owns={openNotification ? "notification-menu-list-grow" : null}
-          aria-haspopup="true"
-          onClick={handleClickNotification}
-          className={classes.buttonLink}
-        >
-          <Notifications className={classes.icons} />
-          <span className={classes.notifications}>5</span>
-          <Hidden mdUp implementation="css">
-            <p onClick={handleCloseNotification} className={classes.linkText}>
-              Notification
-            </p>
-          </Hidden>
-        </Button>
+        <Hidden smDown implementation="css">
+          <Button
+              color={"transparent"}
+              justIcon={window.innerWidth > 959}
+              simple={!(window.innerWidth > 959)}
+              aria-owns={openNotification ? "notification-menu-list-grow" : null}
+              aria-haspopup="true"
+              onClick={handleClickNotification}
+              className={classes.buttonLink}
+            >
+              <Notifications className={classes.icons} />
+              <span className={classes.notifications}>5</span>
+
+            </Button>
+
+        </Hidden>
         <Poppers
           open={Boolean(openNotification)}
           anchorEl={openNotification}
@@ -155,20 +154,21 @@ export default function AdminNavbarLinks() {
         </Poppers>
       </div>
       <div className={classes.manager}>
-        <Button
-          color={"transparent"}
-          justIcon={window.innerWidth > 959}
-          simple={!(window.innerWidth > 959)}
-          aria-owns={openProfile ? "profile-menu-list-grow" : null}
-          aria-haspopup="true"
-          onClick={handleClickProfile}
-          className={classes.buttonLink}
-        >
-          <Person className={classes.icons} />
-          <Hidden mdUp implementation="css">
-            <p className={classes.linkText}>Profile</p>
-          </Hidden>
-        </Button>
+        <Hidden smDown implementation="css">
+          <Button
+            color={"transparent"}
+            justIcon={window.innerWidth > 959}
+            simple={!(window.innerWidth > 959)}
+            aria-owns={openProfile ? "profile-menu-list-grow" : null}
+            aria-haspopup="true"
+            onClick={handleClickProfile}
+            className={classes.buttonLink}
+          >
+            <Person className={classes.icons} />
+
+          </Button>
+
+        </Hidden>
         <Poppers
           open={Boolean(openProfile)}
           anchorEl={openProfile}

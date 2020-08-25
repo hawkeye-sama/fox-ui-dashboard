@@ -94,7 +94,7 @@ const dashboardRoutes = [
     secondaryIcon: PersonAddOutlined,
     component: Icons,
     layout: "/admin",
-    tab:7,
+    tab:8,
     myColor:"customYellow"
   },
 

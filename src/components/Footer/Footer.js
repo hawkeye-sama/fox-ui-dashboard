@@ -41,15 +41,15 @@ export default function Footer(props) {
         </div>
         <p className={classes.right}>
           <span>
-            &copy; {1900 + new Date().getYear()}{" "}
-            <a
+            {/* &copy; {1900 + new Date().getYear()}{" "} */}
+            {/* <a
               href="https://www.creative-tim.com?ref=mdr-footer"
               target="_blank"
               className={classes.a}
             >
               Creative Tim
-            </a>
-            , made with love for a better web
+            </a> */}
+            Made for everyone
           </span>
         </p>
       </div>

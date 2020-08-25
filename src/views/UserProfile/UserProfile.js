@@ -12,7 +12,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import avatar from "assets/img/faces/marc.jpg";
 import { Slide, Fade } from "@material-ui/core";
 
@@ -38,14 +38,13 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 export default function UserProfile(props) {
-  const pageAnimation = useSelector(state => state.pageAnimation);
   const classes = useStyles();
 
   return (
     <div>
       <Fade in={true} timeout={1200}>
         <div>
-          <Slide in={true} direction={pageAnimation.animationType} timeout={400}>
+          <Slide in={true} direction={"up"} timeout={400}>
             <div>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={8}>
