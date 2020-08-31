@@ -83,7 +83,7 @@ const dashboardRoutes = [
     icon: VpnKey,
     secondaryIcon: VpnKeyOutlined,
     component: Icons,
-    layout: "/admin",
+    layout: "/home",
     tab:7,
     myColor:"customRed"
   },
@@ -93,7 +93,7 @@ const dashboardRoutes = [
     icon: PersonAdd,
     secondaryIcon: PersonAddOutlined,
     component: Icons,
-    layout: "/admin",
+    layout: "/home",
     tab:8,
     myColor:"customYellow"
   },
