@@ -1,5 +1,5 @@
 # [Fox UI Dashboard] 
-Modified dashboard inspired by creative tims material dashboard for react
+Modified dashboard inspired from creative tims material dashboard for react
 
 ### Work in Progress, 
 
