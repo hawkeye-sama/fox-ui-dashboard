@@ -26,7 +26,7 @@ import {
      
       maxHeight: "48px",
       display: "block",
-      boxShadow:"0 0",
+      boxShadow:"8px 1px 2px 0 rgba(60,64,67,.3), 13px 2px 6px 2px rgba(60,64,67,.15)",
       transition: "all 0.4s ease",
       '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key
         width: "100%",
@@ -42,7 +42,7 @@ import {
         maxHeight: "48px",
         display: "block",
         transition: "all 0.4s ease",
-        boxShadow:"0 0",
+        boxShadow:"8px 1px 2px 0 rgba(60,64,67,.3), 13px 2px 6px 2px rgba(60,64,67,.15)",
       }
     },
     appBar:{
@@ -59,7 +59,7 @@ import {
       
       maxHeight: "48px",
       display: "block",
-      boxShadow:"0 0",
+      boxShadow:"8px 1px 2px 0 rgba(60,64,67,.3), 13px 2px 6px 2px rgba(60,64,67,.15)",
       transition: "all 0.4s ease",
       '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key
         width: "100%",
@@ -76,7 +76,7 @@ import {
         maxHeight: "48px",
         display: "block",
         transition: "all 0.4s ease",
-        boxShadow:"0 0",
+        boxShadow:"8px 1px 2px 0 rgba(60,64,67,.3), 13px 2px 6px 2px rgba(60,64,67,.15)",
       }
     },
     tabsDiv:{

@@ -15,7 +15,7 @@ import AdminNavbarLinks from "./CustomNavbarLinks.js";
 // import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-dashboard-react/components/customNavbarStyle.js";
-import { Grid, Tab, Tabs } from "@material-ui/core";
+import { Grid} from "@material-ui/core";
 
 import NavbarTabs from "../NavbarTabs/NavbarTabs.js";
 
@@ -23,22 +23,22 @@ const useStyles = makeStyles(styles);
 
 export default function CustomNavbar(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
   //const [hambugerClicked,updateClick] = React.useState(props.hambugerClicked)
-  function makeBrand() {
-    var name;
-    props.routes.map(prop => {
-      if (window.location.href.indexOf(prop.layout + prop.path) !== -1) {
-        name = props.rtlActive ? prop.rtlName : prop.name;
-      }
-      return null;
-    });
-    return name;
-  }
+  // function makeBrand() {
+  //   var name;
+  //   props.routes.map(prop => {
+  //     if (window.location.href.indexOf(prop.layout + prop.path) !== -1) {
+  //       name = props.rtlActive ? prop.rtlName : prop.name;
+  //     }
+  //     return null;
+  //   });
+  //   return name;
+  // }
   const { color } = props;
   const appBarClasses = classNames({
     [" " + classes[color]]: color
@@ -49,11 +49,11 @@ export default function CustomNavbar(props) {
     
     
   })
-  const iconButton= classNames({
-    [classes.iconButton]: (!props.hambugerClicked),
-    [classes.iconButtonHidden]: (props.hambugerClicked),
+  // const iconButton= classNames({
+  //   [classes.iconButton]: (!props.hambugerClicked),
+  //   [classes.iconButtonHidden]: (props.hambugerClicked),
     
-  })
+  // })
 
   return (
     <AppBar className={appBarMain + appBarClasses}>

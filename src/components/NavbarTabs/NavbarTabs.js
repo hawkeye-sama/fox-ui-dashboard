@@ -2,10 +2,7 @@ import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import PhoneIcon from '@material-ui/icons/Phone';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
+
 import {
     Home,
     HomeOutlined,
@@ -13,9 +10,9 @@ import {
     CategoryOutlined,
     Settings,
     SettingsOutlined,
-    Phone,
 
 } from '@material-ui/icons';
+import styles from 'assets/jss/material-dashboard-react/components/customNavbarStyle';
 
 const AntTabs = withStyles({
 
@@ -67,48 +64,10 @@ const AntTab = withStyles((theme) => ({
     },
   },
   selected: {},
-}))((props) => <Tab disableRipple {...props} />);
+}))((props) => <Tab {...props} />);
 
-const StyledTabs = withStyles({
-  indicator: {
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
-    '& > span': {
-      maxWidth: 40,
-      width: '100%',
-      backgroundColor: '#635ee7',
-    },
-  },
-})((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
 
-const StyledTab = withStyles((theme) => ({
-  root: {
-    textTransform: 'none',
-    color: '#fff',
-    fontWeight: theme.typography.fontWeightRegular,
-    fontSize: theme.typography.pxToRem(15),
-    marginRight: theme.spacing(1),
-    '&:focus': {
-      opacity: 1,
-    },
-  },
-}))((props) => <Tab disableRipple {...props} />);
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  padding: {
-    padding: theme.spacing(3),
-  },
-  demo1: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  demo2: {
-    backgroundColor: '#2e1534',
-  },
-}));
+const useStyles = makeStyles(styles)
 
 export default function NavbarTabs() {
   const classes = useStyles();
