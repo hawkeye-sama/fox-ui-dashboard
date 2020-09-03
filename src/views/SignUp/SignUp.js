@@ -3,8 +3,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
 import classNames from "classnames";
+import LeftDivComponent from "./LeftDivComponent";
+import RightDivComponent from "./RightDivComponent";
+import Grid from '@material-ui/core/Grid';
 
 const styles = {
     root:{
@@ -20,32 +22,17 @@ const styles = {
         transition:"all 0.4s cubic-bezier(0, 0, 0.2, 1) ",
         opacity:1,
         transform: "translateX(0px)",
+        flexGrow: 1,
 
     },
     rootHidden:{
-        transform: "translateY(40px)",
+        transform: "translateY(60px)",
         opacity:0,
     },
-    leftDivStyle:{
-        boxShadow:' rgba(0, 0, 0, 0.02) 4px 2px 24px 0px',
-        boxSizing: 'border-box',
-        padding: '0px 60px',
-        minWidth:' 500px',
-        maxWidth: '500px',
-        minHeight: '100%',
-        position: 'fixed',
-        backgroundColor:"#ff7043",
-        overflow: "hidden",
-        zIndex:2,
-        transition:"all 0.8s ease  0.3s ",
-        opacity:1,
-    },
-    leftDivHiddenStyle:{
-        zIndex:0,
-        minWidth:' 0px',
-        maxWidth: '0px',
-       
-    },
+
+
+    
+    
 };
 
 const useStyles = makeStyles(styles);
@@ -59,11 +46,6 @@ export default function SignUp() {
         [classes.root]:(isLoaded),
         [classes.rootHidden]:(!isLoaded),
       })
-    const leftDivClass =   classNames({
-        [classes.leftDivStyle]:(isLoaded),
-        [classes.leftDivHiddenStyle]:(!isLoaded),
-    })
-
 
     React.useEffect(() => {
     // code to run on component mount
@@ -73,12 +55,18 @@ export default function SignUp() {
     
     return (
         <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
+
                 <div className={rootClass}>
-                    <div className={leftDivClass}></div>
-                    <div></div>
+                    <Grid container spacing={1}>
+                        <Grid item xs={6}>
+                            <LeftDivComponent />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <RightDivComponent />
+                        </Grid>
+                    </Grid>
                 </div>
-            </GridItem>
+           
         </GridContainer>
     );
 }
