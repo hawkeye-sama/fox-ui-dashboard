@@ -3,6 +3,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 // core components
 import classNames from "classnames";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import CustomInput from "components/CustomInput/CustomInput.js";
 
 const styles = {
 
@@ -14,16 +17,31 @@ const styles = {
         paddingBottom:10,
         overflow: "hidden",
         zIndex:2,
-        transition:"transform 0.4s ease  0.6s, opacity 0.4s ease  0.6s ",
+        transition:"transform 0.4s ease  1.3s, opacity 0.4s ease  1.3s ",
         transform: "translateY(0px)",
         opacity:1,
     },
     RightDivStyleHidden:{
         
-        transform: "translateY(20px)",
+        transform: "translateY(30px)",
         opacity:0,
        
     },
+    hrLineStyle:{
+        width: "300px",
+        transition: "transform 0.6s ease 1.5s",
+        height: "2px",
+        transform:"scaleX(1)",
+        background: '#434b65',
+        marginTop: "15px",
+        position: "absolute",
+        top: "73px",
+    },
+    hrLineStyleHidden:{
+        width: "300px",
+        transform:"scaleX(0)"
+
+    }
 
     
     
@@ -40,6 +58,10 @@ export default function RightDivComponent() {
     const rightDivClass =   classNames({
         [classes.RightDivStyle]:(isLoaded),
         [classes.RightDivStyleHidden]:(!isLoaded),
+    })
+    const hrLineClass =   classNames({
+        [classes.hrLineStyle]:(isLoaded),
+        [classes.hrLineStyleHidden]:(!isLoaded),
     })
 
 
@@ -60,12 +82,42 @@ export default function RightDivComponent() {
                 }}>
                     Welcome back
                 </div>
+                <hr className={hrLineClass} />
                 <div  style={{
-                    color:"#434b65",
-                    fontSize: "25px",
-                    fontWeight: 700,
+                    color:"#434b65bd",
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    marginTop:30,
                 }}>
                     Sign in to continue using Fox
+                </div>
+                <div>
+                    <GridContainer>
+                        <GridItem xs={12} sm={12} md={10}>
+                            <CustomInput
+                                labelText="Email"
+                                type="text"
+                                id="email"
+                                formControlProps={{
+                                    fullWidth: true
+                                }}
+                            />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={10}>
+                            <CustomInput
+                                labelText="Password"
+                                type="password"
+                                id="password"
+                                formControlProps={{
+                                    fullWidth: true
+                                }}
+                            />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={10}>
+                            asdasd
+                        </GridItem>
+                        
+                    </GridContainer>
                 </div>
             </div>
             <div>

@@ -2,7 +2,7 @@ import {
   // primaryColor,
   dangerColor,
   successColor,
-  grayColor,
+  // grayColor,
   defaultFont
 } from "assets/jss/material-dashboard-react.js";
 
@@ -14,7 +14,7 @@ const customInputStyle = {
   },
   underline: {
     "&:hover:not($disabled):before,&:before": {
-      borderColor: grayColor[4] + " !important",
+      borderColor: "#434b6559 !important",
       borderWidth: "1px !important"
     },
     "&:after": {
@@ -33,8 +33,8 @@ const customInputStyle = {
   },
   labelRoot: {
     ...defaultFont,
-    color: grayColor[3] + " !important",
-    fontWeight: "400",
+    color: "#434b659c !important",
+    fontWeight: "500",
     fontSize: "14px",
     lineHeight: "1.42857",
     letterSpacing: "unset"
