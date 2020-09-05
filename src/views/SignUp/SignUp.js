@@ -21,12 +21,12 @@ const styles = {
         zIndex:"1",
         transition:"all 0.4s cubic-bezier(0, 0, 0.2, 1) ",
         opacity:1,
-        transform: "translateX(0px)",
+        transform: "translateY(0px)",
         flexGrow: 1,
 
     },
     rootHidden:{
-        transform: "translateY(60px)",
+        transform: "translateY(40px)",
         opacity:0,
     },
 

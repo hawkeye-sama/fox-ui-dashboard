@@ -15,20 +15,22 @@ const checkboxAdnRadioStyle = {
     marginLeft: "-14px"
   },
   checked: {
-    color: primaryColor[0] + "!important"
+    color:"#ff7043 !important"
   },
   checkedIcon: {
     width: "20px",
     height: "20px",
-    border: "1px solid rgba(" + hexToRgb(blackColor) + ", .54)",
-    borderRadius: "3px"
+    border: "2px solid rgb(67 75 101 / 45%)",
+    borderRadius: "5px",
+    transition: "all 0.3s ease",
   },
   uncheckedIcon: {
     width: "0px",
     height: "0px",
+    transition: "all 0.3s ease",
     padding: "10px",
-    border: "1px solid rgba(" + hexToRgb(blackColor) + ", .54)",
-    borderRadius: "3px"
+    border: "2px solid rgb(67 75 101 / 45%)",
+    borderRadius: "5px"
   },
   radio: {
     color: primaryColor[0] + "!important"
@@ -36,7 +38,7 @@ const checkboxAdnRadioStyle = {
   radioChecked: {
     width: "20px",
     height: "20px",
-    border: "1px solid " + primaryColor[0],
+    border: "1px solid #ff7043 ",
     borderRadius: "50%"
   },
   radioUnchecked: {

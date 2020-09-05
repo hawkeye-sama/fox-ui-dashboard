@@ -17,14 +17,7 @@ const buttonStyle = {
     minWidth: "auto",
     backgroundColor: grayColor[0],
     color: whiteColor,
-    boxShadow:
-      "0 2px 2px 0 rgba(" +
-      hexToRgb(grayColor[0]) +
-      ", 0.14), 0 3px 1px -2px rgba(" +
-      hexToRgb(grayColor[0]) +
-      ", 0.2), 0 1px 5px 0 rgba(" +
-      hexToRgb(grayColor[0]) +
-      ", 0.12)",
+    boxShadow:"none",
     border: "none",
     borderRadius: "3px",
     position: "relative",
@@ -46,14 +39,7 @@ const buttonStyle = {
     "&:hover,&:focus": {
       color: whiteColor,
       backgroundColor: grayColor[0],
-      boxShadow:
-        "0 14px 26px -12px rgba(" +
-        hexToRgb(grayColor[0]) +
-        ", 0.42), 0 4px 23px 0px rgba(" +
-        hexToRgb(blackColor) +
-        ", 0.12), 0 8px 10px -5px rgba(" +
-        hexToRgb(grayColor[0]) +
-        ", 0.2)"
+      boxShadow:"none"
     },
     "&:active": {
       boxShadow:
@@ -104,24 +90,10 @@ const buttonStyle = {
   },
   rose: {
     backgroundColor: roseColor[0],
-    boxShadow:
-      "0 2px 2px 0 rgba(" +
-      hexToRgb(roseColor[0]) +
-      ", 0.14), 0 3px 1px -2px rgba(" +
-      hexToRgb(roseColor[0]) +
-      ", 0.2), 0 1px 5px 0 rgba(" +
-      hexToRgb(roseColor[0]) +
-      ", 0.12)",
+    boxShadow:"none",
     "&:hover,&:focus": {
       backgroundColor: roseColor[0],
-      boxShadow:
-        "0 14px 26px -12px rgba(" +
-        hexToRgb(roseColor[0]) +
-        ", 0.42), 0 4px 23px 0px rgba(" +
-        hexToRgb(blackColor) +
-        ", 0.12), 0 8px 10px -5px rgba(" +
-        hexToRgb(roseColor[0]) +
-        ", 0.2)"
+      boxShadow:"none"
     },
     "&:active": {
       boxShadow:
@@ -130,24 +102,10 @@ const buttonStyle = {
   },
   primary: {
     backgroundColor: primaryColor[0],
-    boxShadow:
-      "0 2px 2px 0 rgba(" +
-      hexToRgb(primaryColor[0]) +
-      ", 0.14), 0 3px 1px -2px rgba(" +
-      hexToRgb(primaryColor[0]) +
-      ", 0.2), 0 1px 5px 0 rgba(" +
-      hexToRgb(primaryColor[0]) +
-      ", 0.12)",
+    boxShadow:"none",
     "&:hover,&:focus": {
       backgroundColor: primaryColor[0],
-      boxShadow:
-        "0 14px 26px -12px rgba(" +
-        hexToRgb(primaryColor[0]) +
-        ", 0.42), 0 4px 23px 0px rgba(" +
-        hexToRgb(blackColor) +
-        ", 0.12), 0 8px 10px -5px rgba(" +
-        hexToRgb(primaryColor[0]) +
-        ", 0.2)"
+      boxShadow:"none"
     },
     "&:active": {
       boxShadow:
@@ -260,23 +218,44 @@ const buttonStyle = {
   },
   fox:{
     backgroundColor:"#ff7043",
-    boxShadow:"0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgb(255 112 67 / 0.1)",
+    boxShadow:"none",
+    transition:"all 0.4s ease",
+
+    border:"2px solid #ff7043",
     "&:hover,&:focus": {
-      backgroundColor:"#ff7043",
+      backgroundColor:"#fff",
+      color:"#ff7043",
+
+      transition:"all 0.4s ease",
+      boxShadow: "none",
+      
+    },
+    "&:active": {
       boxShadow:
-        "0 14px 26px -12px rgba(" +
-        hexToRgb(dangerColor[0]) +
-        ", 0.42), 0 4px 23px 0px rgba(" +
-        hexToRgb(blackColor) +
-        ", 0.12), 0 8px 10px -5px rgba(" +
-        hexToRgb(dangerColor[0]) +
-        ", 0.2)"
+        "0 0 0 0"
+    },
+    
+  },
+  foxOutlined:{
+    backgroundColor:"#fff",
+    color:"#ff7043",
+    transition:"all 0.4s ease",
+    boxShadow: "none",
+    border:"1px solid #fff",
+    "&:hover,&:focus": {
+      backgroundColor:"#fff",
+      color:"#ff7043",
+
+      transition:"all 0.4s ease",
+      boxShadow: "none",
+      border:"1px solid #ff7043",
     },
     "&:active": {
       boxShadow:
         "0 0 0 0"
     },
   },
+
   simple: {
     "&,&:focus,&:hover": {
       color: whiteColor,
