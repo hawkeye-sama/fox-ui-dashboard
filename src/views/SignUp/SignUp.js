@@ -5,8 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer.js";
 import classNames from "classnames";
 import LeftDivComponent from "./LeftDivComponent";
-import RightDivComponent from "./RightDivComponent";
+import SignUpComponent from "./SignUpComponent";
 import Grid from '@material-ui/core/Grid';
+import { useSelector } from "react-redux";
+import LoginDivComponent from "./LoginDivComponent";
+
 
 const styles = {
     root:{
@@ -31,6 +34,8 @@ const styles = {
     },
 
 
+
+
     
     
 };
@@ -39,19 +44,28 @@ const useStyles = makeStyles(styles);
 
 export default function SignUp() {
     const classes = useStyles();
-    
+    const authPage = useSelector(state => state.authPage);
     const [isLoaded, changeLoaded] = React.useState(false)
+    const [selectAuthPage,changeSelectAuthPage] = React.useState(authPage);
 
     const rootClass =   classNames({
         [classes.root]:(isLoaded),
         [classes.rootHidden]:(!isLoaded),
       })
+      
+
+      
 
     React.useEffect(() => {
     // code to run on component mount
         changeLoaded(true)
-    }, [])
+       
+        changeSelectAuthPage(authPage);
+       
+       
+    }, [authPage])
 
+  
     
     return (
         <GridContainer>
@@ -61,9 +75,23 @@ export default function SignUp() {
                         <Grid item xs={6}>
                             <LeftDivComponent />
                         </Grid>
-                        <Grid item xs={6}>
-                            <RightDivComponent />
-                        </Grid>
+                       
+                            <Grid item xs={6}>
+                            <div >
+                                {(selectAuthPage==="signup")? 
+                                    <div>
+                                        <SignUpComponent    />
+
+                                    </div>
+                                :
+                                    <div>
+                                        <LoginDivComponent   />
+
+                                    </div>
+                                }
+                                </div>
+                            </Grid>
+                        
                     </Grid>
                 </div>
            
