@@ -45,6 +45,8 @@ import {
         boxShadow:"8px 1px 2px 0 rgba(60,64,67,.3), 13px 2px 6px 2px rgba(60,64,67,.15)",
       }
     },
+
+
     appBar:{
       backgroundColor: "white",
       borderBottom: "0",
@@ -59,8 +61,9 @@ import {
       
       maxHeight: "48px",
       display: "block",
-      boxShadow:"8px 1px 2px 0 rgba(60,64,67,.3), 13px 2px 6px 2px rgba(60,64,67,.15)",
+      boxShadow:"0px 0px 9px 0px rgba(60,64,67,.3)",
       transition: "all 0.4s ease",
+      
       '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key
         width: "100%",
         backgroundColor: "white",
@@ -76,9 +79,51 @@ import {
         maxHeight: "48px",
         display: "block",
         transition: "all 0.4s ease",
-        boxShadow:"8px 1px 2px 0 rgba(60,64,67,.3), 13px 2px 6px 2px rgba(60,64,67,.15)",
+        
+        boxShadow:"0px 0px 9px 0px rgba(60,64,67,.3)",
       }
     },
+
+    appBarBeforeScroll:{
+      backgroundColor: "white",
+      borderBottom: "0",
+      marginBottom: "0",
+      position: "fixed",
+      width: "100%",
+      zIndex: "1029",
+      color: grayColor[7],
+      border: "0",
+      borderRadius: "3px",
+      // padding: "10px 0",
+      
+      maxHeight: "48px",
+      display: "block",
+      boxShadow:"0px 0px 0px 0px rgba(60,64,67,.3)",
+      transition: "all 0.4s ease",
+     
+      '@media screen and (min-width: 0px) and (max-width: 400px)': { // eslint-disable-line no-useless-computed-key
+        width: "100%",
+        backgroundColor: "white",
+        borderBottom: "0",
+        marginBottom: "0",
+        position: "fixed",
+        zIndex: "1029",
+        color: grayColor[7],
+        border: "0",
+        borderRadius: "3px",
+        // padding: "10px 0",
+       
+        maxHeight: "48px",
+        display: "block",
+       
+        transition: "all 0.4s ease",
+        boxShadow:"0px 0px 0px 0px rgba(60,64,67,.3)",
+      }
+
+    },
+
+    
+
     tabsDiv:{
         maxWidth: "41%",
         position: "absolute",

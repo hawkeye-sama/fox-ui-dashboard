@@ -15,17 +15,18 @@ const styles = {
     root:{
         background: "white",
         width: "78%",
-        height: "550px",
+        height: "570px",
         /* margin-left: auto; */
         position:" absolute",
         left: "4%",
-        margin:"10px 0px",
-        boxShadow:"0 3px 20px 0px rgba(60,64,67,.25)",
+        margin:"0px 0px",
+        boxShadow:"0 0 0 0",
         zIndex:"1",
         transition:"all 0.4s cubic-bezier(0, 0, 0.2, 1) ",
         opacity:1,
         transform: "translateY(0px)",
         flexGrow: 1,
+        borderRadius:40,
 
     },
     rootHidden:{
@@ -42,7 +43,7 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function SignUp() {
+export default function Auth() {
     const classes = useStyles();
     const authPage = useSelector(state => state.authPage);
     const [isLoaded, changeLoaded] = React.useState(false)

@@ -6,7 +6,6 @@ import classNames from "classnames";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-import CustomCheckBox from "components/CustomCheckBox/CustomCheckBox";
 import Button from "components/CustomButtons/Button.js";
 import { ArrowForwardRounded, ArrowUpward } from "@material-ui/icons";
 
@@ -194,8 +193,34 @@ export default function RightDivComponent(props) {
                     </div>
                     <div>
                         <GridContainer>
+                            <GridItem xs={12} sm={12} md={5}>
+                                <div>
+                                    <CustomInput
+                                        labelText="First Name"
+                                        type="text"
+                                        id="fname"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </div>
+                            </GridItem>
+                            <GridItem xs={12} sm={12} md={5}>
+                                <div>
+                                    <CustomInput
+                                        labelText="Last Name"
+                                        type="text"
+                                        id="lname"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
+                                </div>
+                            </GridItem>
+                        </GridContainer>
+                        <GridContainer>
                             <GridItem xs={12} sm={12} md={12}>
-                                <div style={{width:410}}>
+                                <div  style={{width:410}}>
                                     <CustomInput
                                         labelText="Email"
                                         type="text"
@@ -206,8 +231,10 @@ export default function RightDivComponent(props) {
                                     />
                                 </div>
                             </GridItem>
-                            <GridItem xs={12} sm={12} md={12}>
-                                <div style={{width:410, marginBottom:10,}}>
+                        </GridContainer>
+                        <GridContainer>
+                        <GridItem xs={12} sm={12} md={5}>
+                                <div >
                                     <CustomInput
                                         labelText="Password"
                                         type="password"
@@ -218,30 +245,20 @@ export default function RightDivComponent(props) {
                                     />
                                 </div>
                             </GridItem>
-                            <GridItem xs={1} sm={1} md={1}>
-                                <CustomCheckBox style={{marginLeft:"-10px"}} />
-                            </GridItem>
-                            <div style={{
-                                marginTop: "9px",
-                                marginLeft: "5px",
-                                color: "rgba(67, 75, 101, 0.74)",
-                                fontSize: "16px",
-                                fontWeight: 500,
-                            }}>
-                                Remember me
-                            </div>
-                            <GridItem xs={12} sm={12} md={7}>
-                                <div style={{
-                                    textAlign:"right",
-                                }}>
-                                    <Button color="transparent" style={{
-                                        marginTop:0,
-                                        color:"#ff7043",
-                                        fontSize:"14px",
-                                        fontWeight:"500",
-                                    }}>Forgot your password?</Button>
+                            <GridItem xs={12} sm={12} md={5}>
+                                <div>
+                                    <CustomInput
+                                        labelText="Confirm Password"
+                                        type="password"
+                                        id="password"
+                                        formControlProps={{
+                                            fullWidth: true
+                                        }}
+                                    />
                                 </div>
                             </GridItem>
+                        </GridContainer>
+                        <GridContainer>
                             <GridItem xs={12} sm={12} md={12}>
                                 <div style={{
                                     width:410,
@@ -253,12 +270,14 @@ export default function RightDivComponent(props) {
                                         fontSize:"14px",
                                         fontWeight:"500",
                                     }}
-                                        onMouseEnter={()=>{changeShowArrow(true)}}
-                                        onMouseLeave={()=>{changeShowArrow(false)}}
+
+                                        onMouseEnter={()=>{changeShowUpArrow(true)}}
+                                        onMouseLeave={()=>{changeShowUpArrow(false)}}
                                         
-                                    >Login
-                                        <div className={arrowClass} >
-                                            <ArrowForwardRounded size="large" />
+                                    >Sign Up
+
+                                        <div className={arrowUpClass} >
+                                            <ArrowUpward size="large" />
                                         </div>
                                     </Button>
                                 </div>
@@ -276,6 +295,7 @@ export default function RightDivComponent(props) {
                                     OR
                                 </div>
                             </GridItem>
+
                             <GridItem xs={12} sm={12} md={12}>
                                 <div style={{
                                     width:410,
@@ -287,17 +307,18 @@ export default function RightDivComponent(props) {
                                         fontSize:"14px",
                                         fontWeight:"500",
                                     }}
-                                        onMouseEnter={()=>{changeShowUpArrow(true)}}
-                                        onMouseLeave={()=>{changeShowUpArrow(false)}}
+                                        onMouseEnter={()=>{changeShowArrow(true)}}
+                                        onMouseLeave={()=>{changeShowArrow(false)}}
                                         onClick={(e)=>{handleChange(e)}}
                                         
-                                    >Sign Up
-                                        <div className={arrowUpClass} >
-                                            <ArrowUpward size="large" />
+                                    >Login
+                                        <div className={arrowClass} >
+                                            <ArrowForwardRounded size="large" />
                                         </div>
                                     </Button>
                                 </div>
                             </GridItem>
+
 
                         </GridContainer>
                     </div>

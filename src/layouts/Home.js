@@ -36,7 +36,7 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/admin" to="/admin/dashboard" />
+    <Redirect from="/" to="/home" />
   </Switch>
 );
 
@@ -53,6 +53,7 @@ export default function Home({ ...rest }) {
   // const [fixedClasses, setFixedClasses] = React.useState("dropdown show");
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [hambugerClicked,setHambugerClicked] = React.useState(false);
+  const [isScrolling, setIsScrolling] = React.useState(false);
 
   // const handleImageClick = (image) => {
   //   setImage(image);
@@ -71,7 +72,7 @@ export default function Home({ ...rest }) {
     setMobileOpen(!mobileOpen);
   };
   const getRoute = () => {
-    return window.location.pathname !== "/admin/maps";
+    return window.location.pathname !== "/home/auth";
   };
   const resizeFunction = () => {
     if (window.innerWidth >= 960) {
@@ -96,8 +97,20 @@ export default function Home({ ...rest }) {
       window.removeEventListener("resize", resizeFunction);
     };
   }, [mainPanel]);
+
+  function handleScrollEvent(e){
+    if(e.target.scrollTop > 20){
+      setIsScrolling(true)
+      
+    }
+    else{
+      setIsScrolling(false)
+    }
+   
+  }
+
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} onScroll={(e)=>{handleScrollEvent(e)}} >
       <div 
         className={classNames({
           [classes.mainPanel]:(!hambugerClicked),
@@ -111,6 +124,7 @@ export default function Home({ ...rest }) {
           setHamburderHandler={setHambugerClicked}
           hambugerClicked={hambugerClicked}
           {...rest}
+          isScrolling = {isScrolling}
         />
         {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
         {getRoute() ? (
@@ -120,9 +134,12 @@ export default function Home({ ...rest }) {
             <div className={classes.container}>{switchRoutes}</div>
           </div>
         ) : (
-          <div className={classes.map}>{switchRoutes}</div>
+          <div className={classes.content}>
+        
+            <div className={classes.container}>{switchRoutes}</div>
+          </div>
         )}
-        {getRoute() ? <Footer /> : null}
+        <Footer /> 
       </div>
     </div>
   );

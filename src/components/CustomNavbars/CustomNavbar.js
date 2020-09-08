@@ -23,6 +23,7 @@ const useStyles = makeStyles(styles);
 
 export default function CustomNavbar(props) {
   const classes = useStyles();
+  
   // const [value, setValue] = React.useState(0);
 
   // const handleChange = (event, newValue) => {
@@ -45,7 +46,8 @@ export default function CustomNavbar(props) {
   });
   const appBarMain = classNames({
     [classes.appBarHidden]: (props.hambugerClicked),
-    [classes.appBar]: (!(props.hambugerClicked)),
+    [classes.appBar]: ((!props.hambugerClicked) && props.isScrolling),
+    [classes.appBarBeforeScroll]: ((!props.hambugerClicked) && !props.isScrolling),
     
     
   })
@@ -55,8 +57,15 @@ export default function CustomNavbar(props) {
     
   // })
 
+  React.useEffect(() => {
+   
+    
+  }, [props.isScrolling]);
+
+  
+
   return (
-    <AppBar className={appBarMain + appBarClasses}>
+    <AppBar className={appBarMain + appBarClasses} >
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}

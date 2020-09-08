@@ -23,7 +23,7 @@ import {
   PersonAddOutlined
 } from "@material-ui/icons";
 import Manufacturers from "./views/Manufacturers/Manufacturers";
-import SignUp from "./views/SignUp/SignUp";
+import Auth from "views/Auth/Auth";
 // import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 
@@ -89,11 +89,11 @@ const dashboardRoutes = [
     myColor:"customRed"
   },
   {
-    path: "/signup",
+    path: "/auth",
     name: "Sign Up",
     icon: PersonAdd,
     secondaryIcon: PersonAddOutlined,
-    component: SignUp,
+    component: Auth,
     layout: "/home",
     tab:8,
     myColor:"customYellow"

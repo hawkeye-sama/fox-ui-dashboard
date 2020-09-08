@@ -20,11 +20,13 @@ const styles = {
         zIndex:2,
         transition:"all 0.6s ease  0.3s ",
         opacity:1,
+        borderRadius:"40px 0 0 40px",
     },
     leftDivHiddenStyle:{
         zIndex:0,
         minWidth:' 0px',
         maxWidth: '0px',
+        borderRadius:"40px 0 0 40px",
        
     },
     brand:{
