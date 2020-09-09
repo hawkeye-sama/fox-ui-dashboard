@@ -11,7 +11,9 @@ import Hidden from "@material-ui/core/Hidden";
 // @material-ui/icons
 import {Menu } from "@material-ui/icons";
 // core components
-import AdminNavbarLinks from "./CustomNavbarLinks.js";
+// import AdminNavbarLinks from "./CustomNavbarLinks.js";
+import Button from "components/CustomButtons/Button.js";
+
 // import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-dashboard-react/components/customNavbarStyle.js";
@@ -97,7 +99,63 @@ export default function CustomNavbar(props) {
 
         </div>
         <Hidden smDown implementation="css">
-          <AdminNavbarLinks />
+          <div style={{
+            position:" absolute",
+            zIndex: 200,
+            right: "11%",
+            top: "0%",
+          }}>
+            <Button color="foxOutlined" style={{
+                  marginTop:6,
+                  width:"100%",
+                  fontSize:"14px",
+                  fontWeight:"400",
+                  borderRadius:20,
+                  height:35,
+              }}
+
+                  // onMouseEnter={()=>{changeShowUpArrow(true)}}
+                  // onMouseLeave={()=>{changeShowUpArrow(false)}}
+                  
+              >Login
+
+                  {/* <div className={arrowUpClass} >
+                      <ArrowUpward size="large" />
+                  </div> */}
+              </Button>
+
+          </div>
+
+          <div style={{
+            position:" absolute",
+            zIndex: 200,
+            right: "3%",
+            top: "0%",
+          }}>
+            <Button color="fox" style={{
+                  marginTop:6,
+                  width:"100%",
+                  fontSize:"14px",
+                  fontWeight:"400",
+                  borderRadius:20,
+                  height:35,
+              }}
+
+                  // onMouseEnter={()=>{changeShowUpArrow(true)}}
+                  // onMouseLeave={()=>{changeShowUpArrow(false)}}
+                  
+              >Sign Up
+
+                  {/* <div className={arrowUpClass} >
+                      <ArrowUpward size="large" />
+                  </div> */}
+              </Button>
+
+          </div>
+
+            
+
+
 
         </Hidden>
         <Hidden mdUp implementation="css">

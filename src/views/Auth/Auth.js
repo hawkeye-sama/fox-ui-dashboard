@@ -8,7 +8,8 @@ import LeftDivComponent from "./LeftDivComponent";
 import SignUpComponent from "./SignUpComponent";
 import Grid from '@material-ui/core/Grid';
 import { useSelector } from "react-redux";
-import LoginDivComponent from "./LoginDivComponent";
+import LoginComponent from "./LoginComponent";
+import ForgotPassword from "./ForgotPassword";
 
 
 const styles = {
@@ -66,7 +67,7 @@ export default function Auth() {
        
     }, [authPage])
 
-  
+    console.log(selectAuthPage)
     
     return (
         <GridContainer>
@@ -79,18 +80,16 @@ export default function Auth() {
                        
                             <Grid item xs={6}>
                             <div >
-                                {(selectAuthPage==="signup")? 
-                                    <div>
-                                        <SignUpComponent    />
-
-                                    </div>
-                                :
-                                    <div>
-                                        <LoginDivComponent   />
-
-                                    </div>
+                                {
+                                    {
+                                    'signup': <SignUpComponent />,
+                                    'login': <LoginComponent />,
+                                    'forgotpassword': <ForgotPassword />
+                                    
+                                    }[selectAuthPage]
                                 }
-                                </div>
+                            
+                            </div>
                             </Grid>
                         
                     </Grid>

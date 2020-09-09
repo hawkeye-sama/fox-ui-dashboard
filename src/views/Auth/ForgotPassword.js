@@ -7,7 +7,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
-import { ArrowForwardRounded, ArrowUpward } from "@material-ui/icons";
+import { ArrowForwardRounded, ArrowBack } from "@material-ui/icons";
 
 import { useDispatch } from "react-redux";
 import { changeAuthPage } from "redux/actions";
@@ -53,24 +53,24 @@ const styles = {
        
     },
     hrLineStyle:{
-        width: "160px",
+        width: "225px",
         transition: "transform 0.4s ease 0.6s",
         height: "2px",
         transform:"scaleX(1)",
         background: '#434b65',
         marginTop: "18px",
         position: "absolute",
-        top: "73px",
+        top: "64px",
     },
     hrLineStyleHidden:{
         transition:"transform 0.3s ease  0s, opacity 0.3s ease  0s ",
-        width: "160px",
+        width: "225px",
         transform:"scaleX(0)",
         height: "2px",
         background: '#434b65',
         marginTop: "18px",
         position: "absolute",
-        top: "73px",
+        top: "64px",
 
     },
     arrowStyle:{
@@ -90,14 +90,14 @@ const styles = {
     },
     arrowUpStyle:{
         transition: "transform 0.3s ease 0.1s, opacity 0.3s ease 0.1s",
-        transform:"translateY(0px)",
+        transform:"translateX(-90px)",
         opacity:1,
         marginLeft:4,
         marginTop:-2
     },
     arrowUpStyleHidden:{
       
-        transform:"translateY(20px)",
+        transform:"translateX(-70px)",
         opacity:0,
         marginTop:-2,
         marginLeft:4,
@@ -114,7 +114,7 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 
-export default function SignUpComponent(props) {
+export default function ForgotPassword(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [isLoaded, changeLoaded] = React.useState(false)
@@ -156,11 +156,11 @@ export default function SignUpComponent(props) {
         
     }, [])
 
-    function handleChange(e) { 
+    function handleChange(changeValue) { 
         
         changeUnmounted(true);
         setTimeout(
-            () => {dispatch(changeAuthPage({ authPage: "login" }))},
+            () => {dispatch(changeAuthPage({ authPage: changeValue }))},
             200
         );  
           
@@ -177,50 +177,24 @@ export default function SignUpComponent(props) {
                 <div>
                     <div style={{
                         color:"#434b65",
-                        fontSize: "45px",
+                        fontSize: "28px",
                         fontWeight: 700,
                     }}>
-                        Sign Up
+                        Forgot Password?
                     </div>
                     <hr className={hrLineClass} />
                     <div  style={{
                         color:"#434b65bd",
-                        fontSize: "16px",
+                        fontSize: "15px",
                         fontWeight: 500,
-                        marginTop:30,
+                        marginTop:20,
                     }}>
-                        Join us to enjoy this theme for free
+                        Provide the information below to help us recover your account
                     </div>
                     <div>
                         <GridContainer>
-                            <GridItem xs={12} sm={12} md={5}>
-                                <div>
-                                    <CustomInput
-                                        labelText="First Name"
-                                        type="text"
-                                        id="fname"
-                                        formControlProps={{
-                                            fullWidth: true
-                                        }}
-                                    />
-                                </div>
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={5}>
-                                <div>
-                                    <CustomInput
-                                        labelText="Last Name"
-                                        type="text"
-                                        id="lname"
-                                        formControlProps={{
-                                            fullWidth: true
-                                        }}
-                                    />
-                                </div>
-                            </GridItem>
-                        </GridContainer>
-                        <GridContainer>
                             <GridItem xs={12} sm={12} md={12}>
-                                <div  style={{width:410}}>
+                                <div style={{width:410}}>
                                     <CustomInput
                                         labelText="Email"
                                         type="text"
@@ -231,38 +205,10 @@ export default function SignUpComponent(props) {
                                     />
                                 </div>
                             </GridItem>
-                        </GridContainer>
-                        <GridContainer>
-                        <GridItem xs={12} sm={12} md={5}>
-                                <div >
-                                    <CustomInput
-                                        labelText="Password"
-                                        type="password"
-                                        id="password"
-                                        formControlProps={{
-                                            fullWidth: true
-                                        }}
-                                    />
-                                </div>
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={5}>
-                                <div>
-                                    <CustomInput
-                                        labelText="Confirm Password"
-                                        type="password"
-                                        id="password"
-                                        formControlProps={{
-                                            fullWidth: true
-                                        }}
-                                    />
-                                </div>
-                            </GridItem>
-                        </GridContainer>
-                        <GridContainer>
                             <GridItem xs={12} sm={12} md={12}>
                                 <div style={{
                                     width:410,
-                                    marginTop:15,
+                                    marginTop:40,
                                 }}>
                                     <Button color="fox" style={{
                                         marginTop:0,
@@ -270,14 +216,12 @@ export default function SignUpComponent(props) {
                                         fontSize:"14px",
                                         fontWeight:"500",
                                     }}
-
-                                        onMouseEnter={()=>{changeShowUpArrow(true)}}
-                                        onMouseLeave={()=>{changeShowUpArrow(false)}}
+                                        onMouseEnter={()=>{changeShowArrow(true)}}
+                                        onMouseLeave={()=>{changeShowArrow(false)}}
                                         
-                                    >Sign Up
-
-                                        <div className={arrowUpClass} >
-                                            <ArrowUpward size="large" />
+                                    >Submit
+                                        <div className={arrowClass} >
+                                            <ArrowForwardRounded size="large" />
                                         </div>
                                     </Button>
                                 </div>
@@ -295,7 +239,6 @@ export default function SignUpComponent(props) {
                                     OR
                                 </div>
                             </GridItem>
-
                             <GridItem xs={12} sm={12} md={12}>
                                 <div style={{
                                     width:410,
@@ -307,21 +250,21 @@ export default function SignUpComponent(props) {
                                         fontSize:"14px",
                                         fontWeight:"500",
                                     }}
-                                        onMouseEnter={()=>{changeShowArrow(true)}}
-                                        onMouseLeave={()=>{changeShowArrow(false)}}
-                                        onClick={(e)=>{handleChange(e)}}
+                                        onMouseEnter={()=>{changeShowUpArrow(true)}}
+                                        onMouseLeave={()=>{changeShowUpArrow(false)}}
+                                        onClick={(e)=>{handleChange("login")}}
                                         
-                                    >Login
-                                        <div className={arrowClass} >
-                                            <ArrowForwardRounded size="large" />
+                                    >Go Back
+                                        <div className={arrowUpClass} >
+                                            <ArrowBack size="large" />
                                         </div>
                                     </Button>
                                 </div>
                             </GridItem>
 
-
                         </GridContainer>
                     </div>
+
                 </div>
                 <div>
 

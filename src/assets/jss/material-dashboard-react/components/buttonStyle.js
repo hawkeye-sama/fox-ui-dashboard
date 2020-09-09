@@ -223,16 +223,13 @@ const buttonStyle = {
 
     border:"2px solid #ff7043",
     "&:hover,&:focus": {
-      backgroundColor:"#fff",
-      color:"#ff7043",
-
-      transition:"all 0.4s ease",
-      boxShadow: "none",
-      
+      backgroundColor: "#ff7043",
+      boxShadow:"0 14px 26px -12px rgb(255 112 67 / 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgb(255 112 67 / 0.2)",
+      border:"2px solid rgb(255 255 255 / 0%)",
     },
     "&:active": {
-      boxShadow:
-        "0 0 0 0"
+      boxShadow:"0 0 0 0",
+      border:"2px solid rgb(255 255 255 / 0%)",
     },
     
   },
