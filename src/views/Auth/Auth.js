@@ -67,7 +67,6 @@ export default function Auth() {
        
     }, [authPage])
 
-    console.log(selectAuthPage)
     
     return (
         <GridContainer>

@@ -106,12 +106,12 @@ export default function CustomNavbar(props) {
             top: "0%",
           }}>
             <Button color="foxOutlined" style={{
-                  marginTop:6,
-                  width:"100%",
+                  marginTop:8,
+                  width:"80%",
                   fontSize:"14px",
                   fontWeight:"400",
                   borderRadius:20,
-                  height:35,
+                  height:30,
               }}
 
                   // onMouseEnter={()=>{changeShowUpArrow(true)}}
@@ -133,12 +133,12 @@ export default function CustomNavbar(props) {
             top: "0%",
           }}>
             <Button color="fox" style={{
-                  marginTop:6,
-                  width:"100%",
+                  marginTop:8,
+                  width:"80%",
                   fontSize:"14px",
                   fontWeight:"400",
                   borderRadius:20,
-                  height:35,
+                  height:30,
               }}
 
                   // onMouseEnter={()=>{changeShowUpArrow(true)}}

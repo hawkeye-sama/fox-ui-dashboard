@@ -250,7 +250,7 @@ export default function SignUpComponent(props) {
                                     <CustomInput
                                         labelText="Confirm Password"
                                         type="password"
-                                        id="password"
+                                        id="cpassword"
                                         formControlProps={{
                                             fullWidth: true
                                         }}
