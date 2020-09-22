@@ -90,6 +90,7 @@ const buttonStyle = {
   },
   rose: {
     backgroundColor: roseColor[0],
+    borderRadius:8,
     boxShadow:"none",
     "&:hover,&:focus": {
       backgroundColor: roseColor[0],
@@ -114,6 +115,7 @@ const buttonStyle = {
   },
   info: {
     backgroundColor: infoColor[0],
+    borderRadius:8,
     boxShadow:
       "0 2px 2px 0 rgba(" +
       hexToRgb(infoColor[0]) +
@@ -140,6 +142,7 @@ const buttonStyle = {
   },
   success: {
     backgroundColor: successColor[0],
+    borderRadius:8,
     boxShadow:
       "0 2px 2px 0 rgba(" +
       hexToRgb(successColor[0]) +
@@ -166,6 +169,7 @@ const buttonStyle = {
   },
   warning: {
     backgroundColor: warningColor[0],
+    borderRadius:8,
     boxShadow:
       "0 2px 2px 0 rgba(" +
       hexToRgb(warningColor[0]) +
@@ -192,6 +196,7 @@ const buttonStyle = {
   },
   danger: {
     backgroundColor: dangerColor[0],
+    borderRadius:8,
     boxShadow:
       "0 2px 2px 0 rgba(" +
       hexToRgb(dangerColor[0]) +
@@ -219,11 +224,11 @@ const buttonStyle = {
   fox:{
     backgroundColor:"#ff7043",
     boxShadow:"none",
-    transition:"all 0.4s ease",
-
+    transition:"all 0.3s ease",
+    borderRadius:8,
     border:"2px solid #ff7043",
     "&:hover,&:focus": {
-      backgroundColor: "#ff7043",
+      backgroundColor: "#ff5722",
       boxShadow:"0 14px 26px -12px rgb(255 112 67 / 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgb(255 112 67 / 0.2)",
       border:"2px solid rgb(255 255 255 / 0%)",
     },
@@ -236,9 +241,10 @@ const buttonStyle = {
   foxOutlined:{
     backgroundColor:"#fff",
     color:"#ff7043",
-    transition:"all 0.4s ease",
+    transition:"all 0.3s ease",
     boxShadow: "none",
     border:"1px solid #fff",
+    borderRadius:8,
     "&:hover,&:focus": {
       backgroundColor:"#fff",
       color:"#ff7043",
